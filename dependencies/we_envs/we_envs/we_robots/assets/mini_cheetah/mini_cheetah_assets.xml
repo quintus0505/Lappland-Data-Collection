@@ -1,0 +1,141 @@
+ <mujocoinclude>
+ 	<compiler angle="radian" meshdir='meshes/' texturedir='textures/' />
+<!--    <option apirate="200" iterations="20" noslip_iterations="20"/>-->
+     <option timestep='0.0005'  iterations='50'  solver='PGS' gravity='0 0 -9.81'/>
+<!--    <size njmax="500" nconmax="100" nstack="600000" nuser_body="9" nuser_jnt="1" nuser_site="1" nuser_tendon="1" nuser_actuator="16" nuser_sensor="1" />-->
+<!--     <size njmax="500" nconmax="100" />-->
+     <size nuser_actuator='1' nuser_sensor='1' nuser_geom='1'/>
+     <visual>
+         <quality shadowsize='4096'/>
+         <map znear='0.05'/>
+    </visual>
+
+     <default>
+         <default class='mini-cheetah'>
+             <geom material='mini-cheetah' friction="1 0.005 0.0001" margin="0.0005" />
+         </default>
+         <default class='collision'>
+<!--             <geom material='mini-cheetah' condim="3" friction="2 0.05 0.0001" margin="0.0005"-->
+<!--                   solimp="0.9 0.9 0.01" solref='0.005 1' contype='1' conaffinity='1' user='2'/>-->
+             <geom material='mini-cheetah' condim="3" friction="1 0.05 0.0001" contype='15' conaffinity='15'/>
+             <joint  stiffness='0' damping="0" frictionloss="'0.0"/>
+<!--             Note that due to model bug, the hip-geom will collide with body-geom, must be set collisionless first-->
+             <default class='collision-body'>
+                 <joint limited="true" range="-2.80 2.80"  />
+                 <geom contype='1' conaffinity='1'/>
+             </default>
+             <default class='collision-abduct'>
+                 <joint limited="true" range="-2.09 2.09" />
+                 <geom contype='2' conaffinity='2'/>
+             </default>
+             <default class='collision-hip'>
+                 <joint limited="false" />
+                 <geom contype='4' conaffinity='4'/>
+             </default>
+             <default class='collision-knee'>
+                 <joint limited="true" range="-2.80 2.80"  />
+                 <geom contype='6' conaffinity='6'/>
+             </default>
+
+             <default class='collision-foot'>
+                 <geom  friction="1.2 0.005 0.0001" contype='15' conaffinity='15'/>
+             </default>
+         </default>
+         <default class='obstacle'>
+             <geom material='obstacle' condim='3' contype='15' conaffinity='15' user='1'/>
+         </default>
+     </default>
+
+    <asset>
+        <texture type="cube" name="texgeom" builtin="flat" mark="cross" rgb1="0.3 0.6 0.5" rgb2="0.3 0.6 0.5" width="127" height="762" />
+        <texture type="cube" name="wood" file="wood.png" />
+        <texture type="2d" name="wood2d" file="wood.png" />
+        <texture type="cube" name="square" file="square.png" />
+        <texture type="cube" name="foil" file="silverRaw.png" />
+        <texture type="cube" name="woodb" file="woodb.png" />
+        <texture type="2d" name="groundplane" builtin="checker" rgb1="0.2 0.3 0.4" rgb2="0.1 0.2 0.3" width="100" height="100" />
+        <texture type="2d" name="marble2d" file="marble.png" />
+        <texture type="cube" name="marblecube" file="marble.png" />
+
+        <material name='mini-cheetah'    rgba='0.75 0.75 0.75 1'/>
+        <material name="MatColl" specular="1" shininess="0.3" reflectance="0.5" rgba="0.4 0.5 0.6 1" />
+        <material name="MatViz" specular="0.75" shininess="0.1" reflectance="0.5" rgba="0.9 0.7 0.5 1" />
+        <material name="MatGnd" specular="0.3" shininess="0.3" reflectance="0.3" rgba="0.5 0.55 0.5 1" />
+        <material name="object" texture="texgeom" />
+        <material name="groundplane" texture="groundplane" texrepeat="10 10" />
+        <material name="table2d" texture="marble2d" reflectance="0.3" rgba="0.8 0.8 0.8 1" />
+        <material name="tablecube" texture="marblecube" rgba="0.8 0.8 0.8 1" />
+        <material name="MatFoil" texture="foil" specular="1" shininess="0.3" rgba="0.9 0.9 0.9 1" />
+        <material name="MatPlane" specular="0.3" shininess="0.3" rgba="0.3 0.3 0.2 1" />
+        <material name="MatWood" texture="wood" texrepeat="3 3" specular="0.4" shininess="0.1" />
+        <material name="MatSquare" texture="square" specular="1" shininess="0.6" rgba="0.8 0.8 0.8 1" />
+        <material name="MatWoodR" texture="wood" specular="1" shininess="0.3" rgba="1 0.5 0.5 1" />
+        <material name="MatWoodG" texture="wood" specular="1" shininess="0.3" rgba="0.2 1 0.2 1" />
+        <material name="MatWoodB" texture="woodb" specular="1" shininess="0.3" />
+
+        <mesh name="mini_body" file="mini_cheetah/mini_body.stl" />
+        <mesh name="mini_abad" file="mini_cheetah/mini_abad.stl" />
+        <mesh name="mini_upper_link" file="mini_cheetah/mini_upper_link.stl" />
+        <mesh name="mini_lower_link" file="mini_cheetah/mini_lower_link.stl" />
+
+    </asset>
+
+
+<!--     <contact>-->
+<!--         <exclude body1="abduct_fr" body2="thigh_fr" />-->
+<!--         &lt;!&ndash;        <exclude body1="thigh_fr" body2="thigh_fr_bug1" />&ndash;&gt;-->
+<!--     </contact>-->
+
+     <actuator>
+         <!--        <general name="A_THJ0" joint="THJ0" ctrlrange="-1.571 0" biastype="affine" biasprm="0 -1 0" user="1002 0 2001 -0.1 0.1 0 0 0 0 0 0 0 0 0 0 0" />-->
+         <motor name='torso_to_abduct_fr_j'  joint='torso_to_abduct_fr_j'  gear='1' ctrllimited='true' ctrlrange='-17 17'   user='2900'/>
+         <motor name='abduct_fr_to_thigh_fr_j'   joint='abduct_fr_to_thigh_fr_j'   gear='1' ctrllimited='true' ctrlrange='-17 17'   user='2900'/>
+         <motor name='thigh_fr_to_knee_fr_j' joint='thigh_fr_to_knee_fr_j' gear='1' ctrllimited='true' ctrlrange='-17 17' user='1300'/>
+
+         <motor name='torso_to_abduct_fl_j'      joint='torso_to_abduct_fl_j'      gear='1' ctrllimited='true' ctrlrange='-17 17' user='1300'/>
+         <motor name='abduct_fl_to_thigh_fl_j'      joint='abduct_fl_to_thigh_fl_j'      gear='1' ctrllimited='true' ctrlrange='-17 17'   user='5500'/>
+         <motor name='thigh_fl_to_knee_fl_j'  joint='thigh_fl_to_knee_fl_j'  gear='1' ctrllimited='true' ctrlrange='-17 17'   user='2900'/>
+
+         <motor name='torso_to_abduct_hr_j'   joint='torso_to_abduct_hr_j'   gear='1' ctrllimited='true' ctrlrange='-17 17'   user='2900'/>
+         <motor name='abduct_hr_to_thigh_hr_j' joint='abduct_hr_to_thigh_hr_j' gear='1' ctrllimited='true' ctrlrange='-17 17' user='1300'/>
+         <motor name='thigh_hr_to_knee_hr_j'      joint='thigh_hr_to_knee_hr_j'      gear='1' ctrllimited='true' ctrlrange='-17 17' user='1300'/>
+
+         <motor name='torso_to_abduct_hl_j'      joint='torso_to_abduct_hl_j'      gear='1' ctrllimited='true' ctrlrange='-17 17'   user='5500'/>
+         <motor name='abduct_hl_to_thigh_hl_j'      joint='abduct_hl_to_thigh_hl_j'      gear='1' ctrllimited='true' ctrlrange='-17 17'   user='5600'/>
+         <motor name='thigh_hl_to_knee_hl_j'      joint='thigh_hl_to_knee_hl_j'      gear='1' ctrllimited='true' ctrlrange='-17 17'   user='5700'/>
+
+     </actuator>
+
+     <sensor>
+         <!--        <actuatorfrc actuator="A_THJ0" name="Saf_A_THJ0" />-->
+         <!--        <touch name="ST_Tch_palm"   site="Tch_palm"/>-->
+         <!--        <actuatorfrc name="torque_torso_to_abduct_fr" actuator="torso_to_abduct_fr_j"/>-->
+
+         <framequat     name='imu-orientation' objtype='site' objname='imu'/>
+         <gyro          name='imu-angular-velocity'    site='imu' />
+         <accelerometer name='imu-linear-acceleration' site='imu' />
+         <!--        <magnetometer  name='imu-magnetometer'        site='imu'/>-->
+
+         <!--        <jointpos    name='pos_torso_to_abduct_fr'     joint='torso_to_abduct_fr_j'          user='18' />-->
+         <!--        <jointpos    name='pos_abduct_fr_to_thigh_fr'   joint='abduct_fr_to_thigh_fr_j'        user='18' />-->
+         <!--        <jointpos    name='pos_thigh_fr_to_knee_fr'     joint='thigh_fr_to_knee_fr_j'          user='18'/>-->
+
+         <!--        <jointpos    name='pos_torso_to_abduct_fl'     joint='torso_to_abduct_fl_j'          user='18' />-->
+         <!--        <jointpos    name='pos_abduct_fl_to_thigh_fl'   joint='abduct_fl_to_thigh_fl_j'        user='18' />-->
+         <!--        <jointpos    name='pos_thigh_fl_to_knee_fl'     joint='thigh_fl_to_knee_fl_j'          user='18'/>-->
+
+         <!--        <jointpos    name='pos_torso_to_abduct_hr'     joint='torso_to_abduct_hr_j'          user='18' />-->
+         <!--        <jointpos    name='pos_abduct_hr_to_thigh_hr'   joint='abduct_hr_to_thigh_hr_j'        user='18' />-->
+         <!--        <jointpos    name='pos_thigh_hr_to_knee_hr'     joint='thigh_hr_to_knee_hr_j'          user='18'/>-->
+
+         <!--        <jointpos    name='pos_torso_to_abduct_hl'     joint='torso_to_abduct_hl_j'          user='18' />-->
+         <!--        <jointpos    name='pos_abduct_hl_to_thigh_hl'   joint='abduct_hl_to_thigh_hl_j'        user='18' />-->
+         <!--        <jointpos    name='pos_thigh_hl_to_knee_hl'     joint='thigh_hl_to_knee_hl_j'          user='18'/>-->
+
+         <!--        <framequat     name='pelvis-orientation' objtype='site' objname='imu'/>-->
+         <!--        <gyro          name='pelvis-angular-velocity'    site='imu' noise='5e-4' cutoff='34.9'/>-->
+         <!--        <accelerometer name='pelvis-linear-acceleration' site='imu' noise='1e-2' cutoff='157'/>-->
+         <!--        <magnetometer  name='pelvis-magnetometer'        site='imu'/>-->
+     </sensor>
+
+ </mujocoinclude>

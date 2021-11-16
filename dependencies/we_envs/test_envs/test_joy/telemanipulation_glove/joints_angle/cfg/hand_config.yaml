@@ -1,0 +1,54 @@
+# Thumb
+TL1: 25.4951
+TL2: 35
+TL3: -4.0
+TL4: 13.5266
+TL5: 41
+TL6: 57.2713
+TL7: 19
+TL8: 17
+Ta3: 24.7751 #degree
+
+# ForeFinger
+FL1: 21.2603
+FL2: 25
+FL3: 11
+FL4: 25
+FL5: 32.5
+FL6: 72.0139
+FL7: 16
+FL8: 14
+Fa3: 25.4976 #degree
+
+# MiddleFinger
+ML1: 22.0227
+ML2: 32
+ML3: 9
+ML4: 25
+ML5: 32.5
+ML6: 76.5572
+ML7: 17
+ML8: 14
+Ma3: 23.8865 #degree
+
+# RingFinger
+RL1: 21.2603
+RL2: 28
+RL3: 18.0
+RL4: 25
+RL5: 32.5
+RL6: 72.0139
+RL7: 16
+RL8: 14
+Ra3: 25.4976 #degree
+
+# LittleFinger
+LL1: 19.5256
+LL2: 21
+LL3: 9
+LL4: 25
+LL5: 32.5
+LL6: 63.5059
+LL7: 15
+LL8: 12.5
+La3: 26.1616 #degree

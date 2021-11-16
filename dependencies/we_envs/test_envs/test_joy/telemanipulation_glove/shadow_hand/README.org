@@ -1,0 +1,23 @@
+#+TITLE: 手柄+手套遥控 ur5e 机械臂和 shadow_lite 灵巧手
+#+OPTIONS: ^:{}
+* ros 启动
+  - 复制本目录下的 joints_angle package 包到 catkin_ws/src，编译。
+  - 修改手套的 arduino 单片机读取权限
+    #+BEGIN_SRC shell
+    sudo chmod 777 /dev/ttyUSB0 #有时不一定是 USB0
+    #+END_SRC
+  - 启动数据手套
+    #+BEGIN_SRC shell
+    roslaunch joints_angle tele_hand.launch 
+    #+END_SRC
+  - 启动手柄
+    #+BEGIN_SRC shell
+    rosrun joy joy_node
+    python ../jog_publisher.py
+    #+END_SRC
+ - 启动仿真环境
+   #+BEGIN_SRC shell
+   python joy_telemanipulation_with_glove.py 
+   #+END_SRC
+* 注意点
+  - 如果用 python3， 最好用 anaconda 装 python3.5 版本，装 mujoco_py，we_envs。再装 python3 版本的[[https://www.jianshu.com/p/0e17f1b66af9][rospy]]。

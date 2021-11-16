@@ -1,0 +1,119 @@
+#+OPTIONS: ^:{}
+* 如何安装
+  1. 安装 mujoco200
+  2. 安装 we_envs,如果 pip 版本的 mujoco_py 安装不上，从源码安装 mujoco-py-2.0.2.2,从 github 上下载 mujoco-py2.0.2.2
+  #+BEGIN_SRC sh
+  conda activate xxxx
+  cd we_envs
+  pip install -e .
+  #+END_SRC
+** 测试
+   #+BEGIN_SRC sh
+   python test_envs/test_keyboard.py
+  #+END_SRC
+   
+* 自定义 mujoco 环境
+  - 如果要编写自定义环境，修改 mujoco_env.py、hand_manipulation_suite/xxx.py，然后在 hand_manipulation_suite/__init__.py 中根据格式注册即可。
+  - 调用时，建立 gym 环境，用 unwrapped 获取到环境中的多种信息
+    #+BEGIN_SRC python    
+    env = gym.make(env_name)
+    env_unwrap = env.unwrapped #拆包环境，能够调用更多内置函数，不仅仅是 step
+    #+END_SRC
+* 环境定义
+** we_UR5ePush-v2
+   稀疏奖励推箱子。奖励只有到达终点才出现,手爪朝向固定一直垂直向下。
+** we_UR5ePushDense-v2
+   - 稠密奖励版本推箱子。奖励跟距离呈负相关。
+  
+
+   #+BEGIN_SRC python
+     obs = np.concatenate([
+            grip_pos,  #手爪位置，3 维
+            object_pos.ravel(), #物体位置，3
+            object_rel_pos.ravel(),  #物体相对手爪的位置,3
+            object_rot.ravel(), # 物体旋转欧拉角,3
+            grip_velp,  # 手爪在世界坐标系下的速度,3
+            goal_distance.ravel（）, #物体和目标点的距离矢量，3           
+        ])
+    
+   #+END_SRC
+
+** We_UR5eShadowLite-v2
+   - shadow 四指手+ur5e 机械臂操作键盘，参考 test_envs/test_joy/joy_telemanipulation.py。
+   - shadow 手关节定义参考 ShadowHand_define.pdf
+   - step 函数返回四元组
+     #+BEGIN_SRC python
+      obs, reward, done, info = env.step(action)  
+     #+END_SRC
+*** action
+    action 是一个 19 维数组，包含机械臂的末端坐标 ee_position_angle 和灵巧手关节角度 hand_ctrl。
+    #+BEGIN_SRC python
+    action = [ee_position_angle, hand_ctrl]
+    # ee_position_angle =[px, py, pz, rx, ry, rz]
+    # hand_ctrl = [FF4, FF3, FF21, MF4, MF3, MF21, RF4, RF3, RF21, TH5, TH4, TH2, TH1]
+    #+END_SRC
+***  obs 
+    obs 是一个 dict，包含 obs['achieved_goal'], obs['observation'], obs['desired_goal'.]
+   #+BEGIN_SRC python
+   obs['observation'] = np.concatenate([
+            hand_pos, #机械臂末端位置，3 维
+            hand_quat, #机械臂末端朝向四元数,4
+            hand_velp, #灵巧手末端线速度，3
+            finger_pos_data, # 关节角度值 [FF4, FF3, FF2, FF1, MF4, MF3, MF2, MF1, RF4, RF3, RF2, RF1, TH5, TH4, TH2, TH1]，16
+            finger_pressure_data  # 指尖压力值 Ffinger, Mfinger, Rfinger, Thumb，4
+        ])
+   obs['achieved_goal']=self.achived_goal #已经打出来的字，维度不定
+   obs['desired_goal']= self.goal #目标字符,维度不定
+   #+END_SRC
+*** done 
+    done 表示任务是否完成
+*** reward
+    reward 暂定稀疏奖励，未到目标 r=-1,到达目标 r=0。参见 ur5eShadowLite_env.py 中 compute_reward 函数
+*** info
+    - info['early_abort'] 包含终止。如果打出来的字已经不是目标的字，可以考虑直接 reset。 
+    - info['dangerous']表示是否危险状态。当末端六维力传感器值超过阈值时，认为跟环境接触力太大，可以提前停止。
+*** 示例
+    #+BEGIN_SRC python
+                o = env.reset()
+                o = o['observation']
+                env.set_goal(['s']) #先设置个固定目标值为字符 s
+                try:
+                a=policy(o)
+                a[0:3] = np.clip(a[0:3], -0.01, 0.01) #保证 xyz 位置安全值，
+                a[3:6] = np.clip(a[3:6], -0.2, 0.2)  #保证欧拉角安全值
+
+                o, r, d, info = env.step(a)
+                o = o['observation']
+            except:
+                done = True
+                r = r-1500.0 # 由于驱动力太大导致 mujoco 解算失败，保护性停止
+            finally:
+
+                early_abort = info['early_abort'] or info['dangerous']
+                if early_abort:
+                    r = r-2300.0
+                if d:
+                    r = r+4400.0
+                done = d or early_abort
+    #+END_SRC
+** Adroit-door-v0
+   - adroit 手来开门环境，详见 [[https://github.com/vikashplus/mj_envs][mj_envs]]。
+** Adroit-hammer-v0
+   - adroit 手敲钉子。
+** Adroit-pen-v0
+   - adroit 手转笔。
+** Adroit-relocate-v0
+   - adroit 手抓放物体。
+* 手柄遥控示教
+   #+BEGIN_SRC sh
+  rosrun joy joy_node
+  python test_envs/test_joy/jog_publisher.py
+  python test_envs/test_joy/joy_telemanipulation.py
+  #+END_SRC
+** 测试
+   #+BEGIN_SRC sh
+   python test_env.py
+  #+END_SRC
+   
+* bug
+  - Pycharm 有时会找不到指定模块，把相应模块所在目录设置成 Source Root 即可。 在目录上右击-Mark direcotory as-Source Root。

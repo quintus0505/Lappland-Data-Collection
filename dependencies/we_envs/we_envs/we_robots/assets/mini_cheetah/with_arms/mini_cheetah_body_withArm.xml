@@ -1,0 +1,85 @@
+<mujocoinclude>
+    <body name="base" pos='0 0 0.4' childclass="mini-cheetah">
+        <inertial pos='0 0 0' mass="3.3" diaginertia="0.011253 0.036203 0.042673" />
+<!--        <joint type='slide' axis='1 0 0' limited='false'/>-->
+<!--        <joint type='slide' axis='0 1 0' limited='false'/>-->
+<!--        <joint type='slide' axis='0 0 1' limited='false' ref='1.01'/>-->
+<!--        <joint type='ball' limited='false'/>-->
+        <joint armature="0" damping="0" limited="false" name="root" pos="0 0 0" stiffness="0" type="free"/>
+
+<!--        <site name="base" type="sphere" rgba="1 0 0 1" size="0.005" pos="0 0 0"/>-->
+        <site name="imu" type="sphere" rgba="0 1 0 1" size="0.005" pos="0 0 0"/>
+
+        <geom type="mesh"   mesh="mini_body" class='collision-body' />
+        <body name="abduct_fr" pos="0.19 -0.049 0">
+            <inertial pos="0 0.036 0" quat="0.564242 0.568689 0.421431 0.424993" mass="0.54" diaginertia="0.000577158 0.000443992 0.00036385" />
+            <joint name="torso_to_abduct_fr_j" pos="0 0 0" axis="1 0 0" class='collision-abduct'/>
+            <geom pos="-0.055 0 0" quat="2.31078e-07 0.707105 0.707108 2.31079e-07" type="mesh"  mesh="mini_abad"  class="collision" />
+            <body name="thigh_fr" pos="0 -0.062 0">
+                <inertial pos="0 0.016 -0.02" quat="0.899267 -0.00195739 -0.00366412 0.437381" mass="0.634" diaginertia="0.001498 0.001498 0.001498" />
+                <joint name="abduct_fr_to_thigh_fr_j" pos="0 0 0" axis="0 -1 0" class='collision-hip'/>
+                <geom quat="0.707105 0 -0.707108 0" type="mesh"  mesh="mini_upper_link" class="collision-hip" />
+                <body name="shank_fr" pos="0 0 -0.209">
+                    <inertial pos="0 0 -0.188673" quat="0.707107 0 0 0.707107" mass="0.214" diaginertia="0.000310727 0.000307727 3.1e-05" />
+                    <joint name="thigh_fr_to_knee_fr_j" pos="0 0 0" axis="0 -1 0" class='collision-knee'/>
+                    <geom quat="3.26795e-07 0 1 0" type="mesh"  mesh="mini_lower_link" class="collision"/>
+                    <geom pos="0 0 -0.180" type="sphere" size="0.014"  class="collision-foot" />
+                </body>
+            </body>
+        </body>
+
+        <body name="abduct_fl" pos="0.19 0.049 0">
+            <inertial pos="0 0.036 0" quat="0.564242 0.568689 0.421431 0.424993" mass="0.54" diaginertia="0.000577158 0.000443992 0.00036385" />
+            <joint name="torso_to_abduct_fl_j" pos="0 0 0" axis="1 0 0" class='collision-abduct'/>
+            <geom pos="-0.055 0 0" quat="0.707105 0 0 -0.707108" type="mesh"  mesh="mini_abad" class="collision"/>
+            <body name="thigh_fl" pos="0 0.062 0">
+                <inertial pos="0 0.016 -0.02" quat="0.899267 -0.00195739 -0.00366412 0.437381" mass="0.634" diaginertia="0.001498 0.001498 0.001498" />
+                <joint name="abduct_fl_to_thigh_fl_j" pos="0 0 0" axis="0 -1 0" class='collision-hip'/>
+                <geom quat="0.707105 0 -0.707108 0" type="mesh"  mesh="mini_upper_link"  class="collision-hip"/>
+                <body name="shank_fl" pos="0 0 -0.209">
+                    <inertial pos="0 0 -0.188673" quat="0.707107 0 0 0.707107" mass="0.214" diaginertia="0.000310727 0.000307727 3.1e-05" />
+                    <joint name="thigh_fl_to_knee_fl_j" pos="0 0 0" axis="0 -1 0" class='collision-knee'/>
+                    <geom quat="3.26795e-07 0 1 0" type="mesh"  mesh="mini_lower_link" class="collision"/>
+                    <geom pos="0 0 -0.180" type="sphere" size="0.014"  class="collision-foot" />
+                </body>
+            </body>
+        </body>
+
+        <body name="abduct_hr" pos="-0.19 -0.049 0">
+            <inertial pos="0 0.036 0" quat="0.564242 0.568689 0.421431 0.424993" mass="0.54" diaginertia="0.000577158 0.000443992 0.00036385" />
+            <joint name="torso_to_abduct_hr_j" pos="0 0 0" axis="1 0 0" class='collision-abduct'/>
+            <geom pos="0.055 0 0" quat="0.707105 0 0 0.707108" type="mesh"  mesh="mini_abad" class="collision"/>
+            <body name="thigh_hr" pos="0 -0.062 0">
+                <inertial pos="0 0.016 -0.02" quat="0.899267 -0.00195739 -0.00366412 0.437381" mass="0.634" diaginertia="0.001498 0.001498 0.001498" />
+                <joint name="abduct_hr_to_thigh_hr_j" pos="0 0 0" axis="0 -1 0" class='collision-hip'/>
+                <geom quat="0.707105 0 -0.707108 0" type="mesh"  mesh="mini_upper_link" class="collision-hip"/>
+                <body name="shank_hr" pos="0 0 -0.209">
+                    <inertial pos="0 0 -0.188673" quat="0.707107 0 0 0.707107" mass="0.214" diaginertia="0.000310727 0.000307727 3.1e-05" />
+                    <joint name="thigh_hr_to_knee_hr_j" pos="0 0 0" axis="0 -1 0" class='collision-knee'/>
+                    <geom quat="3.26795e-07 0 1 0" type="mesh"  mesh="mini_lower_link" class="collision"/>
+                    <geom pos="0 0 -0.180" type="sphere" size="0.014"  class="collision-foot" />
+                </body>
+            </body>
+        </body>
+
+        <body name="abduct_hl" pos="-0.19 0.049 0">
+            <inertial pos="0 0.036 0" quat="0.564242 0.568689 0.421431 0.424993" mass="0.54" diaginertia="0.000577158 0.000443992 0.00036385" />
+            <joint name="torso_to_abduct_hl_j" pos="0 0 0" axis="1 0 0" class='collision-abduct'/>
+            <geom pos="0.055 0 0" quat="2.31078e-07 0.707105 -0.707108 -2.31079e-07" type="mesh" mesh="mini_abad" class="collision"/>
+            <body name="thigh_hl" pos="0 0.062 0">
+                <inertial pos="0 0.016 -0.02" quat="0.899267 -0.00195739 -0.00366412 0.437381" mass="0.00634" diaginertia="0.001498 0.001498 0.001498" />
+                <joint name="abduct_hl_to_thigh_hl_j" pos="0 0 0" axis="0 -1 0" class='collision-hip'/>
+                <geom quat="0.707105 0 -0.707108 0" type="mesh" mesh="mini_upper_link" class="collision-hip"/>
+                <body name="shank_hl" pos="0 0 -0.209">
+                    <inertial pos="0 0 -0.188673" quat="0.707107 0 0 0.707107" mass="0.214" diaginertia="0.000310727 0.000307727 3.1e-05" />
+                    <joint name="thigh_hl_to_knee_hl_j" pos="0 0 0" axis="0 -1 0" class='collision-knee'/>
+                    <geom quat="3.26795e-07 0 1 0" type="mesh" mesh="mini_lower_link" class="collision"/>
+                    <geom pos="0 0 -0.180" type="sphere" size="0.014"  class="collision-foot" />
+                </body>
+            </body>
+        </body>
+
+        <include file="franka_panda_arm.xml"/>
+
+    </body>
+</mujocoinclude>

@@ -1,0 +1,25 @@
+<mujoco model='mini-cheetah'>
+
+    <default>
+        <default class="board">
+            <geom type="box" material="MatWood" />
+            <general user="0 1 0.03 0.0939711 0.513477 0.0358776 1.23598 8.40409 0.485031 6.04244 1.02187 0.175297 0.121642 0 0 0" />
+        </default>
+    </default>
+
+
+    <!-- ======= WORLD ======= -->
+    <worldbody>
+        <light directional='true' diffuse='.7 .7 .7' specular='0.03 0.03 0.03' pos='-1 -1.0 4.0' dir='1 1.0 -4'/>
+        <geom name='ground' size="15 15 0.2" pos="0 0 -0.1" type="plane"  material="groundplane" condim='3' contype='15' conaffinity='15'/>
+<!--        <camera name="fixed" pos="0 -0.7 0.7" quat="0.92388 0.382683 0 0" />-->
+<!--        &lt;!&ndash; Camera for the VIL paper &ndash;&gt;-->
+        <camera name="vil_camera" pos="0 -1.2 1.2" mode="track" quat="0.92388 0.382683 0 0" />
+
+        <include file="mini_cheetah_body_withArm.xml"/>
+
+    </worldbody>
+
+    <include file="mini_cheetah_assets_withArm.xml"/>
+
+</mujoco>

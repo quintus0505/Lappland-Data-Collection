@@ -1,21 +1,14 @@
-import we_envs
-import click
 import os
 import sys
 sys.path.append("..")
-import gym
 import numpy as np
 import pickle
 # from mjrl.utils.gym_env import GymEnv
 import time
-from typing import Dict, List
-import we_envs
 import copy
 import torch
-from abc import ABC
-import abc
 from constraint.Constraint import Constraint, ConstraintManager
-from primitive.user_config import PRIMITIVE_DEMONSTRATIONS_PATH
+from utils.user_config import PRIMITIVE_DEMONSTRATIONS_PATH
 import matplotlib.pyplot as plt
 
 

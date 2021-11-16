@@ -1,0 +1,6079 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.5.1-0-g916b5db  Build Version: 1.5.7152.31018
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="dellkeyboard4">
+  <link
+    name="keyboard">
+    <inertial>
+      <origin
+        xyz="0.21642 -0.051748 -0.0046155"
+        rpy="0 0 0" />
+      <mass
+        value="0.7502" />
+      <inertia
+        ixx="0.0011831"
+        ixy="-0.00016544"
+        ixz="-2.6188E-05"
+        iyy="0.012312"
+        iyz="-9.9535E-06"
+        izz="0.013473" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/keyboard.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/keyboard.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="esc">
+    <inertial>
+      <origin
+        xyz="-4.3168E-05 4.2751E-05 0.009193"
+        rpy="0 0 0" />
+      <mass
+        value="0.0020886" />
+      <inertia
+        ixx="5.5385E-08"
+        ixy="-3.8312E-09"
+        ixz="9.7766E-11"
+        iyy="5.3403E-08"
+        iyz="-9.874E-11"
+        izz="7.8381E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/esc.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/esc.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="jiont_esc"
+    type="prismatic">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="keyboard" />
+    <child
+      link="esc" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="f1">
+    <inertial>
+      <origin
+        xyz="-9.6407E-09 1.5647E-08 0.0091882"
+        rpy="0 0 0" />
+      <mass
+        value="0.0022422" />
+      <inertia
+        ixx="6.1716E-08"
+        ixy="-1.6877E-14"
+        ixz="1.2332E-13"
+        iyy="6.1716E-08"
+        iyz="-1.8504E-13"
+        izz="9.0929E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/f1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/f1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="jiont_f1"
+    type="prismatic">
+    <origin
+      xyz="0.027225 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="keyboard" />
+    <child
+      link="f1" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="f2">
+    <inertial>
+      <origin
+        xyz="-9.6407E-09 1.5647E-08 0.0091882"
+        rpy="0 0 0" />
+      <mass
+        value="0.0022422" />
+      <inertia
+        ixx="6.1716E-08"
+        ixy="-1.6877E-14"
+        ixz="1.2332E-13"
+        iyy="6.1716E-08"
+        iyz="-1.8504E-13"
+        izz="9.0929E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/f2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/f2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="jiont_f2"
+    type="prismatic">
+    <origin
+      xyz="0.046275 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="keyboard" />
+    <child
+      link="f2" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="f3">
+    <inertial>
+      <origin
+        xyz="-9.6407E-09 1.5647E-08 0.0091882"
+        rpy="0 0 0" />
+      <mass
+        value="0.0022422" />
+      <inertia
+        ixx="6.1716E-08"
+        ixy="-1.6877E-14"
+        ixz="1.2332E-13"
+        iyy="6.1716E-08"
+        iyz="-1.8504E-13"
+        izz="9.0929E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/f3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/f3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="jiont_f3"
+    type="prismatic">
+    <origin
+      xyz="0.065325 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="keyboard" />
+    <child
+      link="f3" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="f4">
+    <inertial>
+      <origin
+        xyz="-9.6407E-09 1.5647E-08 0.0091882"
+        rpy="0 0 0" />
+      <mass
+        value="0.0022422" />
+      <inertia
+        ixx="6.1716E-08"
+        ixy="-1.6877E-14"
+        ixz="1.2332E-13"
+        iyy="6.1716E-08"
+        iyz="-1.8504E-13"
+        izz="9.0929E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/f4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/f4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="jiont_f4"
+    type="prismatic">
+    <origin
+      xyz="0.084375 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="keyboard" />
+    <child
+      link="f4" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="f5">
+    <inertial>
+      <origin
+        xyz="-9.6407E-09 1.5647E-08 0.0091882"
+        rpy="0 0 0" />
+      <mass
+        value="0.0022422" />
+      <inertia
+        ixx="6.1716E-08"
+        ixy="-1.6877E-14"
+        ixz="1.2332E-13"
+        iyy="6.1716E-08"
+        iyz="-1.8504E-13"
+        izz="9.0929E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/f5.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/f5.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="jiont_f5"
+    type="prismatic">
+    <origin
+      xyz="0.11143 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="keyboard" />
+    <child
+      link="f5" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="f6">
+    <inertial>
+      <origin
+        xyz="-9.6407E-09 1.5647E-08 0.0091882"
+        rpy="0 0 0" />
+      <mass
+        value="0.0022422" />
+      <inertia
+        ixx="6.1716E-08"
+        ixy="-1.6877E-14"
+        ixz="1.2332E-13"
+        iyy="6.1716E-08"
+        iyz="-1.8504E-13"
+        izz="9.0929E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/f6.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/f6.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="jiont_f6"
+    type="prismatic">
+    <origin
+      xyz="0.13048 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="keyboard" />
+    <child
+      link="f6" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="f7">
+    <inertial>
+      <origin
+        xyz="-9.6407E-09 1.5647E-08 0.0091882"
+        rpy="0 0 0" />
+      <mass
+        value="0.0022422" />
+      <inertia
+        ixx="6.1716E-08"
+        ixy="-1.6877E-14"
+        ixz="1.2332E-13"
+        iyy="6.1716E-08"
+        iyz="-1.8504E-13"
+        izz="9.0929E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/f7.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/f7.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="jiont_f7"
+    type="prismatic">
+    <origin
+      xyz="0.14953 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="keyboard" />
+    <child
+      link="f7" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="f8">
+    <inertial>
+      <origin
+        xyz="-9.6407E-09 1.5647E-08 0.0091882"
+        rpy="0 0 0" />
+      <mass
+        value="0.0022422" />
+      <inertia
+        ixx="6.1716E-08"
+        ixy="-1.6877E-14"
+        ixz="1.2332E-13"
+        iyy="6.1716E-08"
+        iyz="-1.8504E-13"
+        izz="9.0929E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/f8.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/f8.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="jiont_f8"
+    type="prismatic">
+    <origin
+      xyz="0.16858 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="keyboard" />
+    <child
+      link="f8" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="f9">
+    <inertial>
+      <origin
+        xyz="-9.6407E-09 1.5647E-08 0.0088097"
+        rpy="0 0 0" />
+      <mass
+        value="0.0022422" />
+      <inertia
+        ixx="6.1716E-08"
+        ixy="-1.6877E-14"
+        ixz="1.2332E-13"
+        iyy="6.1716E-08"
+        iyz="-1.8504E-13"
+        izz="9.0929E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/f9.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/f9.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="jiont_f9"
+    type="prismatic">
+    <origin
+      xyz="0.19563 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="keyboard" />
+    <child
+      link="f9" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="f10">
+    <inertial>
+      <origin
+        xyz="-9.6407E-09 1.5647E-08 0.0091882"
+        rpy="0 0 0" />
+      <mass
+        value="0.0022422" />
+      <inertia
+        ixx="6.1716E-08"
+        ixy="-1.6877E-14"
+        ixz="1.2332E-13"
+        iyy="6.1716E-08"
+        iyz="-1.8504E-13"
+        izz="9.0929E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/f10.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/f10.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="jiont_f10"
+    type="prismatic">
+    <origin
+      xyz="0.21468 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="keyboard" />
+    <child
+      link="f10" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="f11">
+    <inertial>
+      <origin
+        xyz="-9.6407E-09 1.5647E-08 0.0091882"
+        rpy="0 0 0" />
+      <mass
+        value="0.0022422" />
+      <inertia
+        ixx="6.1716E-08"
+        ixy="-1.6877E-14"
+        ixz="1.2332E-13"
+        iyy="6.1716E-08"
+        iyz="-1.8504E-13"
+        izz="9.0929E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/f11.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/f11.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="jiont_f11"
+    type="prismatic">
+    <origin
+      xyz="0.23373 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="keyboard" />
+    <child
+      link="f11" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="f12">
+    <inertial>
+      <origin
+        xyz="-9.6407E-09 1.5647E-08 0.0091882"
+        rpy="0 0 0" />
+      <mass
+        value="0.0022422" />
+      <inertia
+        ixx="6.1716E-08"
+        ixy="-1.6877E-14"
+        ixz="1.2332E-13"
+        iyy="6.1716E-08"
+        iyz="-1.8504E-13"
+        izz="9.0929E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/f12.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/f12.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="jiont_f12"
+    type="prismatic">
+    <origin
+      xyz="0.25278 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="keyboard" />
+    <child
+      link="f12" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="print_screen">
+    <inertial>
+      <origin
+        xyz="-9.6407E-09 1.5647E-08 0.0091882"
+        rpy="0 0 0" />
+      <mass
+        value="0.0022422" />
+      <inertia
+        ixx="6.1716E-08"
+        ixy="-1.6877E-14"
+        ixz="1.2332E-13"
+        iyy="6.1716E-08"
+        iyz="-1.8504E-13"
+        izz="9.0929E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/print_screen.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/print_screen.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="jiont_print_screen"
+    type="prismatic">
+    <origin
+      xyz="0.38727 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="keyboard" />
+    <child
+      link="print_screen" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="scroll_lock">
+    <inertial>
+      <origin
+        xyz="-9.6407E-09 1.5647E-08 0.0091882"
+        rpy="0 0 0" />
+      <mass
+        value="0.0022422" />
+      <inertia
+        ixx="6.1716E-08"
+        ixy="-1.6877E-14"
+        ixz="1.2332E-13"
+        iyy="6.1716E-08"
+        iyz="-1.8504E-13"
+        izz="9.0929E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/scroll_lock.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/scroll_lock.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_scroll_lock"
+    type="prismatic">
+    <origin
+      xyz="0.4064 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="keyboard" />
+    <child
+      link="scroll_lock" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="pause_break">
+    <inertial>
+      <origin
+        xyz="4.314E-05 4.314E-05 0.0092003"
+        rpy="0 0 0" />
+      <mass
+        value="0.0021475" />
+      <inertia
+        ixx="5.7022E-08"
+        ixy="3.9603E-09"
+        ixz="-1.0254E-10"
+        iyy="5.7022E-08"
+        iyz="-1.0256E-10"
+        izz="8.2755E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/pause_break.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/pause_break.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_pause_break"
+    type="prismatic">
+    <origin
+      xyz="0.42553 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="keyboard" />
+    <child
+      link="pause_break" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="insert">
+    <inertial>
+      <origin
+        xyz="-9.6407E-09 1.5647E-08 0.0091882"
+        rpy="0 0 0" />
+      <mass
+        value="0.0022422" />
+      <inertia
+        ixx="6.1716E-08"
+        ixy="-1.6877E-14"
+        ixz="1.2332E-13"
+        iyy="6.1716E-08"
+        iyz="-1.8504E-13"
+        izz="9.0929E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/insert.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/insert.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_insert"
+    type="prismatic">
+    <origin
+      xyz="0.29697 -0.02945 0"
+      rpy="0 0 0" />
+    <parent
+      link="keyboard" />
+    <child
+      link="insert" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="home">
+    <inertial>
+      <origin
+        xyz="-9.6407E-09 1.5647E-08 0.0091882"
+        rpy="0 0 0" />
+      <mass
+        value="0.0022422" />
+      <inertia
+        ixx="6.1716E-08"
+        ixy="-1.6877E-14"
+        ixz="1.2332E-13"
+        iyy="6.1716E-08"
+        iyz="-1.8504E-13"
+        izz="9.0929E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/home.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/home.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_home"
+    type="prismatic">
+    <origin
+      xyz="0.3161 -0.02945 0"
+      rpy="0 0 0" />
+    <parent
+      link="keyboard" />
+    <child
+      link="home" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="pageup">
+    <inertial>
+      <origin
+        xyz="-9.6407E-09 1.5647E-08 0.0091882"
+        rpy="0 0 0" />
+      <mass
+        value="0.0022422" />
+      <inertia
+        ixx="6.1716E-08"
+        ixy="-1.6877E-14"
+        ixz="1.2332E-13"
+        iyy="6.1716E-08"
+        iyz="-1.8504E-13"
+        izz="9.0929E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/pageup.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/pageup.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_pageup"
+    type="prismatic">
+    <origin
+      xyz="0.33523 -0.02945 0"
+      rpy="0 0 0" />
+    <parent
+      link="keyboard" />
+    <child
+      link="pageup" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="delete">
+    <inertial>
+      <origin
+        xyz="-9.6407E-09 1.5647E-08 0.0091882"
+        rpy="0 0 0" />
+      <mass
+        value="0.0022422" />
+      <inertia
+        ixx="6.1716E-08"
+        ixy="-1.6877E-14"
+        ixz="1.2332E-13"
+        iyy="6.1716E-08"
+        iyz="-1.8504E-13"
+        izz="9.0929E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/delete.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/delete.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_delete"
+    type="prismatic">
+    <origin
+      xyz="0.29697 -0.04875 0"
+      rpy="0 0 0" />
+    <parent
+      link="keyboard" />
+    <child
+      link="delete" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="end">
+    <inertial>
+      <origin
+        xyz="-9.6407E-09 1.5647E-08 0.0091882"
+        rpy="0 0 0" />
+      <mass
+        value="0.0022422" />
+      <inertia
+        ixx="6.1716E-08"
+        ixy="-1.6877E-14"
+        ixz="1.2332E-13"
+        iyy="6.1716E-08"
+        iyz="-1.8504E-13"
+        izz="9.0929E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/end.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/end.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_end"
+    type="prismatic">
+    <origin
+      xyz="0.3161 -0.04875 0"
+      rpy="0 0 0" />
+    <parent
+      link="keyboard" />
+    <child
+      link="end" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="pagedown">
+    <inertial>
+      <origin
+        xyz="-9.6407E-09 1.5647E-08 0.0091882"
+        rpy="0 0 0" />
+      <mass
+        value="0.0022422" />
+      <inertia
+        ixx="6.1716E-08"
+        ixy="-1.6877E-14"
+        ixz="1.2332E-13"
+        iyy="6.1716E-08"
+        iyz="-1.8504E-13"
+        izz="9.0929E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/pagedown.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/pagedown.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint-pagedown"
+    type="prismatic">
+    <origin
+      xyz="0.33523 -0.04875 0"
+      rpy="0 0 0" />
+    <parent
+      link="keyboard" />
+    <child
+      link="pagedown" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="up">
+    <inertial>
+      <origin
+        xyz="-9.6407E-09 1.5647E-08 0.0091882"
+        rpy="0 0 0" />
+      <mass
+        value="0.0022422" />
+      <inertia
+        ixx="6.1716E-08"
+        ixy="-1.6877E-14"
+        ixz="1.2332E-13"
+        iyy="6.1716E-08"
+        iyz="-1.8504E-13"
+        izz="9.0929E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/up.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/up.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_up"
+    type="prismatic">
+    <origin
+      xyz="0.3161 -0.0856 0"
+      rpy="0 0 0" />
+    <parent
+      link="keyboard" />
+    <child
+      link="up" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="left">
+    <inertial>
+      <origin
+        xyz="-9.6407E-09 1.5647E-08 0.0091882"
+        rpy="0 0 0" />
+      <mass
+        value="0.0022422" />
+      <inertia
+        ixx="6.1716E-08"
+        ixy="-1.6877E-14"
+        ixz="1.2332E-13"
+        iyy="6.1716E-08"
+        iyz="-1.8504E-13"
+        izz="9.0929E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/left.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/left.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_left"
+    type="prismatic">
+    <origin
+      xyz="0.29697 -0.1049 0"
+      rpy="0 0 0" />
+    <parent
+      link="keyboard" />
+    <child
+      link="left" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="down">
+    <inertial>
+      <origin
+        xyz="-9.6407E-09 1.5647E-08 0.0091882"
+        rpy="0 0 0" />
+      <mass
+        value="0.0022422" />
+      <inertia
+        ixx="6.1716E-08"
+        ixy="-1.6877E-14"
+        ixz="1.2332E-13"
+        iyy="6.1716E-08"
+        iyz="-1.8504E-13"
+        izz="9.0929E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/down.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/down.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_down"
+    type="prismatic">
+    <origin
+      xyz="0.3161 -0.1049 0"
+      rpy="0 0 0" />
+    <parent
+      link="keyboard" />
+    <child
+      link="down" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="right">
+    <inertial>
+      <origin
+        xyz="-9.6407E-09 1.5647E-08 0.0091882"
+        rpy="0 0 0" />
+      <mass
+        value="0.0022422" />
+      <inertia
+        ixx="6.1716E-08"
+        ixy="-1.6877E-14"
+        ixz="1.2332E-13"
+        iyy="6.1716E-08"
+        iyz="-1.8504E-13"
+        izz="9.0929E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/right.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/right.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_right"
+    type="prismatic">
+    <origin
+      xyz="0.33523 -0.1049 0"
+      rpy="0 0 0" />
+    <parent
+      link="keyboard" />
+    <child
+      link="right" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="numlock">
+    <inertial>
+      <origin
+        xyz="-9.6407E-09 1.5647E-08 0.0091882"
+        rpy="0 0 0" />
+      <mass
+        value="0.0022422" />
+      <inertia
+        ixx="6.1716E-08"
+        ixy="-1.6877E-14"
+        ixz="1.2332E-13"
+        iyy="6.1716E-08"
+        iyz="-1.8504E-13"
+        izz="9.0929E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/numlock.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/numlock.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_numlock"
+    type="prismatic">
+    <origin
+      xyz="0.36843 -0.0293 0"
+      rpy="0 0 0" />
+    <parent
+      link="keyboard" />
+    <child
+      link="numlock" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="divide">
+    <inertial>
+      <origin
+        xyz="-9.6407E-09 1.5647E-08 0.0091882"
+        rpy="0 0 0" />
+      <mass
+        value="0.0022422" />
+      <inertia
+        ixx="6.1716E-08"
+        ixy="-1.6877E-14"
+        ixz="1.2332E-13"
+        iyy="6.1716E-08"
+        iyz="-1.8504E-13"
+        izz="9.0929E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/divide.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/divide.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_divide"
+    type="prismatic">
+    <origin
+      xyz="0.38748 -0.0293 0"
+      rpy="0 0 0" />
+    <parent
+      link="keyboard" />
+    <child
+      link="divide" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="multiply">
+    <inertial>
+      <origin
+        xyz="-9.6407E-09 1.5647E-08 0.0091882"
+        rpy="0 0 0" />
+      <mass
+        value="0.0022422" />
+      <inertia
+        ixx="6.1716E-08"
+        ixy="-1.6877E-14"
+        ixz="1.2332E-13"
+        iyy="6.1716E-08"
+        iyz="-1.8504E-13"
+        izz="9.0929E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/multiply.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/multiply.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_multiply"
+    type="prismatic">
+    <origin
+      xyz="0.40653 -0.0293 0"
+      rpy="0 0 0" />
+    <parent
+      link="keyboard" />
+    <child
+      link="multiply" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="subtract">
+    <inertial>
+      <origin
+        xyz="-9.6407E-09 1.5647E-08 0.0091882"
+        rpy="0 0 0" />
+      <mass
+        value="0.0022422" />
+      <inertia
+        ixx="6.1716E-08"
+        ixy="-1.6877E-14"
+        ixz="1.2332E-13"
+        iyy="6.1716E-08"
+        iyz="-1.8504E-13"
+        izz="9.0929E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/subtract.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/subtract.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_subtract"
+    type="prismatic">
+    <origin
+      xyz="0.42558 -0.0293 0"
+      rpy="0 0 0" />
+    <parent
+      link="keyboard" />
+    <child
+      link="subtract" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="7">
+    <inertial>
+      <origin
+        xyz="-9.6407E-09 1.5647E-08 0.0091882"
+        rpy="0 0 0" />
+      <mass
+        value="0.0022422" />
+      <inertia
+        ixx="6.1716E-08"
+        ixy="-1.6877E-14"
+        ixz="1.2332E-13"
+        iyy="6.1716E-08"
+        iyz="-1.8504E-13"
+        izz="9.0929E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/7.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/7.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_7"
+    type="prismatic">
+    <origin
+      xyz="0.36843 -0.0483 0"
+      rpy="0 0 0" />
+    <parent
+      link="keyboard" />
+    <child
+      link="7" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="8">
+    <inertial>
+      <origin
+        xyz="-9.6407E-09 1.5647E-08 0.0091882"
+        rpy="0 0 0" />
+      <mass
+        value="0.0022422" />
+      <inertia
+        ixx="6.1716E-08"
+        ixy="-1.6877E-14"
+        ixz="1.2332E-13"
+        iyy="6.1716E-08"
+        iyz="-1.8504E-13"
+        izz="9.0929E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/8.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/8.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_8"
+    type="prismatic">
+    <origin
+      xyz="0.38748 -0.0483 0"
+      rpy="0 0 0" />
+    <parent
+      link="keyboard" />
+    <child
+      link="8" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="9">
+    <inertial>
+      <origin
+        xyz="-9.6407E-09 1.5647E-08 0.0091882"
+        rpy="0 0 0" />
+      <mass
+        value="0.0022422" />
+      <inertia
+        ixx="6.1716E-08"
+        ixy="-1.6877E-14"
+        ixz="1.2332E-13"
+        iyy="6.1716E-08"
+        iyz="-1.8504E-13"
+        izz="9.0929E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/9.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/9.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_9"
+    type="prismatic">
+    <origin
+      xyz="0.40653 -0.0483 0"
+      rpy="0 0 0" />
+    <parent
+      link="keyboard" />
+    <child
+      link="9" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="add">
+    <inertial>
+      <origin
+        xyz="1.0969E-07 2.7176E-07 0.0093381"
+        rpy="0 0 0" />
+      <mass
+        value="0.0050109" />
+      <inertia
+        ixx="5.3352E-07"
+        ixy="-1.0784E-12"
+        ixz="3.8128E-13"
+        iyy="1.386E-07"
+        iyz="5.0088E-14"
+        izz="5.9821E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/add.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/add.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_add"
+    type="prismatic">
+    <origin
+      xyz="0.42558 -0.0578 0"
+      rpy="0 0 0" />
+    <parent
+      link="keyboard" />
+    <child
+      link="add" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="4">
+    <inertial>
+      <origin
+        xyz="-9.6407E-09 1.5647E-08 0.0091882"
+        rpy="0 0 0" />
+      <mass
+        value="0.0022422" />
+      <inertia
+        ixx="6.1716E-08"
+        ixy="-1.6877E-14"
+        ixz="1.2332E-13"
+        iyy="6.1716E-08"
+        iyz="-1.8504E-13"
+        izz="9.0929E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_4"
+    type="prismatic">
+    <origin
+      xyz="0.36843 -0.0673 0"
+      rpy="0 0 0" />
+    <parent
+      link="keyboard" />
+    <child
+      link="4" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="5">
+    <inertial>
+      <origin
+        xyz="-9.6407E-09 1.5647E-08 0.0091882"
+        rpy="0 0 0" />
+      <mass
+        value="0.0022422" />
+      <inertia
+        ixx="6.1716E-08"
+        ixy="-1.6877E-14"
+        ixz="1.2332E-13"
+        iyy="6.1716E-08"
+        iyz="-1.8504E-13"
+        izz="9.0929E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/5.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/5.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_5"
+    type="prismatic">
+    <origin
+      xyz="0.38748 -0.0673 0"
+      rpy="0 0 0" />
+    <parent
+      link="keyboard" />
+    <child
+      link="5" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="6">
+    <inertial>
+      <origin
+        xyz="-9.6407E-09 1.5647E-08 0.0091882"
+        rpy="0 0 0" />
+      <mass
+        value="0.0022422" />
+      <inertia
+        ixx="6.1716E-08"
+        ixy="-1.6877E-14"
+        ixz="1.2332E-13"
+        iyy="6.1716E-08"
+        iyz="-1.8504E-13"
+        izz="9.0929E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/6.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/6.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_6"
+    type="prismatic">
+    <origin
+      xyz="0.40653 -0.0673 0"
+      rpy="0 0 0" />
+    <parent
+      link="keyboard" />
+    <child
+      link="6" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="1">
+    <inertial>
+      <origin
+        xyz="-9.6407E-09 1.5647E-08 0.0091882"
+        rpy="0 0 0" />
+      <mass
+        value="0.0022422" />
+      <inertia
+        ixx="6.1716E-08"
+        ixy="-1.6877E-14"
+        ixz="1.2332E-13"
+        iyy="6.1716E-08"
+        iyz="-1.8504E-13"
+        izz="9.0929E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_1"
+    type="prismatic">
+    <origin
+      xyz="0.36843 -0.0863 0"
+      rpy="0 0 0" />
+    <parent
+      link="keyboard" />
+    <child
+      link="1" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="2">
+    <inertial>
+      <origin
+        xyz="-9.6407E-09 1.5647E-08 0.0091882"
+        rpy="0 0 0" />
+      <mass
+        value="0.0022422" />
+      <inertia
+        ixx="6.1716E-08"
+        ixy="-1.6877E-14"
+        ixz="1.2332E-13"
+        iyy="6.1716E-08"
+        iyz="-1.8504E-13"
+        izz="9.0929E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_2"
+    type="prismatic">
+    <origin
+      xyz="0.38748 -0.0863 0"
+      rpy="0 0 0" />
+    <parent
+      link="keyboard" />
+    <child
+      link="2" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="3">
+    <inertial>
+      <origin
+        xyz="-9.6407E-09 1.5647E-08 0.0091882"
+        rpy="0 0 0" />
+      <mass
+        value="0.0022422" />
+      <inertia
+        ixx="6.1716E-08"
+        ixy="-1.6877E-14"
+        ixz="1.2332E-13"
+        iyy="6.1716E-08"
+        iyz="-1.8504E-13"
+        izz="9.0929E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_3"
+    type="prismatic">
+    <origin
+      xyz="0.40653 -0.0863 0"
+      rpy="0 0 0" />
+    <parent
+      link="keyboard" />
+    <child
+      link="3" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="enter_right">
+    <inertial>
+      <origin
+        xyz="3.5664E-05 -6.3114E-05 0.0093481"
+        rpy="0 0 0" />
+      <mass
+        value="0.0049147" />
+      <inertia
+        ixx="5.0771E-07"
+        ixy="-9.8689E-09"
+        ixz="-3.0999E-10"
+        iyy="1.3389E-07"
+        iyz="6.3446E-10"
+        izz="5.6888E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/enter_right.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/enter_right.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_enter_right"
+    type="prismatic">
+    <origin
+      xyz="0.42558 -0.0958 0"
+      rpy="0 0 0" />
+    <parent
+      link="keyboard" />
+    <child
+      link="enter_right" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="0">
+    <inertial>
+      <origin
+        xyz="-1.2722E-07 -6.0355E-09 0.009338"
+        rpy="0 0 0" />
+      <mass
+        value="0.0050108" />
+      <inertia
+        ixx="1.386E-07"
+        ixy="7.5141E-13"
+        ixz="2.2483E-12"
+        iyy="5.3351E-07"
+        iyz="1.1864E-13"
+        izz="5.982E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/0.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/0.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_0"
+    type="prismatic">
+    <origin
+      xyz="0.37795 -0.1053 0"
+      rpy="0 0 0" />
+    <parent
+      link="keyboard" />
+    <child
+      link="0" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="dot">
+    <inertial>
+      <origin
+        xyz="-9.6407E-09 1.5647E-08 0.0091882"
+        rpy="0 0 0" />
+      <mass
+        value="0.0022422" />
+      <inertia
+        ixx="6.1716E-08"
+        ixy="-1.6877E-14"
+        ixz="1.2332E-13"
+        iyy="6.1716E-08"
+        iyz="-1.8504E-13"
+        izz="9.0929E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/dot.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/dot.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_dot"
+    type="prismatic">
+    <origin
+      xyz="0.40653 -0.1053 0"
+      rpy="0 0 0" />
+    <parent
+      link="keyboard" />
+    <child
+      link="dot" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="~">
+    <inertial>
+      <origin
+        xyz="-9.6407E-09 1.5647E-08 0.0091882"
+        rpy="0 0 0" />
+      <mass
+        value="0.0022422" />
+      <inertia
+        ixx="6.1716E-08"
+        ixy="-1.6877E-14"
+        ixz="1.2332E-13"
+        iyy="6.1716E-08"
+        iyz="-1.8504E-13"
+        izz="9.0929E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/~.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/~.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_~"
+    type="prismatic">
+    <origin
+      xyz="0.00025 -0.0293 0"
+      rpy="0 0 0" />
+    <parent
+      link="keyboard" />
+    <child
+      link="~" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="1!">
+    <inertial>
+      <origin
+        xyz="-9.6407E-09 1.5647E-08 0.0091882"
+        rpy="0 0 0" />
+      <mass
+        value="0.0022422" />
+      <inertia
+        ixx="6.1716E-08"
+        ixy="-1.6877E-14"
+        ixz="1.2332E-13"
+        iyy="6.1716E-08"
+        iyz="-1.8504E-13"
+        izz="9.0929E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/1!.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/1!.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_1!"
+    type="prismatic">
+    <origin
+      xyz="0.01905 -0.0293 0"
+      rpy="0 0 0" />
+    <parent
+      link="keyboard" />
+    <child
+      link="1!" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="2a">
+    <inertial>
+      <origin
+        xyz="-9.6407E-09 1.5647E-08 0.0091882"
+        rpy="0 0 0" />
+      <mass
+        value="0.0022422" />
+      <inertia
+        ixx="6.1716E-08"
+        ixy="-1.6877E-14"
+        ixz="1.2332E-13"
+        iyy="6.1716E-08"
+        iyz="-1.8504E-13"
+        izz="9.0929E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/2a.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/2a.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_2a"
+    type="prismatic">
+    <origin
+      xyz="0.03785 -0.0293 0"
+      rpy="0 0 0" />
+    <parent
+      link="keyboard" />
+    <child
+      link="2a" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="3#">
+    <inertial>
+      <origin
+        xyz="-9.6407E-09 1.5647E-08 0.0091882"
+        rpy="0 0 0" />
+      <mass
+        value="0.0022422" />
+      <inertia
+        ixx="6.1716E-08"
+        ixy="-1.6877E-14"
+        ixz="1.2332E-13"
+        iyy="6.1716E-08"
+        iyz="-1.8504E-13"
+        izz="9.0929E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/3#.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/3#.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_3#"
+    type="prismatic">
+    <origin
+      xyz="0.05665 -0.0293 0"
+      rpy="0 0 0" />
+    <parent
+      link="keyboard" />
+    <child
+      link="3#" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="4$">
+    <inertial>
+      <origin
+        xyz="-9.6407E-09 1.5647E-08 0.0091882"
+        rpy="0 0 0" />
+      <mass
+        value="0.0022422" />
+      <inertia
+        ixx="6.1716E-08"
+        ixy="-1.6877E-14"
+        ixz="1.2332E-13"
+        iyy="6.1716E-08"
+        iyz="-1.8504E-13"
+        izz="9.0929E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/4$.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/4$.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_4$"
+    type="prismatic">
+    <origin
+      xyz="0.07545 -0.0293 0"
+      rpy="0 0 0" />
+    <parent
+      link="keyboard" />
+    <child
+      link="4$" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="5%">
+    <inertial>
+      <origin
+        xyz="-9.6407E-09 1.5647E-08 0.0091882"
+        rpy="0 0 0" />
+      <mass
+        value="0.0022422" />
+      <inertia
+        ixx="6.1716E-08"
+        ixy="-1.6877E-14"
+        ixz="1.2332E-13"
+        iyy="6.1716E-08"
+        iyz="-1.8504E-13"
+        izz="9.0929E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/5%.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/5%.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_5%"
+    type="prismatic">
+    <origin
+      xyz="0.09425 -0.0293 0"
+      rpy="0 0 0" />
+    <parent
+      link="keyboard" />
+    <child
+      link="5%" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="6^">
+    <inertial>
+      <origin
+        xyz="-9.6407E-09 1.5647E-08 0.0091882"
+        rpy="0 0 0" />
+      <mass
+        value="0.0022422" />
+      <inertia
+        ixx="6.1716E-08"
+        ixy="-1.6877E-14"
+        ixz="1.2332E-13"
+        iyy="6.1716E-08"
+        iyz="-1.8504E-13"
+        izz="9.0929E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/6^.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/6^.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_6^"
+    type="prismatic">
+    <origin
+      xyz="0.11305 -0.0293 0"
+      rpy="0 0 0" />
+    <parent
+      link="keyboard" />
+    <child
+      link="6^" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="7&amp;">
+    <inertial>
+      <origin
+        xyz="-9.6407E-09 1.5647E-08 0.0091882"
+        rpy="0 0 0" />
+      <mass
+        value="0.0022422" />
+      <inertia
+        ixx="6.1716E-08"
+        ixy="-1.6877E-14"
+        ixz="1.2332E-13"
+        iyy="6.1716E-08"
+        iyz="-1.8504E-13"
+        izz="9.0929E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/7&amp;.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/7&amp;.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_7&amp;"
+    type="prismatic">
+    <origin
+      xyz="0.13185 -0.0293 0"
+      rpy="0 0 0" />
+    <parent
+      link="keyboard" />
+    <child
+      link="7&amp;" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="88">
+    <inertial>
+      <origin
+        xyz="-9.6407E-09 1.5647E-08 0.0091882"
+        rpy="0 0 0" />
+      <mass
+        value="0.0022422" />
+      <inertia
+        ixx="6.1716E-08"
+        ixy="-1.6877E-14"
+        ixz="1.2332E-13"
+        iyy="6.1716E-08"
+        iyz="-1.8504E-13"
+        izz="9.0929E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/88.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/88.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_88"
+    type="prismatic">
+    <origin
+      xyz="0.15065 -0.0293 0"
+      rpy="0 0 0" />
+    <parent
+      link="keyboard" />
+    <child
+      link="88" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="9(">
+    <inertial>
+      <origin
+        xyz="-9.6407E-09 1.5647E-08 0.0091882"
+        rpy="0 0 0" />
+      <mass
+        value="0.0022422" />
+      <inertia
+        ixx="6.1716E-08"
+        ixy="-1.6877E-14"
+        ixz="1.2332E-13"
+        iyy="6.1716E-08"
+        iyz="-1.8504E-13"
+        izz="9.0929E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/9(.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/9(.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_9("
+    type="prismatic">
+    <origin
+      xyz="0.16945 -0.0293 0"
+      rpy="0 0 0" />
+    <parent
+      link="keyboard" />
+    <child
+      link="9(" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="0)">
+    <inertial>
+      <origin
+        xyz="-9.6407E-09 1.5647E-08 0.0091882"
+        rpy="0 0 0" />
+      <mass
+        value="0.0022422" />
+      <inertia
+        ixx="6.1716E-08"
+        ixy="-1.6877E-14"
+        ixz="1.2332E-13"
+        iyy="6.1716E-08"
+        iyz="-1.8504E-13"
+        izz="9.0929E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/0).STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/0).STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_0)"
+    type="prismatic">
+    <origin
+      xyz="0.18825 -0.0293 0"
+      rpy="0 0 0" />
+    <parent
+      link="keyboard" />
+    <child
+      link="0)" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="-_">
+    <inertial>
+      <origin
+        xyz="-9.6407E-09 1.5647E-08 0.0091882"
+        rpy="0 0 0" />
+      <mass
+        value="0.0022422" />
+      <inertia
+        ixx="6.1716E-08"
+        ixy="-1.6877E-14"
+        ixz="1.2332E-13"
+        iyy="6.1716E-08"
+        iyz="-1.8504E-13"
+        izz="9.0929E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/-_.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/-_.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_-_"
+    type="prismatic">
+    <origin
+      xyz="0.20705 -0.0293 0"
+      rpy="0 0 0" />
+    <parent
+      link="keyboard" />
+    <child
+      link="-_" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="=+">
+    <inertial>
+      <origin
+        xyz="-9.6407E-09 1.5647E-08 0.0091882"
+        rpy="0 0 0" />
+      <mass
+        value="0.0022422" />
+      <inertia
+        ixx="6.1716E-08"
+        ixy="-1.6877E-14"
+        ixz="1.2332E-13"
+        iyy="6.1716E-08"
+        iyz="-1.8504E-13"
+        izz="9.0929E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/=+.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/=+.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_=+"
+    type="prismatic">
+    <origin
+      xyz="0.22585 -0.0293 0"
+      rpy="0 0 0" />
+    <parent
+      link="keyboard" />
+    <child
+      link="=+" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="backspace">
+    <inertial>
+      <origin
+        xyz="-1.2722E-07 -6.0355E-09 0.009338"
+        rpy="0 0 0" />
+      <mass
+        value="0.0050108" />
+      <inertia
+        ixx="1.386E-07"
+        ixy="7.5146E-13"
+        ixz="2.2483E-12"
+        iyy="5.3351E-07"
+        iyz="1.1864E-13"
+        izz="5.982E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/backspace.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/backspace.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_backspace"
+    type="prismatic">
+    <origin
+      xyz="0.25405 -0.0293 0"
+      rpy="0 0 0" />
+    <parent
+      link="keyboard" />
+    <child
+      link="backspace" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="tab">
+    <inertial>
+      <origin
+        xyz="1.9245E-08 6.4605E-09 0.0093002"
+        rpy="0 0 0" />
+      <mass
+        value="0.0037055" />
+      <inertia
+        ixx="1.0244E-07"
+        ixy="2.7839E-13"
+        ixz="-3.5482E-13"
+        iyy="2.2841E-07"
+        iyz="-9.7261E-14"
+        izz="2.7629E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/tab.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/tab.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_tab"
+    type="prismatic">
+    <origin
+      xyz="0.0052 -0.0483 0"
+      rpy="0 0 0" />
+    <parent
+      link="keyboard" />
+    <child
+      link="tab" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="q">
+    <inertial>
+      <origin
+        xyz="-9.6407E-09 1.5647E-08 0.0091882"
+        rpy="0 0 0" />
+      <mass
+        value="0.0022422" />
+      <inertia
+        ixx="6.1716E-08"
+        ixy="-1.6877E-14"
+        ixz="1.2332E-13"
+        iyy="6.1716E-08"
+        iyz="-1.8504E-13"
+        izz="9.0929E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/q.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/q.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_q"
+    type="prismatic">
+    <origin
+      xyz="0.02895 -0.0483 0"
+      rpy="0 0 0" />
+    <parent
+      link="keyboard" />
+    <child
+      link="q" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="w">
+    <inertial>
+      <origin
+        xyz="-9.6407E-09 1.5647E-08 0.0091882"
+        rpy="0 0 0" />
+      <mass
+        value="0.0022422" />
+      <inertia
+        ixx="6.1716E-08"
+        ixy="-1.6877E-14"
+        ixz="1.2332E-13"
+        iyy="6.1716E-08"
+        iyz="-1.8504E-13"
+        izz="9.0929E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/w.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/w.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_w"
+    type="prismatic">
+    <origin
+      xyz="0.04775 -0.0483 0"
+      rpy="0 0 0" />
+    <parent
+      link="keyboard" />
+    <child
+      link="w" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="e">
+    <inertial>
+      <origin
+        xyz="-9.6407E-09 1.5647E-08 0.0091882"
+        rpy="0 0 0" />
+      <mass
+        value="0.0022422" />
+      <inertia
+        ixx="6.1716E-08"
+        ixy="-1.6877E-14"
+        ixz="1.2332E-13"
+        iyy="6.1716E-08"
+        iyz="-1.8504E-13"
+        izz="9.0929E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/e.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/e.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_e"
+    type="prismatic">
+    <origin
+      xyz="0.06655 -0.0483 0"
+      rpy="0 0 0" />
+    <parent
+      link="keyboard" />
+    <child
+      link="e" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="r">
+    <inertial>
+      <origin
+        xyz="-9.6407E-09 1.5647E-08 0.0091882"
+        rpy="0 0 0" />
+      <mass
+        value="0.0022422" />
+      <inertia
+        ixx="6.1716E-08"
+        ixy="-1.6877E-14"
+        ixz="1.2332E-13"
+        iyy="6.1716E-08"
+        iyz="-1.8504E-13"
+        izz="9.0929E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/r.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/r.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_r"
+    type="prismatic">
+    <origin
+      xyz="0.08535 -0.0483 0"
+      rpy="0 0 0" />
+    <parent
+      link="keyboard" />
+    <child
+      link="r" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="t">
+    <inertial>
+      <origin
+        xyz="-9.6407E-09 1.5647E-08 0.0091882"
+        rpy="0 0 0" />
+      <mass
+        value="0.0022422" />
+      <inertia
+        ixx="6.1716E-08"
+        ixy="-1.6877E-14"
+        ixz="1.2332E-13"
+        iyy="6.1716E-08"
+        iyz="-1.8504E-13"
+        izz="9.0929E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/t.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/t.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_t"
+    type="prismatic">
+    <origin
+      xyz="0.10415 -0.0483 0"
+      rpy="0 0 0" />
+    <parent
+      link="keyboard" />
+    <child
+      link="t" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="y">
+    <inertial>
+      <origin
+        xyz="-9.6407E-09 1.5647E-08 0.0091882"
+        rpy="0 0 0" />
+      <mass
+        value="0.0022422" />
+      <inertia
+        ixx="6.1716E-08"
+        ixy="-1.6877E-14"
+        ixz="1.2332E-13"
+        iyy="6.1716E-08"
+        iyz="-1.8504E-13"
+        izz="9.0929E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/y.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/y.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_y"
+    type="prismatic">
+    <origin
+      xyz="0.12295 -0.0483 0"
+      rpy="0 0 0" />
+    <parent
+      link="keyboard" />
+    <child
+      link="y" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="u">
+    <inertial>
+      <origin
+        xyz="-9.6407E-09 1.5647E-08 0.0091882"
+        rpy="0 0 0" />
+      <mass
+        value="0.0022422" />
+      <inertia
+        ixx="6.1716E-08"
+        ixy="-1.6877E-14"
+        ixz="1.2332E-13"
+        iyy="6.1716E-08"
+        iyz="-1.8504E-13"
+        izz="9.0929E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/u.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/u.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_u"
+    type="prismatic">
+    <origin
+      xyz="0.14175 -0.0483 0"
+      rpy="0 0 0" />
+    <parent
+      link="keyboard" />
+    <child
+      link="u" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="i">
+    <inertial>
+      <origin
+        xyz="-9.6407E-09 1.5647E-08 0.0091882"
+        rpy="0 0 0" />
+      <mass
+        value="0.0022422" />
+      <inertia
+        ixx="6.1716E-08"
+        ixy="-1.6877E-14"
+        ixz="1.2332E-13"
+        iyy="6.1716E-08"
+        iyz="-1.8504E-13"
+        izz="9.0929E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/i.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/i.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_i"
+    type="prismatic">
+    <origin
+      xyz="0.16055 -0.0483 0"
+      rpy="0 0 0" />
+    <parent
+      link="keyboard" />
+    <child
+      link="i" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="o">
+    <inertial>
+      <origin
+        xyz="-9.6407E-09 1.5647E-08 0.0091882"
+        rpy="0 0 0" />
+      <mass
+        value="0.0022422" />
+      <inertia
+        ixx="6.1716E-08"
+        ixy="-1.6877E-14"
+        ixz="1.2332E-13"
+        iyy="6.1716E-08"
+        iyz="-1.8504E-13"
+        izz="9.0929E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/o.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/o.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_o"
+    type="prismatic">
+    <origin
+      xyz="0.17935 -0.0483 0"
+      rpy="0 0 0" />
+    <parent
+      link="keyboard" />
+    <child
+      link="o" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="p">
+    <inertial>
+      <origin
+        xyz="-9.6407E-09 1.5647E-08 0.0091882"
+        rpy="0 0 0" />
+      <mass
+        value="0.0022422" />
+      <inertia
+        ixx="6.1716E-08"
+        ixy="-1.6877E-14"
+        ixz="1.2332E-13"
+        iyy="6.1716E-08"
+        iyz="-1.8504E-13"
+        izz="9.0929E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/p.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/p.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_p"
+    type="prismatic">
+    <origin
+      xyz="0.19815 -0.0483 0"
+      rpy="0 0 0" />
+    <parent
+      link="keyboard" />
+    <child
+      link="p" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="[">
+    <inertial>
+      <origin
+        xyz="-9.6407E-09 1.5647E-08 0.0091882"
+        rpy="0 0 0" />
+      <mass
+        value="0.0022422" />
+      <inertia
+        ixx="6.1716E-08"
+        ixy="-1.6877E-14"
+        ixz="1.2332E-13"
+        iyy="6.1716E-08"
+        iyz="-1.8504E-13"
+        izz="9.0929E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/[.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/[.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_["
+    type="prismatic">
+    <origin
+      xyz="0.21695 -0.0483 0"
+      rpy="0 0 0" />
+    <parent
+      link="keyboard" />
+    <child
+      link="[" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="]">
+    <inertial>
+      <origin
+        xyz="-9.6407E-09 1.5647E-08 0.0091882"
+        rpy="0 0 0" />
+      <mass
+        value="0.0022422" />
+      <inertia
+        ixx="6.1716E-08"
+        ixy="-1.6877E-14"
+        ixz="1.2332E-13"
+        iyy="6.1716E-08"
+        iyz="-1.8504E-13"
+        izz="9.0929E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/].STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/].STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_]"
+    type="prismatic">
+    <origin
+      xyz="0.23575 -0.0483 0"
+      rpy="0 0 0" />
+    <parent
+      link="keyboard" />
+    <child
+      link="]" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="vertical">
+    <inertial>
+      <origin
+        xyz="3.1122E-07 2.0332E-07 0.0092937"
+        rpy="0 0 0" />
+      <mass
+        value="0.0035584" />
+      <inertia
+        ixx="9.8362E-08"
+        ixy="-2.1132E-13"
+        ixz="1.2556E-13"
+        iyy="2.0442E-07"
+        iyz="5.4016E-14"
+        izz="2.5041E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/vertical.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/vertical.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_vertical"
+    type="prismatic">
+    <origin
+      xyz="0.259 -0.0483 0"
+      rpy="0 0 0" />
+    <parent
+      link="keyboard" />
+    <child
+      link="vertical" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="capslock">
+    <inertial>
+      <origin
+        xyz="-1.2029E-07 7.9724E-09 0.0093244"
+        rpy="0 0 0" />
+      <mass
+        value="0.004439" />
+      <inertia
+        ixx="1.2276E-07"
+        ixy="3.9865E-13"
+        ixz="2.0399E-12"
+        iyy="3.7806E-07"
+        iyz="-2.0657E-13"
+        izz="4.3537E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/capslock.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/capslock.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_capslock"
+    type="prismatic">
+    <origin
+      xyz="0.0077 -0.0673 0"
+      rpy="0 0 0" />
+    <parent
+      link="keyboard" />
+    <child
+      link="capslock" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="a">
+    <inertial>
+      <origin
+        xyz="-9.6407E-09 1.5647E-08 0.0091882"
+        rpy="0 0 0" />
+      <mass
+        value="0.0022422" />
+      <inertia
+        ixx="6.1716E-08"
+        ixy="-1.6877E-14"
+        ixz="1.2332E-13"
+        iyy="6.1716E-08"
+        iyz="-1.8504E-13"
+        izz="9.0929E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/a.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/a.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_a"
+    type="prismatic">
+    <origin
+      xyz="0.03395 -0.0673 0"
+      rpy="0 0 0" />
+    <parent
+      link="keyboard" />
+    <child
+      link="a" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="s">
+    <inertial>
+      <origin
+        xyz="-9.6407E-09 1.5647E-08 0.0091882"
+        rpy="0 0 0" />
+      <mass
+        value="0.0022422" />
+      <inertia
+        ixx="6.1716E-08"
+        ixy="-1.6877E-14"
+        ixz="1.2332E-13"
+        iyy="6.1716E-08"
+        iyz="-1.8504E-13"
+        izz="9.0929E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/s.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/s.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_s"
+    type="prismatic">
+    <origin
+      xyz="0.05275 -0.0673 0"
+      rpy="0 0 0" />
+    <parent
+      link="keyboard" />
+    <child
+      link="s" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="d">
+    <inertial>
+      <origin
+        xyz="-9.6407E-09 1.5647E-08 0.0091882"
+        rpy="0 0 0" />
+      <mass
+        value="0.0022422" />
+      <inertia
+        ixx="6.1716E-08"
+        ixy="-1.6877E-14"
+        ixz="1.2332E-13"
+        iyy="6.1716E-08"
+        iyz="-1.8504E-13"
+        izz="9.0929E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/d.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/d.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_d"
+    type="prismatic">
+    <origin
+      xyz="0.07155 -0.0673 0"
+      rpy="0 0 0" />
+    <parent
+      link="keyboard" />
+    <child
+      link="d" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="f">
+    <inertial>
+      <origin
+        xyz="-9.6407E-09 1.5647E-08 0.0091882"
+        rpy="0 0 0" />
+      <mass
+        value="0.0022422" />
+      <inertia
+        ixx="6.1716E-08"
+        ixy="-1.6877E-14"
+        ixz="1.2332E-13"
+        iyy="6.1716E-08"
+        iyz="-1.8504E-13"
+        izz="9.0929E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/f.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/f.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_f"
+    type="prismatic">
+    <origin
+      xyz="0.09035 -0.0673 0"
+      rpy="0 0 0" />
+    <parent
+      link="keyboard" />
+    <child
+      link="f" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="g">
+    <inertial>
+      <origin
+        xyz="-9.6407E-09 1.5647E-08 0.0091882"
+        rpy="0 0 0" />
+      <mass
+        value="0.0022422" />
+      <inertia
+        ixx="6.1716E-08"
+        ixy="-1.6877E-14"
+        ixz="1.2332E-13"
+        iyy="6.1716E-08"
+        iyz="-1.8504E-13"
+        izz="9.0929E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/g.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/g.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_g"
+    type="prismatic">
+    <origin
+      xyz="0.10915 -0.0673 0"
+      rpy="0 0 0" />
+    <parent
+      link="keyboard" />
+    <child
+      link="g" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="h">
+    <inertial>
+      <origin
+        xyz="-9.6407E-09 1.5647E-08 0.0091882"
+        rpy="0 0 0" />
+      <mass
+        value="0.0022422" />
+      <inertia
+        ixx="6.1716E-08"
+        ixy="-1.6877E-14"
+        ixz="1.2332E-13"
+        iyy="6.1716E-08"
+        iyz="-1.8504E-13"
+        izz="9.0929E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/h.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/h.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_h"
+    type="prismatic">
+    <origin
+      xyz="0.12795 -0.0673 0"
+      rpy="0 0 0" />
+    <parent
+      link="keyboard" />
+    <child
+      link="h" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="j">
+    <inertial>
+      <origin
+        xyz="-9.6407E-09 1.5647E-08 0.0091882"
+        rpy="0 0 0" />
+      <mass
+        value="0.0022422" />
+      <inertia
+        ixx="6.1716E-08"
+        ixy="-1.6877E-14"
+        ixz="1.2332E-13"
+        iyy="6.1716E-08"
+        iyz="-1.8504E-13"
+        izz="9.0929E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/j.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/j.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_j"
+    type="prismatic">
+    <origin
+      xyz="0.14675 -0.0673 0"
+      rpy="0 0 0" />
+    <parent
+      link="keyboard" />
+    <child
+      link="j" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="k">
+    <inertial>
+      <origin
+        xyz="-9.6407E-09 1.5647E-08 0.0091882"
+        rpy="0 0 0" />
+      <mass
+        value="0.0022422" />
+      <inertia
+        ixx="6.1716E-08"
+        ixy="-1.6877E-14"
+        ixz="1.2332E-13"
+        iyy="6.1716E-08"
+        iyz="-1.8504E-13"
+        izz="9.0929E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/k.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/k.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_k"
+    type="prismatic">
+    <origin
+      xyz="0.16555 -0.0673 0"
+      rpy="0 0 0" />
+    <parent
+      link="keyboard" />
+    <child
+      link="k" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="l">
+    <inertial>
+      <origin
+        xyz="-9.6407E-09 1.5647E-08 0.0091882"
+        rpy="0 0 0" />
+      <mass
+        value="0.0022422" />
+      <inertia
+        ixx="6.1716E-08"
+        ixy="-1.6877E-14"
+        ixz="1.2332E-13"
+        iyy="6.1716E-08"
+        iyz="-1.8504E-13"
+        izz="9.0929E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/l.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/l.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_l"
+    type="prismatic">
+    <origin
+      xyz="0.18435 -0.0673 0"
+      rpy="0 0 0" />
+    <parent
+      link="keyboard" />
+    <child
+      link="l" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name=";">
+    <inertial>
+      <origin
+        xyz="-9.6407E-09 1.5647E-08 0.0091882"
+        rpy="0 0 0" />
+      <mass
+        value="0.0022422" />
+      <inertia
+        ixx="6.1716E-08"
+        ixy="-1.6877E-14"
+        ixz="1.2332E-13"
+        iyy="6.1716E-08"
+        iyz="-1.8504E-13"
+        izz="9.0929E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/;.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/;.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_;"
+    type="prismatic">
+    <origin
+      xyz="0.20315 -0.0673 0"
+      rpy="0 0 0" />
+    <parent
+      link="keyboard" />
+    <child
+      link=";" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="'">
+    <inertial>
+      <origin
+        xyz="-9.6407E-09 1.5647E-08 0.0091882"
+        rpy="0 0 0" />
+      <mass
+        value="0.0022422" />
+      <inertia
+        ixx="6.1716E-08"
+        ixy="-1.6877E-14"
+        ixz="1.2332E-13"
+        iyy="6.1716E-08"
+        iyz="-1.8504E-13"
+        izz="9.0929E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/'.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/'.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_'"
+    type="prismatic">
+    <origin
+      xyz="0.22195 -0.0673 0"
+      rpy="0 0 0" />
+    <parent
+      link="keyboard" />
+    <child
+      link="'" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="enter_left">
+    <inertial>
+      <origin
+        xyz="1.2718E-07 1.0913E-07 0.0093486"
+        rpy="0 0 0" />
+      <mass
+        value="0.0055825" />
+      <inertia
+        ixx="1.5442E-07"
+        ixy="-1.7E-13"
+        ixz="2.9466E-12"
+        iyy="7.2777E-07"
+        iyz="7.8369E-14"
+        izz="7.9983E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/enter_left.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/enter_left.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_enter_left"
+    type="prismatic">
+    <origin
+      xyz="0.2521 -0.0673 0"
+      rpy="0 0 0" />
+    <parent
+      link="keyboard" />
+    <child
+      link="enter_left" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="shift_left">
+    <inertial>
+      <origin
+        xyz="-2.8766E-07 1.2806E-07 0.0093535"
+        rpy="0 0 0" />
+      <mass
+        value="0.0058902" />
+      <inertia
+        ixx="1.6294E-07"
+        ixy="1.336E-12"
+        ixz="-3.8351E-13"
+        iyy="8.5001E-07"
+        iyz="-2.2666E-14"
+        izz="9.2604E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/shift_left.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/shift_left.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_shift_left"
+    type="prismatic">
+    <origin
+      xyz="0.01265 -0.0863 0"
+      rpy="0 0 0" />
+    <parent
+      link="keyboard" />
+    <child
+      link="shift_left" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="z">
+    <inertial>
+      <origin
+        xyz="-9.6407E-09 1.5647E-08 0.0091882"
+        rpy="0 0 0" />
+      <mass
+        value="0.0022422" />
+      <inertia
+        ixx="6.1716E-08"
+        ixy="-1.6877E-14"
+        ixz="1.2332E-13"
+        iyy="6.1716E-08"
+        iyz="-1.8504E-13"
+        izz="9.0929E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/z.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/z.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_z"
+    type="prismatic">
+    <origin
+      xyz="0.04385 -0.0863 0"
+      rpy="0 0 0" />
+    <parent
+      link="keyboard" />
+    <child
+      link="z" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="x">
+    <inertial>
+      <origin
+        xyz="-9.6407E-09 1.5647E-08 0.0091882"
+        rpy="0 0 0" />
+      <mass
+        value="0.0022422" />
+      <inertia
+        ixx="6.1716E-08"
+        ixy="-1.6877E-14"
+        ixz="1.2332E-13"
+        iyy="6.1716E-08"
+        iyz="-1.8504E-13"
+        izz="9.0929E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/x.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/x.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_x"
+    type="prismatic">
+    <origin
+      xyz="0.06265 -0.0863 0"
+      rpy="0 0 0" />
+    <parent
+      link="keyboard" />
+    <child
+      link="x" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="c">
+    <inertial>
+      <origin
+        xyz="-9.6407E-09 1.5647E-08 0.0091882"
+        rpy="0 0 0" />
+      <mass
+        value="0.0022422" />
+      <inertia
+        ixx="6.1716E-08"
+        ixy="-1.6877E-14"
+        ixz="1.2332E-13"
+        iyy="6.1716E-08"
+        iyz="-1.8504E-13"
+        izz="9.0929E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/c.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/c.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_c"
+    type="prismatic">
+    <origin
+      xyz="0.08145 -0.0863 0"
+      rpy="0 0 0" />
+    <parent
+      link="keyboard" />
+    <child
+      link="c" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="v">
+    <inertial>
+      <origin
+        xyz="-9.6407E-09 1.5647E-08 0.0091882"
+        rpy="0 0 0" />
+      <mass
+        value="0.0022422" />
+      <inertia
+        ixx="6.1716E-08"
+        ixy="-1.6877E-14"
+        ixz="1.2332E-13"
+        iyy="6.1716E-08"
+        iyz="-1.8504E-13"
+        izz="9.0929E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/v.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/v.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_v"
+    type="prismatic">
+    <origin
+      xyz="0.10025 -0.0863 0"
+      rpy="0 0 0" />
+    <parent
+      link="keyboard" />
+    <child
+      link="v" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="b">
+    <inertial>
+      <origin
+        xyz="-9.6407E-09 1.5647E-08 0.0091882"
+        rpy="0 0 0" />
+      <mass
+        value="0.0022422" />
+      <inertia
+        ixx="6.1716E-08"
+        ixy="-1.6877E-14"
+        ixz="1.2332E-13"
+        iyy="6.1716E-08"
+        iyz="-1.8504E-13"
+        izz="9.0929E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/b.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/b.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_b"
+    type="prismatic">
+    <origin
+      xyz="0.11905 -0.0863 0"
+      rpy="0 0 0" />
+    <parent
+      link="keyboard" />
+    <child
+      link="b" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="n">
+    <inertial>
+      <origin
+        xyz="-9.6407E-09 1.5647E-08 0.0091882"
+        rpy="0 0 0" />
+      <mass
+        value="0.0022422" />
+      <inertia
+        ixx="6.1716E-08"
+        ixy="-1.6877E-14"
+        ixz="1.2332E-13"
+        iyy="6.1716E-08"
+        iyz="-1.8504E-13"
+        izz="9.0929E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/n.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/n.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_n"
+    type="prismatic">
+    <origin
+      xyz="0.13785 -0.0863 0"
+      rpy="0 0 0" />
+    <parent
+      link="keyboard" />
+    <child
+      link="n" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="m">
+    <inertial>
+      <origin
+        xyz="-9.6407E-09 1.5647E-08 0.0091882"
+        rpy="0 0 0" />
+      <mass
+        value="0.0022422" />
+      <inertia
+        ixx="6.1716E-08"
+        ixy="-1.6877E-14"
+        ixz="1.2332E-13"
+        iyy="6.1716E-08"
+        iyz="-1.8504E-13"
+        izz="9.0929E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/m.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/m.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_m"
+    type="prismatic">
+    <origin
+      xyz="0.15665 -0.0863 0"
+      rpy="0 0 0" />
+    <parent
+      link="keyboard" />
+    <child
+      link="m" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="comma">
+    <inertial>
+      <origin
+        xyz="-9.6407E-09 1.5647E-08 0.0091882"
+        rpy="0 0 0" />
+      <mass
+        value="0.0022422" />
+      <inertia
+        ixx="6.1716E-08"
+        ixy="-1.6877E-14"
+        ixz="1.2332E-13"
+        iyy="6.1716E-08"
+        iyz="-1.8504E-13"
+        izz="9.0929E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/comma.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/comma.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_comma"
+    type="prismatic">
+    <origin
+      xyz="0.17545 -0.0863 0"
+      rpy="0 0 0" />
+    <parent
+      link="keyboard" />
+    <child
+      link="comma" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="point">
+    <inertial>
+      <origin
+        xyz="-9.6407E-09 1.5647E-08 0.0091882"
+        rpy="0 0 0" />
+      <mass
+        value="0.0022422" />
+      <inertia
+        ixx="6.1716E-08"
+        ixy="-1.6877E-14"
+        ixz="1.2332E-13"
+        iyy="6.1716E-08"
+        iyz="-1.8504E-13"
+        izz="9.0929E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/point.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/point.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_point"
+    type="prismatic">
+    <origin
+      xyz="0.19425 -0.0863 0"
+      rpy="0 0 0" />
+    <parent
+      link="keyboard" />
+    <child
+      link="point" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="question_mark">
+    <inertial>
+      <origin
+        xyz="-9.6407E-09 1.5647E-08 0.0091882"
+        rpy="0 0 0" />
+      <mass
+        value="0.0022422" />
+      <inertia
+        ixx="6.1716E-08"
+        ixy="-1.6877E-14"
+        ixz="1.2332E-13"
+        iyy="6.1716E-08"
+        iyz="-1.8504E-13"
+        izz="9.0929E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/question_mark.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/question_mark.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_question_mark"
+    type="prismatic">
+    <origin
+      xyz="0.21305 -0.0863 0"
+      rpy="0 0 0" />
+    <parent
+      link="keyboard" />
+    <child
+      link="question_mark" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="shift_right">
+    <inertial>
+      <origin
+        xyz="-3.4682E-07 -1.0717E-07 0.0093636"
+        rpy="0 0 0" />
+      <mass
+        value="0.0068828" />
+      <inertia
+        ixx="1.9044E-07"
+        ixy="-8.5774E-13"
+        ixz="5.6128E-13"
+        iyy="1.3403E-06"
+        iyz="-1.1969E-13"
+        izz="1.4293E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/shift_right.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/shift_right.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_shift_right"
+    type="prismatic">
+    <origin
+      xyz="0.24765 -0.0863 0"
+      rpy="0 0 0" />
+    <parent
+      link="keyboard" />
+    <child
+      link="shift_right" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="ctrl_left">
+    <inertial>
+      <origin
+        xyz="-5.7602E-05 -4.0521E-05 0.0093109"
+        rpy="0 0 0" />
+      <mass
+        value="0.0036078" />
+      <inertia
+        ixx="9.7654E-08"
+        ixy="7.0951E-09"
+        ixz="3.8406E-10"
+        iyy="2.147E-07"
+        iyz="2.264E-10"
+        izz="2.5905E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/ctrl_left.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/ctrl_left.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_ctrl_left"
+    type="prismatic">
+    <origin
+      xyz="0.005581 -0.10468 0"
+      rpy="0 0 0" />
+    <parent
+      link="keyboard" />
+    <child
+      link="ctrl_left" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="win_left">
+    <inertial>
+      <origin
+        xyz="-1.4865E-05 2.2128E-06 0.0095848"
+        rpy="0 0 0" />
+      <mass
+        value="0.0049928" />
+      <inertia
+        ixx="2.9156E-07"
+        ixy="3.3115E-08"
+        ixz="1.3476E-10"
+        iyy="2.155E-07"
+        iyz="-3.898E-11"
+        izz="4.2516E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/win_left.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/win_left.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_win_left"
+    type="prismatic">
+    <origin
+      xyz="0.032611 -0.10915 0"
+      rpy="0 0 0" />
+    <parent
+      link="keyboard" />
+    <child
+      link="win_left" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="alt_left">
+    <inertial>
+      <origin
+        xyz="-7.3552E-16 3.747E-15 0.009565"
+        rpy="0 0 0" />
+      <mass
+        value="0.0046238" />
+      <inertia
+        ixx="2.8458E-07"
+        ixy="-3.2243E-14"
+        ixz="3.7353E-21"
+        iyy="1.6619E-07"
+        iyz="-8.9479E-21"
+        izz="3.7506E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/alt_left.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/alt_left.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_alt_left"
+    type="prismatic">
+    <origin
+      xyz="0.0552 -0.10985 0"
+      rpy="0 0 0" />
+    <parent
+      link="keyboard" />
+    <child
+      link="alt_left" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="space">
+    <inertial>
+      <origin
+        xyz="6.8687E-09 4.5966E-10 0.0094969"
+        rpy="0 0 0" />
+      <mass
+        value="0.025479" />
+      <inertia
+        ixx="1.5865E-06"
+        ixy="2.4078E-12"
+        ixz="1.7144E-14"
+        iyy="2.4288E-05"
+        iyz="-4.6528E-14"
+        izz="2.5498E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/space.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/space.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_space"
+    type="prismatic">
+    <origin
+      xyz="0.12045 -0.10985 0"
+      rpy="0 0 0" />
+    <parent
+      link="keyboard" />
+    <child
+      link="space" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="alt_right">
+    <inertial>
+      <origin
+        xyz="3.7317E-09 -2.731E-09 0.0093524"
+        rpy="0 0 0" />
+      <mass
+        value="0.0046912" />
+      <inertia
+        ixx="2.9143E-07"
+        ixy="-8.0147E-13"
+        ixz="-1.2483E-13"
+        iyy="1.849E-07"
+        iyz="2.0583E-13"
+        izz="4.0699E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/alt_right.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/alt_right.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_alt_right"
+    type="prismatic">
+    <origin
+      xyz="0.18625 -0.10985 0"
+      rpy="0 0 0" />
+    <parent
+      link="keyboard" />
+    <child
+      link="alt_right" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="win_right">
+    <inertial>
+      <origin
+        xyz="-1.0753E-08 1.9158E-08 0.0093701"
+        rpy="0 0 0" />
+      <mass
+        value="0.0051759" />
+      <inertia
+        ixx="3.2162E-07"
+        ixy="-7.9408E-13"
+        ixz="3.0683E-13"
+        iyy="2.3973E-07"
+        iyz="-5.1609E-13"
+        izz="4.8479E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/win_right.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/win_right.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_win_right"
+    type="prismatic">
+    <origin
+      xyz="0.21005 -0.10984 0"
+      rpy="0 0 0" />
+    <parent
+      link="keyboard" />
+    <child
+      link="win_right" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="3---">
+    <inertial>
+      <origin
+        xyz="4.6206E-05 -2.3745E-05 0.0094251"
+        rpy="0 0 0" />
+      <mass
+        value="0.0065986" />
+      <inertia
+        ixx="3.9965E-07"
+        ixy="-2.9751E-08"
+        ixz="-1.1066E-09"
+        iyy="4.7113E-07"
+        iyz="4.3823E-10"
+        izz="7.7226E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/3---.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/3---.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_3---"
+    type="prismatic">
+    <origin
+      xyz="0.23782 -0.10953 0"
+      rpy="0 0 0" />
+    <parent
+      link="keyboard" />
+    <child
+      link="3---" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="ctrl_rigth">
+    <inertial>
+      <origin
+        xyz="-9.6407E-09 1.5647E-08 0.0091882"
+        rpy="0 0 0" />
+      <mass
+        value="0.0022422" />
+      <inertia
+        ixx="6.1716E-08"
+        ixy="-1.6877E-14"
+        ixz="1.2332E-13"
+        iyy="6.1716E-08"
+        iyz="-1.8504E-13"
+        izz="9.0929E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/ctrl_rigth.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dellkeyboard4/meshes/ctrl_rigth.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_ctrl_rigth"
+    type="prismatic">
+    <origin
+      xyz="0.2634 -0.10485 0"
+      rpy="0 0 0" />
+    <parent
+      link="keyboard" />
+    <child
+      link="ctrl_rigth" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+</robot>

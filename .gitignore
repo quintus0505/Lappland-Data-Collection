@@ -1,1 +1,4 @@
 .idea/
+collect_primitives/multiple_traj/*
+collect_primitives/*.pickle
+

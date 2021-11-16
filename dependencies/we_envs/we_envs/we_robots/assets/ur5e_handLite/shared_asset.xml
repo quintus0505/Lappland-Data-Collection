@@ -1,0 +1,159 @@
+<!-- See LICENSE.md for legal notices. LICENSE.md must be kept together with this file. -->
+<mujoco>
+    <!-- <texture type="skybox" builtin="gradient" rgb1="0.44 0.85 0.56" rgb2="0.46 0.87 0.58" width="32" height="32"></texture> -->
+    <texture type="skybox" builtin="gradient" width="128" height="128" rgb1=".4 .6 .8" rgb2="0 0 0"/> 
+    <texture name="robot0:texplane" type="2d" builtin="checker" rgb1="0.2 0.3 0.4" rgb2="0.1 0.15 0.2" width="512" height="512"></texture>
+    <!-- <texture name="robot0:texgeom" type="cube" builtin="flat" mark="cross" width="127" height="127" rgb1="0.3 0.6 0.5" rgb2="0.3 0.6 0.5" markrgb="0 0 0" random="0.01"></texture> -->
+
+    <texture name="robot0:texgeom" type="cube" builtin="flat" mark="cross" width="127" height="127" rgb1="0.8 0.6 0.4" rgb2="0.8 0.6 0.4" markrgb="1 1 1" random="0.01"/>  
+    <texture name="texplane" type="2d" builtin="checker" rgb1=".2 .3 .4" rgb2=".1 0.15 0.2" width="512" height="512"/>
+
+    <material name="robot0:MatGnd" reflectance="0.5" texture="robot0:texplane" texrepeat="1 1" texuniform="true"></material>
+    <material name="robot0:MatColl" specular="1" shininess="0.3" reflectance="0.5" rgba="0.4 0.5 0.6 1"></material>
+    <material name="robot0:MatViz" specular="0.75" shininess="0.1" reflectance="0.5" rgba="0.93 0.93 0.93 1"></material>
+    <material name="robot0:object" texture="robot0:texgeom" texuniform="false"></material>
+    <material name="floor_mat" specular="0" shininess="0.5" reflectance="0" rgba="0.2 0.2 0.2 0"></material>
+    <material name='mat_plane' reflectance='0.3' texture="texplane" texrepeat="1 1" texuniform="true"/>
+
+    <material name="metal" reflectance="1.0" rgba="0.6 0.6 0.6 1.0" shininess="0.5" specular="1.0"/>
+    <material name="plastic" rgba="0.2 0.2 0.2 1.0" shininess="0.5"/>
+    <material name="rubber" rgba="0.3 0.3 0.3 1.0" shininess="0.0"/>
+
+    <mesh name="robot0:forearm_lite" file="forearm_lite.stl"></mesh>
+    <mesh name="robot0:forearm_cvx" file="forearm_electric_cvx.stl"></mesh>
+    <mesh name="robot0:wrist" scale="0.001 0.001 0.001" file="wrist.stl"></mesh>
+    <mesh name="robot0:palm" scale="0.001 0.001 0.001" file="palm.stl"></mesh>
+    <mesh name="robot0:knuckle" scale="0.001 0.001 0.001" file="knuckle.stl"></mesh>
+    <mesh name="robot0:F3" scale="0.001 0.001 0.001" file="F3.stl"></mesh>
+    <mesh name="robot0:F2" scale="0.001 0.001 0.001" file="F2.stl"></mesh>
+    <mesh name="robot0:F1" scale="0.001 0.001 0.001" file="F1.stl"></mesh>
+    <mesh name="robot0:lfmetacarpal" scale="0.001 0.001 0.001" file="lfmetacarpal.stl"></mesh>
+    <mesh name="robot0:TH3_z" scale="0.001 0.001 0.001" file="TH3_z.stl"></mesh>
+    <mesh name="robot0:TH2_z" scale="0.001 0.001 0.001" file="TH2_z.stl"></mesh>
+    <mesh name="robot0:TH1_z" scale="0.001 0.001 0.001" file="TH1_z.stl"></mesh>
+
+     <mesh name="base" file="base.stl" />
+        <mesh name="shoulder" file="shoulder.stl" />
+        <mesh name="upperarm" file="upperarm.stl" />
+        <mesh name="forearm" file="forearm.stl" />
+        <mesh name="wrist1" file="wrist1.stl" />
+        <mesh name="wrist2" file="wrist2.stl" />
+        <mesh name="wrist3" file="wrist3.stl" />
+
+    <!--<mesh name="base_keyboard" file="base_keyboard.STL" />-->
+    <!--<mesh name="esc" file="esc.STL" />-->
+
+        <!-- <mesh name="base_keyboard" file="dellkeyboard/keyboard.STL" /> -->
+        <!-- <mesh name="esc" file="dellkeyboard/esc.STL" /> -->
+        <!-- <mesh name="f1" file="dellkeyboard/f1.STL" /> -->
+         <mesh name="keyboard" file="dellkeyboard/keyboard.STL" />
+        <mesh name="esc" file="dellkeyboard/esc.STL" />
+        <mesh name="f1" file="dellkeyboard/f1.STL" />
+        <mesh name="f2" file="dellkeyboard/f2.STL" />
+        <mesh name="f3" file="dellkeyboard/f3.STL" />
+        <mesh name="f4" file="dellkeyboard/f4.STL" />
+        <mesh name="f5" file="dellkeyboard/f5.STL" />
+        <mesh name="f6" file="dellkeyboard/f6.STL" />
+        <mesh name="f7" file="dellkeyboard/f7.STL" />
+        <mesh name="f8" file="dellkeyboard/f8.STL" />
+        <mesh name="f9" file="dellkeyboard/f9.STL" />
+        <mesh name="f10" file="dellkeyboard/f10.STL" />
+        <mesh name="f11" file="dellkeyboard/f11.STL" />
+        <mesh name="f12" file="dellkeyboard/f12.STL" />
+        <mesh name="print_screen" file="dellkeyboard/print_screen.STL" />
+        <mesh name="scroll_lock" file="dellkeyboard/scroll_lock.STL" />
+        <mesh name="pause_break" file="dellkeyboard/pause_break.STL" />
+        <mesh name="insert" file="dellkeyboard/insert.STL" />
+        <mesh name="home" file="dellkeyboard/home.STL" />
+        <mesh name="pageup" file="dellkeyboard/pageup.STL" />
+        <mesh name="delete" file="dellkeyboard/delete.STL" />
+        <mesh name="end" file="dellkeyboard/end.STL" />
+        <mesh name="pagedown" file="dellkeyboard/pagedown.STL" />
+        <mesh name="up" file="dellkeyboard/up.STL" />
+        <mesh name="left" file="dellkeyboard/left.STL" />
+        <mesh name="down" file="dellkeyboard/down.STL" />
+        <mesh name="right" file="dellkeyboard/right.STL" />
+        <mesh name="numlock" file="dellkeyboard/numlock.STL" />
+        <mesh name="divide" file="dellkeyboard/divide.STL" />
+        <mesh name="multiply" file="dellkeyboard/multiply.STL" />
+        <mesh name="subtract" file="dellkeyboard/subtract.STL" />
+        <mesh name="7" file="dellkeyboard/7.STL" />
+        <mesh name="8" file="dellkeyboard/8.STL" />
+        <mesh name="9" file="dellkeyboard/9.STL" />
+        <mesh name="add" file="dellkeyboard/add.STL" />
+        <mesh name="4" file="dellkeyboard/4.STL" />
+        <mesh name="5" file="dellkeyboard/5.STL" />
+        <mesh name="6" file="dellkeyboard/6.STL" />
+        <mesh name="1" file="dellkeyboard/1.STL" />
+        <mesh name="2" file="dellkeyboard/2.STL" />
+        <mesh name="3" file="dellkeyboard/3.STL" />
+        <mesh name="enter_right" file="dellkeyboard/enter_right.STL" />
+        <mesh name="0" file="dellkeyboard/0.STL" />
+        <mesh name="dot" file="dellkeyboard/dot.STL" />
+        <mesh name="~" file="dellkeyboard/~.STL" />
+        <mesh name="1!" file="dellkeyboard/1!.STL" />
+        <mesh name="2a" file="dellkeyboard/2a.STL" />
+        <mesh name="3#" file="dellkeyboard/3#.STL" />
+        <mesh name="4$" file="dellkeyboard/4$.STL" />
+        <mesh name="5%" file="dellkeyboard/5%.STL" />
+        <mesh name="6^" file="dellkeyboard/6^.STL" />
+        <mesh name="7&amp;" file="dellkeyboard/7&amp;.STL" />
+        <mesh name="88" file="dellkeyboard/88.STL" />
+        <mesh name="9(" file="dellkeyboard/9(.STL" />
+        <mesh name="0)" file="dellkeyboard/0).STL" />
+        <mesh name="-_" file="dellkeyboard/-_.STL" />
+        <mesh name="=+" file="dellkeyboard/=+.STL" />
+        <mesh name="backspace" file="dellkeyboard/backspace.STL" />
+        <mesh name="tab" file="dellkeyboard/tab.STL" />
+        <mesh name="q" file="dellkeyboard/q.STL" />
+        <mesh name="w" file="dellkeyboard/w.STL" />
+        <mesh name="e" file="dellkeyboard/e.STL" />
+        <mesh name="r" file="dellkeyboard/r.STL" />
+        <mesh name="t" file="dellkeyboard/t.STL" />
+        <mesh name="y" file="dellkeyboard/y.STL" />
+        <mesh name="u" file="dellkeyboard/u.STL" />
+        <mesh name="i" file="dellkeyboard/i.STL" />
+        <mesh name="o" file="dellkeyboard/o.STL" />
+        <mesh name="p" file="dellkeyboard/p.STL" />
+        <mesh name="[" file="dellkeyboard/[.STL" />
+        <mesh name="]" file="dellkeyboard/].STL" />
+        <mesh name="vertical" file="dellkeyboard/vertical.STL" />
+        <mesh name="capslock" file="dellkeyboard/capslock.STL" />
+        <mesh name="a" file="dellkeyboard/a.STL" />
+        <mesh name="s" file="dellkeyboard/s.STL" />
+        <mesh name="d" file="dellkeyboard/d.STL" />
+        <mesh name="f" file="dellkeyboard/f.STL" />
+        <mesh name="g" file="dellkeyboard/g.STL" />
+        <mesh name="h" file="dellkeyboard/h.STL" />
+        <mesh name="j" file="dellkeyboard/j.STL" />
+        <mesh name="k" file="dellkeyboard/k.STL" />
+        <mesh name="l" file="dellkeyboard/l.STL" />
+        <mesh name=";" file="dellkeyboard/;.STL" />
+        <mesh name="&apos;" file="dellkeyboard/&apos;.STL" />
+        <mesh name="enter_left" file="dellkeyboard/enter_left.STL" />
+        <mesh name="shift_left" file="dellkeyboard/shift_left.STL" />
+        <mesh name="z" file="dellkeyboard/z.STL" />
+        <mesh name="x" file="dellkeyboard/x.STL" />
+        <mesh name="c" file="dellkeyboard/c.STL" />
+        <mesh name="v" file="dellkeyboard/v.STL" />
+        <mesh name="b" file="dellkeyboard/b.STL" />
+        <mesh name="n" file="dellkeyboard/n.STL" />
+        <mesh name="m" file="dellkeyboard/m.STL" />
+        <mesh name="comma" file="dellkeyboard/comma.STL" />
+        <mesh name="point" file="dellkeyboard/point.STL" />
+        <mesh name="question_mark" file="dellkeyboard/question_mark.STL" />
+        <mesh name="shift_right" file="dellkeyboard/shift_right.STL" />
+        <mesh name="ctrl_left" file="dellkeyboard/ctrl_left.STL" />
+        <mesh name="win_left" file="dellkeyboard/win_left.STL" />
+        <mesh name="alt_left" file="dellkeyboard/alt_left.STL" />
+        <mesh name="space" file="dellkeyboard/space.STL" />
+        <mesh name="alt_right" file="dellkeyboard/alt_right.STL" />
+        <mesh name="win_right" file="dellkeyboard/win_right.STL" />
+        <mesh name="3---" file="dellkeyboard/3---.STL" />
+        <mesh name="ctrl_rigth" file="dellkeyboard/ctrl_rigth.STL" />
+
+        <material name="RobMat" specular="0.9" shininess="0.5" reflectance="0" rgba="0.7 0.7 0.7 1" emission="0.1" />
+        <material name="GriMat" specular="0.9" shininess="0.5" reflectance="0" rgba="0.1 0.1 0.1 1" emission="0.1" />
+        <material name="BasketMat" specular="0" shininess="0" reflectance="0" rgba="0.26 0.16 0.16796875 1" emission="0" />
+        <material name="Light" specular="0" shininess="0.6" reflectance="0.9" rgba="0.5 0.5 1 1" emission="0.7" />
+</mujoco>

@@ -1,0 +1,74 @@
+<mujoco>
+	<body mocap="true" name="robot0:mocap" pos="0 0 0.8">
+<!--		<geom conaffinity="0" contype="0" pos="0 0 0" rgba="0 0.5 0 0.7" size="0.005 0.005 0.005" type="box"></geom>-->
+<!--		<geom conaffinity="0" contype="0" pos="0 0 0" rgba="0 0.5 0 0.1" size="1 0.005 0.005" type="box"></geom>-->
+<!--		<geom conaffinity="0" contype="0" pos="0 0 0" rgba="0 0.5 0 0.1" size="0.005 1 0.001" type="box"></geom>-->
+<!--		<geom conaffinity="0" contype="0" pos="0 0 0" rgba="0 0.5 0 0.1" size="0.005 0.005 1" type="box"></geom>-->
+	</body>
+
+		<body childclass="robot_ur5e:asset_class" name="base_link" pos="0 0 0.8" quat="1 0 0 0" >
+            <inertial pos="0 0 0" quat="0.5 0.5 -0.5 0.5" mass="4" diaginertia="0.0072 0.00443333 0.00443333" />
+            <geom name="base_mesh" type="mesh" mesh="base" quat="1 1 0 0" material="RobMat" />
+            <geom name="base_cap" type="cylinder" pos="0 0 0.22"  size="0.063 0.016" rgba="0.596 0.96 1 1" material="RobMat" contype="0" conaffinity="0" />
+		           <body name="shoulder_link" pos="0 0 0.163">
+                <inertial pos="0 0 0" mass="3.7" diaginertia="0.0102675 0.0102675 0.00666" />
+                <geom name="shoulder_mesh" type="mesh" mesh="shoulder" quat="1 1 0 0" material="RobMat" />
+                <geom name="shoulder_cap" type="cylinder" pos="0 0.185 0" quat="0.707107 0.707107 0 0" size="0.06 0.02" rgba="0.596 0.96 1 1" material="RobMat" contype="0" conaffinity="0" />
+                <joint name="joint1" pos="0 0 0" axis="0 0 1"  range="-3.14 3.14" />
+
+                <body name="upper_arm_link" pos="0 0.138 0" quat="0.707107 0 0.707107 0">
+                    <inertial pos="0 0 0.28" mass="8.393" diaginertia="0.226891 0.226891 0.0151074" />
+                    <geom name="upperarm_mesh" type="mesh" quat="1 1 0 0" mesh="upperarm" material="RobMat" />
+                    <joint name="joint2" pos="0 0 0" axis="0 1 0" range="-3.14 3.14"  />
+
+                     <body name="forearm_link" pos="0 -0.131 0.425">
+                        <inertial pos="0 0 0.25" mass="2.275" diaginertia="0.0494433 0.0494433 0.004095" />
+                        <geom name="forearm_mesh" type="mesh" quat="1 1 0 0"  mesh="forearm" material="RobMat" />
+
+                        <!--camera name="forearm_camera" pos="0 0.1 0.07" euler="3.14159265 0 1.570796" /-->
+
+                        <geom name="forearm_cap" type="cylinder" pos="0 0.18 0.0" quat="0.707107 0.707107 0 0" size="0.06 0.022" rgba="0.596 0.96 1 1" material="RobMat" contype="0" conaffinity="0" />
+                        <joint name="joint3" pos="0 0 0" axis="0 1 0" range="-3.14 3.14" />
+
+                         <body name="wrist_1_link" pos="0 0 0.392" quat="0.707107 0 0.707107 0">
+                            <inertial pos="0 0 0" quat="0.5 0.5 -0.5 0.5" mass="1.219" diaginertia="0.21942 0.111173 0.111173" />
+                            <geom name="wrist1_mesh" type="mesh" mesh="wrist1" quat="1 1 0 0" material="RobMat" />
+                            <geom name="wrist1_cap" type="cylinder" pos="0 -0.045 0" quat="0.707107 0.707107 0 0" size="0.04 0.015" rgba="0.596 0.96 1 1" material="RobMat" contype="0" conaffinity="0" />
+                            <joint name="joint4" pos="0 0 0" axis="0 1 0" range="-3.14 3.14" />
+
+                            <body name="wrist_2_link" pos="0 0.127 0">
+                                <inertial pos="0 0 0" quat="0.5 0.5 -0.5 0.5" mass="1.219" diaginertia="0.21942 0.111173 0.111173" />
+                                <geom name="wrist2_mesh" type="mesh" quat="1 1 0 0" mesh="wrist2" material="RobMat" />
+                                <geom name="wrist2_cap" type="cylinder" pos="0 0 -0.045" quat="0.707107 0 0 0.707107" size="0.04 0.015" rgba="0.596 0.96 1 1" material="RobMat" contype="0" conaffinity="0" />
+                                <joint name="joint5" pos="0 0 0" axis="0 0 1" range="-3.14 3.14" />
+
+                                 <body name="wrist_3_link" pos="0 0 0.1">
+                                    <body name="ee_link" pos="0 0.0996 0" quat="0.707107 -0.707107 0 0">
+                                        <site name="ee_loc" pos="0.0 0.0 0" rgba="0 1 0 1" size="0.01 0.01 0.01"/>
+                                        <inertial pos="0 0.0823 0" quat="0.707107 -0.707107 0 0" mass="0" diaginertia="0 0 0" />
+                                    </body>
+                                    <inertial pos="0 0 0" quat="0.5 0.5 -0.5 0.5" mass="0.1879" diaginertia="0.033822 0.0171365 0.0171365" />
+                                    <geom name="wrist3_mesh" type="mesh" quat="1 1 0 0"  mesh="wrist3" material="RobMat" contype="1" conaffinity="1" />
+                                    <geom name="wrist3_cap" type="cylinder" pos="0 -0.045 0" quat="0.707107 0.707107 0 0" size="0.04 0.015" rgba="0.596 0.96 1 1" material="RobMat" contype="0" conaffinity="0" />
+                                    <joint name="joint6" pos="0 0 0" axis="0 1 0" range="-3.14 3.14" />
+                                     <site name="ft_sensor" type="box" pos="0.0 0.1 0" quat="0.707107 -0.707107 0 0" rgba="1 0 0 1" size="0.01 0.01 0.01"/>
+
+                                     <site name="robot0:grip" type="box" pos="0.0 0.1 0"  rgba="1 0 0 1" size="0.002 0.002 0.002"/>
+
+
+                                    <body name="handLite" pos="0 0.0823 0" quat="0.707107 -0.707107 0 0">
+                                        <inertial pos="0 0.0823 0" quat="0.707107 -0.707107 0 0" mass="0" diaginertia="0 0 0" />
+                                        <include file="robot.xml"/>
+
+                                    </body>
+					  </body>
+                            </body>
+                        </body>
+                    </body>
+                </body>
+            </body>
+        </body>
+
+
+
+</mujoco>

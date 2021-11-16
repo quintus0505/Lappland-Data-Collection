@@ -1,0 +1,113 @@
+<mujoco>
+	<body mocap="true" name="robot0:mocap" pos="0 0 0.8">
+		<geom conaffinity="0" contype="0" pos="0 0 0" rgba="0 0.5 0 0.7" size="0.005 0.005 0.005" type="box"></geom>
+		<geom conaffinity="0" contype="0" pos="0 0 0" rgba="0 0.5 0 0.1" size="1 0.005 0.005" type="box"></geom>
+		<geom conaffinity="0" contype="0" pos="0 0 0" rgba="0 0.5 0 0.1" size="0.005 1 0.001" type="box"></geom>
+		<geom conaffinity="0" contype="0" pos="0 0 0" rgba="0 0.5 0 0.1" size="0.005 0.005 1" type="box"></geom>
+	</body>
+
+		<body childclass="robot:ur5e" name="base_link" pos="0 0 0.869" quat="1 0 0 0" >
+            <inertial pos="0 0 0" quat="0.5 0.5 -0.5 0.5" mass="4" diaginertia="0.0072 0.00443333 0.00443333" />
+            <geom name="base_mesh" type="mesh" mesh="base" quat="1 1 0 0" material="RobMat" />
+            <geom name="base_cap" type="cylinder" pos="0 0 0.22"  size="0.063 0.016" rgba="0.596 0.96 1 1" material="RobMat" contype="0" conaffinity="0" />
+		           <body name="shoulder_link" pos="0 0 0.163">
+                <inertial pos="0 0 0" mass="3.7" diaginertia="0.0102675 0.0102675 0.00666" />
+                <geom name="shoulder_mesh" type="mesh" mesh="shoulder" quat="1 1 0 0" material="RobMat" />
+                <geom name="shoulder_cap" type="cylinder" pos="0 0.185 0" quat="0.707107 0.707107 0 0" size="0.06 0.02" rgba="0.596 0.96 1 1" material="RobMat" contype="0" conaffinity="0" />
+                <joint name="joint1" pos="0 0 0" axis="0 0 1"  range="-3.14 3.14" />
+
+                <body name="upper_arm_link" pos="0 0.138 0" quat="0.707107 0 0.707107 0">
+                    <inertial pos="0 0 0.28" mass="8.393" diaginertia="0.226891 0.226891 0.0151074" />
+                    <geom name="upperarm_mesh" type="mesh" quat="1 1 0 0" mesh="upperarm" material="RobMat" />
+                    <joint name="joint2" pos="0 0 0" axis="0 1 0" range="-3.14 3.14"  />
+
+                     <body name="forearm_link" pos="0 -0.131 0.425">
+                        <inertial pos="0 0 0.25" mass="2.275" diaginertia="0.0494433 0.0494433 0.004095" />
+                        <geom name="forearm_mesh" type="mesh" quat="1 1 0 0"  mesh="forearm" material="RobMat" />
+
+                        <!--camera name="forearm_camera" pos="0 0.1 0.07" euler="3.14159265 0 1.570796" /-->
+
+                        <geom name="forearm_cap" type="cylinder" pos="0 0.18 0.0" quat="0.707107 0.707107 0 0" size="0.06 0.022" rgba="0.596 0.96 1 1" material="RobMat" contype="0" conaffinity="0" />
+                        <joint name="joint3" pos="0 0 0" axis="0 1 0" range="-3.14 3.14" />
+
+                         <body name="wrist_1_link" pos="0 0 0.392" quat="0.707107 0 0.707107 0">
+                            <inertial pos="0 0 0" quat="0.5 0.5 -0.5 0.5" mass="1.219" diaginertia="0.21942 0.111173 0.111173" />
+                            <geom name="wrist1_mesh" type="mesh" mesh="wrist1" quat="1 1 0 0" material="RobMat" />
+                            <geom name="wrist1_cap" type="cylinder" pos="0 -0.045 0" quat="0.707107 0.707107 0 0" size="0.04 0.015" rgba="0.596 0.96 1 1" material="RobMat" contype="0" conaffinity="0" />
+                            <joint name="joint4" pos="0 0 0" axis="0 1 0" range="-3.14 3.14" />
+
+                            <body name="wrist_2_link" pos="0 0.127 0">
+                                <inertial pos="0 0 0" quat="0.5 0.5 -0.5 0.5" mass="1.219" diaginertia="0.21942 0.111173 0.111173" />
+                                <geom name="wrist2_mesh" type="mesh" quat="1 1 0 0" mesh="wrist2" material="RobMat" />
+                                <geom name="wrist2_cap" type="cylinder" pos="0 0 -0.045" quat="0.707107 0 0 0.707107" size="0.04 0.015" rgba="0.596 0.96 1 1" material="RobMat" contype="0" conaffinity="0" />
+                                <joint name="joint5" pos="0 0 0" axis="0 0 1" range="-3.14 3.14" />
+
+                                 <body name="wrist_3_link" pos="0 0 0.1">
+                                    <body name="ee_link" pos="0 0.0996 0" quat="0.707107 -0.707107 0 0">
+                                        <site name="ee_loc" pos="0.0 0.0 0" rgba="0 1 0 1" size="0.01 0.01 0.01"/>
+                                        <inertial pos="0 0.0823 0" quat="0.707107 -0.707107 0 0" mass="0" diaginertia="0 0 0" />
+                                    </body>
+                                    <inertial pos="0 0 0" quat="0.5 0.5 -0.5 0.5" mass="0.1879" diaginertia="0.033822 0.0171365 0.0171365" />
+                                    <geom name="wrist3_mesh" type="mesh" quat="1 1 0 0"  mesh="wrist3" material="RobMat" contype="1" conaffinity="1" />
+                                    <geom name="wrist3_cap" type="cylinder" pos="0 -0.045 0" quat="0.707107 0.707107 0 0" size="0.04 0.015" rgba="0.596 0.96 1 1" material="RobMat" contype="0" conaffinity="0" />
+                                    <joint name="joint6" pos="0 0 0" axis="0 1 0" range="-3.14 3.14" />
+
+						            <body name="wiger_hand" pos="0 0.13 0">
+                                        <geom type="box" name="wiger_hand_geom"  size="0.040 0.032 0.111" rgba="1 1 1 1"/>
+                                        <site name="ft_sensor" type="box" pos="0.0 -0.03 0" quat="0.707107 -0.707107 0 0" rgba="1 0 0 1" size="0.01 0.01 0.01"/>
+
+                                        <!-- new finger -->
+                                        <body name="robot0:gripper_link" pos="0 0.164 0" euler="0 1.5707 1.5707">
+                                            <body name="temp_gripper_link" pos="0 0 0" euler="0 1.57 0"></body>
+                                            <!-- <inertial pos="-0 -0 -0" quat="0 0 0 0" mass="1.5175" diaginertia="0.0024 0.0019 0.0013" /> -->
+                                            <!-- <inertial pos="-0.09 -0.0001 -0.0017" quat="0 0.707107 0 0.707107" mass="1.5175" diaginertia="0.0024 0.0019 0.0013" /> -->
+                                            <!-- <geom mesh="gripper_link" /> -->
+                                            <!-- <site name="grip" rgba='1. 0. 0. 1.' size=".02 .02 .02" group="3"/> -->
+                                            <site name="robot0:grip" type="box" pos="0.0 0.0 0" rgba="1 0 0 1" size="0.002 0.002 0.002"/>
+                                            <!--<site name="gripper_center2" type="box" pos="0.0 0.0 0.03" rgba="1 0 0 1" size="0.02 0.02 0.02"/>-->
+                                            <body name="robot0:r_gripper_finger_link" pos="0 0.0159 0.0" >
+                                                <geom solref="0.02 5" pos="-0.003 0.011 0" name="r_sensor_geom" type="box" size="0.029 0.0045 0.0175" friction="0.1 0.5 0.1"/>
+                                                <site name="r_finger_torch_sensor" type="box" pos="-0.003 0.013 0" rgba="1 1 0 1" size="0.030 0.0046 0.0175"/>
+
+                                                <geom solref="0.02 5" pos="-0.008 -0.016 -0.023" euler="1.57 0 0 " name="r_sensor2_geom" type="box" size="0.029 0.0045 0.024" friction="0.1 0.5 0.1"/>
+                                                <site name="forward_torch_sensor" type="box" pos="-0.008 -0.016 -0.023" euler="1.57 0 0 " rgba="1 1 0 1" size="0.035 0.007 0.024"/>
+
+                                                <inertial pos="-0.01 0 0" mass="0.08" diaginertia="0.002 0.002 0.002" />
+                                                <joint type="slide" name="robot0:r_gripper_finger_joint" axis="0 1 0" range="0 10.0" frictionloss="1" damping="650" armature="0.001" margin="0.01" />
+                                                <!--geom pos="0 0.101425 0" mesh="r_gripper_finger_link"/-->
+                                                <geom pos="-.05 .001 0" name="r_gripper_link_geom" type="box" size="0.082 0.008 0.0175" friction="0.1 0.5 0.1"/>
+                                            </body>
+
+                                            <body name="robot0:l_gripper_finger_link" pos="0 -0.0159 0.0" >
+                                                <geom solref="0.02 5" pos="-0.003 -0.011 0" name="l_sensor_geom" type="box" size="0.029 0.0045 0.0175" friction="0.1 0.5 0.1"/>
+                                                <site name="l_finger_torch_sensor" type="box" pos="-0.003 -0.013 0" rgba="1 1 0 1" size="0.030 0.0046 0.0175"/>
+
+                                                <geom solref="0.02 5" pos="-0.008 0.016 0.023" euler="1.57 0 0 " name="l_sensor2_geom" type="box" size="0.029 0.0045 0.024" friction="0.1 0.5 0.1"/>
+                                                <site name="backward_torch_sensor" type="box" pos="-0.008 0.016 0.023" euler="1.57 0 0 " rgba="1 1 0 1" size="0.035 0.007 0.024"/>
+
+                                                <inertial pos="-0.01 0 0" mass="0.08" diaginertia="0.002 0.002 0.002" />
+                                                <joint type="slide" name="robot0:l_gripper_finger_joint" axis="0 -1 0" range="0 1.0" frictionloss="1" damping="650" armature="0.001" margin="0.01"/>
+                                                <!--<geom pos="0 -0.101425 0" mesh="l_gripper_finger_link" rgba=".1 .1 .2 1"/>-->
+                                                <geom pos="-.05 -.001 0" name="l_gripper_link_geom" type="box" size="0.082 0.008 0.0175" rgba="0.32 0.32 0.376 1" friction="0.1 0.5 0.1"/>
+                                            </body>
+                                        </body>
+                                    </body>
+					  </body>
+                            </body>
+                        </body>
+                    </body>
+                </body>
+            </body>
+        </body>
+
+	 <body  name="cube1" pos="-0.1 0.5 1.0" euler="0 0 1.2">
+			<!--<inertial pos="0 0 0" mass="100.1" diaginertia="0.00004 0.00004 0.00004"/>-->
+            <site name="cube_1" pos="0 0 0" size="0.01 0.01 0.01" type="box" rgba="0.9529411765 0.8 0.03529411765 1" />
+			<!--<geom name="C_cube1" type="box" group="3" size="0.05 0.05 0.05" rgba="0.1 0.5 0.6 1" contype="0" conaffinity="1"/>-->
+			<!--<geom group="1" name="V_cube1" type="box" size="0.02 0.02 0.02" rgba="0.3 0.2 0.5 1" friction="0.1 0.5 0.1"/>-->
+            <geom size="0.035 0.035 0.035" friction="1 0.5 0.5"  type="box" condim="3" name="cube1" material="block_mat" mass="0.18"></geom>
+			<joint name="Jcube1" type="free" damping="0.01" limited="false"/>
+	 </body>
+
+
+</mujoco>

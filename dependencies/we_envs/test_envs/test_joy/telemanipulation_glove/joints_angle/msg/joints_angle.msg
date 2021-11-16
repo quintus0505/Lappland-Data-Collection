@@ -1,0 +1,17 @@
+float32 T1
+float32 T2
+float32 T3
+float32 T4
+float32 T5
+float32 F1
+float32 F2
+float32 F3
+float32 F4
+float32 M1
+float32 M2
+float32 M3
+float32 M4
+float32 R1
+float32 R2
+float32 R3
+float32 R4

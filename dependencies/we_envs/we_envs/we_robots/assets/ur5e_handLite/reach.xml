@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mujoco>
+    <compiler angle="radian" coordinate="local" meshdir="../stls/ur5_handlite" texturedir="../textures"></compiler>
+    <option timestep="0.002" iterations="20" apirate="200">
+        <flag warmstart="enable"></flag>
+    </option>
+
+    <include file="shared.xml"></include>
+
+    <asset>
+        <include file="shared_asset.xml"></include>
+    </asset>
+
+    <include file="table/asset.xml"/>
+
+    <worldbody>
+
+        <include file="ur5.xml"></include>
+        <include file="env_asset.xml"></include>
+    </worldbody>
+</mujoco>

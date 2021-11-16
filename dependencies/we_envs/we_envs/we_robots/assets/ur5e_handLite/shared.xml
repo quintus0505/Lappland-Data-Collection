@@ -1,0 +1,491 @@
+<!-- See LICENSE.md for legal notices. LICENSE.md must be kept together with this file. -->
+<mujoco>
+    <size njmax="5000" nconmax="1000" nuser_jnt="1" nuser_site="1" nuser_tendon="1" nuser_sensor="1" nuser_actuator="16" nstack="600000"></size>
+
+    <visual>
+        <map fogstart="3" fogend="5" force="0.1"></map>
+        <quality shadowsize="4096"></quality>
+    </visual>
+
+    <default>
+        <default class="robot0:asset_class">
+            <geom   friction="1 0.005 0.001" condim="3" margin="0.0001" contype="1" conaffinity="1"></geom>
+            <joint limited="true"  damping="0.1" armature="0.001" margin="0.01" frictionloss="0.001"></joint>
+
+            <site size="0.005" rgba="0.4 0.9 0.4 1"></site>
+            <general ctrllimited="true" forcelimited="true"></general>
+        </default>
+        <default class="robot_ur5e:asset_class">
+            <!--<geom   friction="1 0.005 0.001" condim="3" margin="0.0005" contype="1" conaffinity="1"></geom>-->
+            <joint armature="1" damping="50" frictionloss="0" stiffness="0"></joint>
+
+        </default>
+        <default class="robot0:D_Touch">
+            <site type="box" size="0.009 0.004 0.013" pos="0 -0.004 0.018" rgba="0.8 0.8 0.8 0.15" group="4"></site>
+        </default>
+        <default class="robot0:DC_Hand">
+            <geom margin="0.005" material="robot0:MatColl" contype="1" conaffinity="0" group="4"></geom>
+        </default>
+        <default class="robot0:D_Vizual">
+            <geom margin="0.005" material="plastic" contype="0" conaffinity="0" group="1" type="mesh"></geom>
+        </default>
+        <default class="robot0:free">
+            <joint type="free" damping="0" armature="0" limited="false"></joint>
+        </default>
+        <default class="dellkeyboard">
+            <geom margin="0.005"/>
+            <joint type="slide" limited="true" range="0 0.01" solreflimit="0.08 0.20" solimplimit="0.90 0.98 0.000001"  stiffness="0.8" damping="0.2" armature=".001" margin="0.01"  frictionloss="0.001"></joint>
+        </default>
+         <default class="dellkeyboard_world">
+            <geom margin="0.005"/>
+            <joint  damping="0.2" ></joint>
+        </default>
+
+
+    </default>
+
+    <contact>
+        <pair geom1="robot0:C_ffdistal" geom2="robot0:C_thdistal" condim="1"></pair>
+        <pair geom1="robot0:C_ffmiddle" geom2="robot0:C_thdistal" condim="1"></pair>
+        <pair geom1="robot0:C_ffproximal" geom2="robot0:C_thdistal" condim="1"></pair>
+        <pair geom1="robot0:C_mfproximal" geom2="robot0:C_thdistal" condim="1"></pair>
+        <pair geom1="robot0:C_mfdistal" geom2="robot0:C_thdistal" condim="1"></pair>
+        <pair geom1="robot0:C_rfdistal" geom2="robot0:C_thdistal" condim="1"></pair>
+
+        <!-- <pair geom1="robot0:C_palm0" geom2="robot0:C_thdistal" condim="1"></pair> -->
+        <pair geom1="robot0:C_mfdistal" geom2="robot0:C_ffdistal" condim="1"></pair>
+        <pair geom1="robot0:C_rfdistal" geom2="robot0:C_mfdistal" condim="1"></pair>
+
+        <pair geom1="robot0:C_mfproximal" geom2="robot0:C_ffproximal" condim="1"></pair>
+        <pair geom1="robot0:C_rfproximal" geom2="robot0:C_mfproximal" condim="1"></pair>
+        <pair geom1="robot0:V_palm" geom2="base_keyboard_geom" condim="3"/>
+
+        <exclude body1="esc" body2="keyboard_base" />
+        <exclude body1="f1" body2="keyboard_base" />
+        <exclude body1="f2" body2="keyboard_base" />
+        <exclude body1="f3" body2="keyboard_base" />
+        <exclude body1="f4" body2="keyboard_base" />
+        <exclude body1="f5" body2="keyboard_base" />
+        <exclude body1="f6" body2="keyboard_base" />
+        <exclude body1="f7" body2="keyboard_base" />
+        <exclude body1="f8" body2="keyboard_base" />
+        <exclude body1="f9" body2="keyboard_base" />
+        <exclude body1="f10" body2="keyboard_base" />
+        <exclude body1="f11" body2="keyboard_base" />
+        <exclude body1="f12" body2="keyboard_base" />
+
+        <exclude body1="print_screen" body2="keyboard_base" />
+        <exclude body1="scroll_lock" body2="keyboard_base" />
+        <exclude body1="pause_break" body2="keyboard_base" />
+        <exclude body1="insert" body2="keyboard_base" />
+        <exclude body1="home" body2="keyboard_base" />
+        <exclude body1="pageup" body2="keyboard_base" />
+        <exclude body1="delete" body2="keyboard_base" />
+        <exclude body1="end" body2="keyboard_base" />
+        <exclude body1="pagedown" body2="keyboard_base" />
+        <exclude body1="up" body2="keyboard_base" />
+        <exclude body1="left" body2="keyboard_base" />
+        <exclude body1="down" body2="keyboard_base" />
+        <exclude body1="right" body2="keyboard_base" />
+        <exclude body1="numlock" body2="keyboard_base" />
+        <exclude body1="divide" body2="keyboard_base" />
+        <exclude body1="multiply" body2="keyboard_base" />
+        <exclude body1="subtract" body2="keyboard_base" />
+        <exclude body1="7" body2="keyboard_base" />
+        <exclude body1="8" body2="keyboard_base" />
+        <exclude body1="9" body2="keyboard_base" />
+        <exclude body1="add" body2="keyboard_base" />
+        <exclude body1="4" body2="keyboard_base" />
+        <exclude body1="5" body2="keyboard_base" />
+        <exclude body1="6" body2="keyboard_base" />
+        <exclude body1="1" body2="keyboard_base" />
+        <exclude body1="2" body2="keyboard_base" />
+        <exclude body1="3" body2="keyboard_base" />
+        <exclude body1="enter_right" body2="keyboard_base" />
+        <exclude body1="0" body2="keyboard_base" />
+        <exclude body1="dot" body2="keyboard_base" />
+        <exclude body1="~" body2="keyboard_base" />
+        <exclude body1="1!" body2="keyboard_base" />
+        <exclude body1="2a" body2="keyboard_base" />
+        <exclude body1="3#" body2="keyboard_base" />
+        <exclude body1="4$" body2="keyboard_base" />
+        <exclude body1="5%" body2="keyboard_base" />
+        <exclude body1="6^" body2="keyboard_base" />
+        <exclude body1="7and" body2="keyboard_base" />
+        <exclude body1="88" body2="keyboard_base" />
+        <exclude body1="9(" body2="keyboard_base" />
+        <exclude body1="0)" body2="keyboard_base" />
+        <exclude body1="-_" body2="keyboard_base" />
+        <exclude body1="=+" body2="keyboard_base" />
+        <exclude body1="backspace" body2="keyboard_base" />
+        <exclude body1="tab" body2="keyboard_base" />
+
+        <exclude body1="q" body2="keyboard_base" />
+        <exclude body1="w" body2="keyboard_base" />
+        <exclude body1="e" body2="keyboard_base" />
+        <exclude body1="r" body2="keyboard_base" />
+        <exclude body1="t" body2="keyboard_base" />
+        <exclude body1="y" body2="keyboard_base" />
+        <exclude body1="u" body2="keyboard_base" />
+        <exclude body1="i" body2="keyboard_base" />
+        <exclude body1="o" body2="keyboard_base" />
+        <exclude body1="p" body2="keyboard_base" />
+        <exclude body1="[" body2="keyboard_base" />
+        <exclude body1="]" body2="keyboard_base" />
+        <exclude body1="vertical" body2="keyboard_base" />
+        <exclude body1="capslock" body2="keyboard_base" />
+        <exclude body1="a" body2="keyboard_base" />
+        <exclude body1="s" body2="keyboard_base" />
+        <exclude body1="d" body2="keyboard_base" />
+        <exclude body1="f" body2="keyboard_base" />
+        <exclude body1="g" body2="keyboard_base" />
+        <exclude body1="h" body2="keyboard_base" />
+        <exclude body1="j" body2="keyboard_base" />
+        <exclude body1="k" body2="keyboard_base" />
+        <exclude body1="l" body2="keyboard_base" />
+        <exclude body1=";" body2="keyboard_base" />
+        <exclude body1="double_quotation" body2="keyboard_base" />
+        <exclude body1="enter_left" body2="keyboard_base" />
+        <exclude body1="shift_left" body2="keyboard_base" />
+        <exclude body1="z" body2="keyboard_base" />
+        <exclude body1="x" body2="keyboard_base" />
+        <exclude body1="c" body2="keyboard_base" />
+        <exclude body1="v" body2="keyboard_base" />
+        <exclude body1="b" body2="keyboard_base" />
+        <exclude body1="n" body2="keyboard_base" />
+        <exclude body1="m" body2="keyboard_base" />
+        <exclude body1="comma" body2="keyboard_base" />
+        <exclude body1="point" body2="keyboard_base" />
+        <exclude body1="question_mark" body2="keyboard_base" />
+        <exclude body1="shift_right" body2="keyboard_base" />
+        <exclude body1="ctrl_left" body2="keyboard_base" />
+        <exclude body1="win_left" body2="keyboard_base" />
+        <exclude body1="alt_left" body2="keyboard_base" />
+        <exclude body1="space" body2="keyboard_base" />
+        <exclude body1="alt_right" body2="keyboard_base" />
+        <exclude body1="win_right" body2="keyboard_base" />
+        <exclude body1="3---" body2="keyboard_base" />
+        <exclude body1="ctrl_rigth" body2="keyboard_base" />
+
+        <!--<pair geom1="f1_geom" geom2="base_keyboard_geom" condim="3"/>-->
+        <!--<pair geom1="f2_geom" geom2="base_keyboard_geom" condim="3"/>-->
+        <!--<pair geom1="f3_geom" geom2="base_keyboard_geom" condim="3"/>-->
+        <!--<pair geom1="f4_geom" geom2="base_keyboard_geom" condim="3"/>-->
+        <!--<pair geom1="f5_geom" geom2="base_keyboard_geom" condim="3"/>-->
+        <!--<pair geom1="f6_geom" geom2="base_keyboard_geom" condim="3"/>-->
+        <!--<pair geom1="f7_geom" geom2="base_keyboard_geom" condim="3"/>-->
+        <!--<pair geom1="f8_geom" geom2="base_keyboard_geom" condim="3"/>-->
+        <!--<pair geom1="f9_geom" geom2="base_keyboard_geom" condim="3"/>-->
+        <!--<pair geom1="f10_geom" geom2="base_keyboard_geom" condim="3"/>-->
+        <!--<pair geom1="f11_geom" geom2="base_keyboard_geom" condim="3"/>-->
+        <!--<pair geom1="f12_geom" geom2="base_keyboard_geom" condim="3"/>-->
+        <!--<pair geom1="win_right_geom" geom2="base_keyboard_geom" condim="3"/>-->
+
+
+    </contact>
+
+    <tendon>
+
+        <fixed name="robot0:T_FFJ3r" limited="true" range="-0.018 0.018" user="1204">
+            <joint joint="robot0:FFJ3" coef="0.01"></joint>
+        </fixed>
+        <fixed name="robot0:T_FFJ3l" limited="true" range="-0.018 0.018" user="1205">
+            <joint joint="robot0:FFJ3" coef="-0.01"></joint>
+        </fixed>
+        <fixed name="robot0:T_FFJ2u" limited="true" range="-0.007 0.03" user="1202">
+            <joint joint="robot0:FFJ2" coef="0.01"></joint>
+        </fixed>
+        <fixed name="robot0:T_FFJ2d" limited="true" range="-0.03 0.007" user="1203">
+            <joint joint="robot0:FFJ2" coef="-0.01"></joint>
+        </fixed>
+        <fixed name="robot0:T_FFJ1c" limited="true" range="-0.001 0.001">
+            <joint joint="robot0:FFJ0" coef="0.00705"></joint>
+            <joint joint="robot0:FFJ1" coef="-0.00805"></joint>
+        </fixed>
+        <fixed name="robot0:T_FFJ1u" limited="true" range="-0.007 0.03" user="1200">
+            <joint joint="robot0:FFJ0" coef="0.00705"></joint>
+            <joint joint="robot0:FFJ1" coef="0.00805"></joint>
+        </fixed>
+        <fixed name="robot0:T_FFJ1d" limited="true" range="-0.03 0.007" user="1201">
+            <joint joint="robot0:FFJ0" coef="-0.00705"></joint>
+            <joint joint="robot0:FFJ1" coef="-0.00805"></joint>
+        </fixed>
+        <fixed name="robot0:T_MFJ3r" limited="true" range="-0.018 0.018" user="1210">
+            <joint joint="robot0:MFJ3" coef="0.01"></joint>
+        </fixed>
+        <fixed name="robot0:T_MFJ3l" limited="true" range="-0.018 0.018" user="1211">
+            <joint joint="robot0:MFJ3" coef="-0.01"></joint>
+        </fixed>
+        <fixed name="robot0:T_MFJ2u" limited="true" range="-0.007 0.03" user="1208">
+            <joint joint="robot0:MFJ2" coef="0.01"></joint>
+        </fixed>
+        <fixed name="robot0:T_MFJ2d" limited="true" range="-0.03 0.007" user="1209">
+            <joint joint="robot0:MFJ2" coef="-0.01"></joint>
+        </fixed>
+        <fixed name="robot0:T_MFJ1c" limited="true" range="-0.001 0.001">
+            <joint joint="robot0:MFJ0" coef="0.00705"></joint>
+            <joint joint="robot0:MFJ1" coef="-0.00805"></joint>
+        </fixed>
+        <fixed name="robot0:T_MFJ1u" limited="true" range="-0.007 0.03" user="1206">
+            <joint joint="robot0:MFJ0" coef="0.00705"></joint>
+            <joint joint="robot0:MFJ1" coef="0.00805"></joint>
+        </fixed>
+        <fixed name="robot0:T_MFJ1d" limited="true" range="-0.03 0.007" user="1207">
+            <joint joint="robot0:MFJ0" coef="-0.00705"></joint>
+            <joint joint="robot0:MFJ1" coef="-0.00805"></joint>
+        </fixed>
+        <fixed name="robot0:T_RFJ3r" limited="true" range="-0.018 0.018" user="1216">
+            <joint joint="robot0:RFJ3" coef="0.01"></joint>
+        </fixed>
+        <fixed name="robot0:T_RFJ3l" limited="true" range="-0.018 0.018" user="1217">
+            <joint joint="robot0:RFJ3" coef="-0.01"></joint>
+        </fixed>
+        <fixed name="robot0:T_RFJ2u" limited="true" range="-0.007 0.03" user="1214">
+            <joint joint="robot0:RFJ2" coef="0.01"></joint>
+        </fixed>
+        <fixed name="robot0:T_RFJ2d" limited="true" range="-0.03 0.007" user="1215">
+            <joint joint="robot0:RFJ2" coef="-0.01"></joint>
+        </fixed>
+        <fixed name="robot0:T_RFJ1c" limited="true" range="-0.001 0.001">
+            <joint joint="robot0:RFJ0" coef="0.00705"></joint>
+            <joint joint="robot0:RFJ1" coef="-0.00805"></joint>
+        </fixed>
+        <fixed name="robot0:T_RFJ1u" limited="true" range="-0.007 0.03" user="1212">
+            <joint joint="robot0:RFJ0" coef="0.00705"></joint>
+            <joint joint="robot0:RFJ1" coef="0.00805"></joint>
+        </fixed>
+        <fixed name="robot0:T_RFJ1d" limited="true" range="-0.03 0.007" user="1213">
+            <joint joint="robot0:RFJ0" coef="-0.00705"></joint>
+            <joint joint="robot0:RFJ1" coef="-0.00805"></joint>
+        </fixed>
+
+        <fixed name="robot0:T_THJ4a" limited="true" range="-0.018 0.018" user="1234">
+            <joint joint="robot0:THJ4" coef="0.01636"></joint>
+        </fixed>
+        <fixed name="robot0:T_THJ4c" limited="true" range="-0.018 0.018" user="1235">
+            <joint joint="robot0:THJ4" coef="-0.01636"></joint>
+        </fixed>
+         <fixed name="robot0:T_THJ3u" limited="true" range="-0.007 0.03" user="1232">
+             <joint joint="robot0:THJ3" coef="0.01"></joint>
+         </fixed>
+         <fixed name="robot0:T_THJ3d" limited="true" range="-0.03 0.007" user="1233">
+             <joint joint="robot0:THJ3" coef="-0.01"></joint>
+         </fixed>
+        <!--<fixed name="robot0:T_THJ2u" limited="true" range="-0.018 0.018" user="1230">-->
+            <!--<joint joint="robot0:THJ2" coef="0.011"></joint>-->
+        <!--</fixed>-->
+        <!--<fixed name="robot0:T_THJ2d" limited="true" range="-0.018 0.018" user="1231">-->
+            <!--<joint joint="robot0:THJ2" coef="-0.011"></joint>-->
+        <!--</fixed>-->
+        <fixed name="robot0:T_THJ1r" limited="true" range="-0.018 0.018" user="1228">
+            <joint joint="robot0:THJ1" coef="0.011"></joint>
+        </fixed>
+        <fixed name="robot0:T_THJ1l" limited="true" range="-0.018 0.018" user="1229">
+            <joint joint="robot0:THJ1" coef="-0.011"></joint>
+        </fixed>
+        <fixed name="robot0:T_THJ0r" limited="true" range="-0.03 0.007" user="1226">
+            <joint joint="robot0:THJ0" coef="0.009"></joint>
+        </fixed>
+        <fixed name="robot0:T_THJ0l" limited="true" range="-0.007 0.03" user="1227">
+            <joint joint="robot0:THJ0" coef="-0.009"></joint>
+        </fixed>
+    </tendon>
+
+    <sensor>
+
+        <jointpos name="ur5e:joint1_pos" joint="joint1"></jointpos>
+         <jointpos name="ur5e:joint2_pos" joint="joint2"></jointpos>
+         <jointpos name="ur5e:joint3_pos" joint="joint3"></jointpos>
+         <jointpos name="ur5e:joint4_pos" joint="joint4"></jointpos>
+         <jointpos name="ur5e:joint5_pos" joint="joint5"></jointpos>
+         <jointpos name="ur5e:joint6_pos" joint="joint6"></jointpos>
+
+         <jointvel name="ur5e:joint1_vel" joint="joint1"></jointvel>
+         <jointvel name="ur5e:joint2_vel" joint="joint2"></jointvel>
+         <jointvel name="ur5e:joint3_vel" joint="joint3"></jointvel>
+         <jointvel name="ur5e:joint4_vel" joint="joint4"></jointvel>
+         <jointvel name="ur5e:joint5_vel" joint="joint5"></jointvel>
+         <jointvel name="ur5e:joint6_vel" joint="joint6"></jointvel>
+
+
+        <jointpos name="robot0:Sjp_FFJ3" joint="robot0:FFJ3"></jointpos>
+        <jointpos name="robot0:Sjp_FFJ2" joint="robot0:FFJ2"></jointpos>
+        <jointpos name="robot0:Sjp_FFJ1" joint="robot0:FFJ1"></jointpos>
+        <jointpos name="robot0:Sjp_FFJ0" joint="robot0:FFJ0"></jointpos>
+        <jointpos name="robot0:Sjp_MFJ3" joint="robot0:MFJ3"></jointpos>
+        <jointpos name="robot0:Sjp_MFJ2" joint="robot0:MFJ2"></jointpos>
+        <jointpos name="robot0:Sjp_MFJ1" joint="robot0:MFJ1"></jointpos>
+        <jointpos name="robot0:Sjp_MFJ0" joint="robot0:MFJ0"></jointpos>
+        <jointpos name="robot0:Sjp_RFJ3" joint="robot0:RFJ3"></jointpos>
+        <jointpos name="robot0:Sjp_RFJ2" joint="robot0:RFJ2"></jointpos>
+        <jointpos name="robot0:Sjp_RFJ1" joint="robot0:RFJ1"></jointpos>
+        <jointpos name="robot0:Sjp_RFJ0" joint="robot0:RFJ0"></jointpos>
+        <jointpos name="robot0:Sjp_THJ4" joint="robot0:THJ4"></jointpos>
+        <jointpos name="robot0:Sjp_THJ3" joint="robot0:THJ3"></jointpos>
+        <!--<jointpos name="robot0:Sjp_THJ2" joint="robot0:THJ2"></jointpos>-->
+        <jointpos name="robot0:Sjp_THJ1" joint="robot0:THJ1"></jointpos>
+        <jointpos name="robot0:Sjp_THJ0" joint="robot0:THJ0"></jointpos>
+
+        <touch name="robot0:ST_Tch_fftip" site="robot0:Tch_fftip"></touch>
+        <touch name="robot0:ST_Tch_mftip" site="robot0:Tch_mftip"></touch>
+        <touch name="robot0:ST_Tch_rftip" site="robot0:Tch_rftip"></touch>
+        <touch name="robot0:ST_Tch_thtip" site="robot0:Tch_thtip"></touch>
+
+
+        <jointpos name="keyboard_esc" joint="jiont_esc"></jointpos>
+        <jointpos name="keyboard_f1" joint="jiont_f1"></jointpos>
+        <jointpos name="keyboard_f2" joint="jiont_f2"></jointpos>
+        <jointpos name="keyboard_f3" joint="jiont_f3"></jointpos>
+        <jointpos name="keyboard_f4" joint="jiont_f4"></jointpos>
+        <jointpos name="keyboard_f5" joint="jiont_f5"></jointpos>
+        <jointpos name="keyboard_f6" joint="jiont_f6"></jointpos>
+        <jointpos name="keyboard_f7" joint="jiont_f7"></jointpos>
+        <jointpos name="keyboard_f8" joint="jiont_f8"></jointpos>
+        <jointpos name="keyboard_f9" joint="jiont_f9"></jointpos>
+        <jointpos name="keyboard_f10" joint="jiont_f10"></jointpos>
+        <jointpos name="keyboard_f11" joint="jiont_f11"></jointpos>
+        <jointpos name="keyboard_f12" joint="jiont_f12"></jointpos>
+        <jointpos name="keyboard_jiont_print_screen" joint="jiont_print_screen"></jointpos>
+        <jointpos name="keyboard_joint_scroll_lock" joint="joint_scroll_lock"></jointpos>
+        <jointpos name="keyboard_joint_pause_break" joint="joint_pause_break"></jointpos>
+        <jointpos name="keyboard_joint_insert" joint="joint_insert"></jointpos>
+        <jointpos name="keyboard_joint_home" joint="joint_home"></jointpos>
+        <jointpos name="keyboard_joint_pageup" joint="joint_pageup"></jointpos>
+        <jointpos name="keyboard_joint_delete" joint="joint_delete"></jointpos>
+        <jointpos name="keyboard_joint_end" joint="joint_end"></jointpos>
+        <jointpos name="keyboard_joint-pagedown" joint="joint-pagedown"></jointpos>
+        <jointpos name="keyboard_joint_up" joint="joint_up"></jointpos>
+        <jointpos name="keyboard_joint_left" joint="joint_left"></jointpos>
+        <jointpos name="keyboard_joint_down" joint="joint_down"></jointpos>
+        <jointpos name="keyboard_joint_right" joint="joint_right"></jointpos>
+        <jointpos name="keyboard_joint_numlock" joint="joint_numlock"></jointpos>
+        <jointpos name="keyboard_joint_divide" joint="joint_divide"></jointpos>
+        <jointpos name="keyboard_joint_multiply" joint="joint_multiply"></jointpos>
+        <jointpos name="keyboard_joint_subtract" joint="joint_subtract"></jointpos>
+        <jointpos name="keyboard_joint_7" joint="joint_7"></jointpos>
+        <jointpos name="keyboard_joint_8" joint="joint_8"></jointpos>
+        <jointpos name="keyboard_joint_9" joint="joint_9"></jointpos>
+        <jointpos name="keyboard_joint_add" joint="joint_add"></jointpos>
+        <jointpos name="keyboard_joint_4" joint="joint_4"></jointpos>
+        <jointpos name="keyboard_joint_5" joint="joint_5"></jointpos>
+        <jointpos name="keyboard_joint_6" joint="joint_6"></jointpos>
+        <jointpos name="keyboard_joint_1" joint="joint_1"></jointpos>
+        <jointpos name="keyboard_joint_2" joint="joint_2"></jointpos>
+        <jointpos name="keyboard_joint_3" joint="joint_3"></jointpos>
+        <jointpos name="keyboard_joint_enter_right" joint="joint_enter_right"></jointpos>
+        <jointpos name="keyboard_joint_0" joint="joint_0"></jointpos>
+        <jointpos name="keyboard_joint_dot" joint="joint_dot"></jointpos>
+        <jointpos name="keyboard_joint_~" joint="joint_~"></jointpos>
+        <jointpos name="keyboard_joint_1!" joint="joint_1!"></jointpos>
+        <jointpos name="keyboard_joint_2a" joint="joint_2a"></jointpos>
+        <jointpos name="keyboard_joint_3#" joint="joint_3#"></jointpos>
+        <jointpos name="keyboard_joint_4$" joint="joint_4$"></jointpos>
+        <jointpos name="keyboard_joint_5%" joint="joint_5%"></jointpos>
+        <jointpos name="keyboard_joint_6^" joint="joint_6^"></jointpos>
+        <jointpos name="keyboard_joint_7and" joint="joint_7and"></jointpos>
+        <jointpos name="keyboard_joint_joint_88" joint="joint_88"></jointpos>
+        <jointpos name="keyboard_joint_9(" joint="joint_9("></jointpos>
+        <jointpos name="keyboard_joint_0)" joint="joint_0)"></jointpos>
+        <jointpos name="keyboard_joint_-_" joint="joint_-_"></jointpos>
+        <jointpos name="keyboard_joint_=+" joint="joint_=+"></jointpos>
+        <jointpos name="keyboard_joint_backspace" joint="joint_backspace"></jointpos>
+        <jointpos name="keyboard_joint_tab" joint="joint_tab"></jointpos>
+        <jointpos name="keyboard_joint_q" joint="joint_q"></jointpos>
+        <jointpos name="keyboard_joint_w" joint="joint_w"></jointpos>
+        <jointpos name="keyboard_joint_e" joint="joint_e"></jointpos>
+        <jointpos name="keyboard_joint_r" joint="joint_r"></jointpos>
+        <jointpos name="keyboard_joint_t" joint="joint_t"></jointpos>
+        <jointpos name="keyboard_joint_y" joint="joint_y"></jointpos>
+        <jointpos name="keyboard_joint_u" joint="joint_u"></jointpos>
+        <jointpos name="keyboard_joint_i" joint="joint_i"></jointpos>
+        <jointpos name="keyboard_joint_o" joint="joint_o"></jointpos>
+        <jointpos name="keyboard_joint_p" joint="joint_p"></jointpos>
+        <jointpos name="keyboard_joint_[" joint="joint_["></jointpos>
+        <jointpos name="keyboard_joint_]" joint="joint_]"></jointpos>
+        <jointpos name="keyboard_joint_vertical" joint="joint_vertical"></jointpos>
+        <jointpos name="keyboard_joint_capslock" joint="joint_capslock"></jointpos>
+        <jointpos name="keyboard_joint_a" joint="joint_a"></jointpos>
+        <jointpos name="keyboard_joint_s" joint="joint_s"></jointpos>
+        <jointpos name="keyboard_joint_d" joint="joint_d"></jointpos>
+        <jointpos name="keyboard_joint_f" joint="joint_f"></jointpos>
+        <jointpos name="keyboard_joint_g" joint="joint_g"></jointpos>
+        <jointpos name="keyboard_joint_h" joint="joint_h"></jointpos>
+        <jointpos name="keyboard_joint_j" joint="joint_j"></jointpos>
+        <jointpos name="keyboard_joint_k" joint="joint_k"></jointpos>
+        <jointpos name="keyboard_joint_l" joint="joint_l"></jointpos>
+        <jointpos name="keyboard_joint_;" joint="joint_;"></jointpos>
+        <jointpos name="keyboard_joint_double_quotation" joint="joint_double_quotation"></jointpos>
+        <jointpos name="keyboard_joint_enter_left" joint="joint_enter_left"></jointpos>
+        <jointpos name="keyboard_joint_shift_left" joint="joint_shift_left"></jointpos>
+        <jointpos name="keyboard_joint_z" joint="joint_z"></jointpos>
+        <jointpos name="keyboard_joint_x" joint="joint_x"></jointpos>
+        <jointpos name="keyboard_joint_c" joint="joint_c"></jointpos>
+        <jointpos name="keyboard_joint_v" joint="joint_v"></jointpos>
+        <jointpos name="keyboard_joint_b" joint="joint_b"></jointpos>
+        <jointpos name="keyboard_joint_n" joint="joint_n"></jointpos>
+        <jointpos name="keyboard_joint_m" joint="joint_m"></jointpos>
+        <jointpos name="keyboard_joint_comma" joint="joint_comma"></jointpos>
+        <jointpos name="keyboard_joint_point" joint="joint_point"></jointpos>
+        <jointpos name="keyboard_joint_question_mark" joint="joint_question_mark"></jointpos>
+        <jointpos name="keyboard_joint_shift_right" joint="joint_shift_right"></jointpos>
+        <jointpos name="keyboard_joint_ctrl_left" joint="joint_ctrl_left"></jointpos>
+        <jointpos name="keyboard_joint_win_left" joint="joint_win_left"></jointpos>
+        <jointpos name="keyboard_joint_alt_left" joint="joint_alt_left"></jointpos>
+        <jointpos name="keyboard_joint_space" joint="joint_space"></jointpos>
+        <jointpos name="keyboard_joint_alt_right" joint="joint_alt_right"></jointpos>
+        <jointpos name="keyboard_joint_win_right" joint="joint_win_right"></jointpos>
+        <jointpos name="keyboard_joint_application" joint="joint_3---"></jointpos>
+        <jointpos name="keyboard_joint_ctrl_right" joint="joint_ctrl_rigth"></jointpos>
+
+        <force name="ee_force" site="ft_sensor"></force>
+        <torque name="ee_torque" site="ft_sensor"></torque>
+
+    </sensor>
+
+    <actuator>
+
+        <position name="robot0:A_FFJ3" class="robot0:asset_class" user="2004" joint="robot0:FFJ3" ctrlrange="-0.349 0.349" kp="100" forcerange="-100.9 100.9"></position>
+        <position name="robot0:A_FFJ2" class="robot0:asset_class" user="2002" joint="robot0:FFJ2" ctrlrange="0 1.571" kp="100" forcerange="-100.9 100.9"></position>
+        <position name="robot0:A_FFJ1" class="robot0:asset_class" user="2000" joint="robot0:FFJ1" ctrlrange="0 1.571" kp="100" forcerange="-50.7245 50.7245"></position>
+
+        <position name="robot0:A_MFJ3" class="robot0:asset_class" user="2010" joint="robot0:MFJ3" ctrlrange="-0.349 0.349" kp="100" forcerange="-100.9 100.9"></position>
+        <position name="robot0:A_MFJ2" class="robot0:asset_class" user="2008" joint="robot0:MFJ2" ctrlrange="0 1.571" kp="100" forcerange="-100.9 100.9"></position>
+        <position name="robot0:A_MFJ1" class="robot0:asset_class" user="2006" joint="robot0:MFJ1" ctrlrange="0 1.571" kp="100" forcerange="-50.7245 50.7245"></position>
+
+        <position name="robot0:A_RFJ3" class="robot0:asset_class" user="2016" joint="robot0:RFJ3" ctrlrange="-0.349 0.349" kp="100" forcerange="-100.9 100.9"></position>
+        <position name="robot0:A_RFJ2" class="robot0:asset_class" user="2014" joint="robot0:RFJ2" ctrlrange="0 1.571" kp="100" forcerange="-100.9 100.9"></position>
+        <position name="robot0:A_RFJ1" class="robot0:asset_class" user="2012" joint="robot0:RFJ1" ctrlrange="0 1.571" kp="100" forcerange="-50.7245 50.7245"></position>
+
+        <position name="robot0:A_THJ4" class="robot0:asset_class" user="2034" joint="robot0:THJ4" ctrlrange="-1.047 1.047" kp="100" forcerange="-100.9 100.9"></position>
+        <position name="robot0:A_THJ3" class="robot0:asset_class" user="2032" joint="robot0:THJ3" ctrlrange="0 1.222" kp="100" forcerange="-100.9 100.9"></position>
+        <!--<position name="robot0:A_THJ2" class="robot0:asset_class" user="2030" joint="robot0:THJ2" ctrlrange="-0.209 0.209" kp="1" forcerange="-0.99 0.99"></position>-->
+        <position name="robot0:A_THJ1" class="robot0:asset_class" user="2028" joint="robot0:THJ1" ctrlrange="-0.524 0.524" kp="100" forcerange="-50.7245 50.7245"></position>
+        <position name="robot0:A_THJ0" class="robot0:asset_class" user="2026" joint="robot0:THJ0" ctrlrange="-1.571 0" kp="100" forcerange="-50.7245 50.7245"></position>
+
+
+        <!--<position name="joint1_position" ctrllimited="true" ctrlrange="-3.14159 3.14159"  joint="joint1" kp="5e2"/>-->
+        <!--<position name="joint2_position"  ctrllimited="true" ctrlrange="-3.14159 3.14159" joint="joint2" kp="5e2" />-->
+        <!--<position name="joint3_position"  ctrllimited="true" ctrlrange="-3.14159 3.14159" joint="joint3" kp="5e2"/>-->
+        <!--<position name="joint4_position"  ctrllimited="true" ctrlrange="-3.14159 3.14159" joint="joint4" kp="1e2"/>-->
+        <!--<position name="joint5_position"  ctrllimited="true" ctrlrange="-3.14159 3.14159" joint="joint5" kp="1e2"/>-->
+        <!--<position name="joint6_position"  ctrllimited="true" ctrlrange="-3.14159 3.14159" joint="joint6" kp="1e2"/>-->
+
+
+
+         <!--<velocity name="joint1_velocity"   joint="joint1" kv="1e2"/>-->
+        <!--<velocity name="joint2_velocity"   joint="joint2" kv="1e2" />-->
+        <!--<velocity name="joint3_velocity"   joint="joint3" kv="1e2"/>-->
+        <!--<velocity name="joint4_velocity"   joint="joint4" kv="5e1"/>-->
+        <!--<velocity name="joint5_velocity"   joint="joint5" kv="5e1"/>-->
+
+
+        <!--<position name="ctrl_pos" ctrllimited="true" ctrlrange="0.004 0.02" joint="joint_ctrl_left" kp="1" forcerange="-9 9"/>-->
+        <!--<velocity name="ctrl_vel"   joint="joint_ctrl_left" kv="1"/>-->
+
+        <!--<position name="z_pos" ctrllimited="true" ctrlrange="0.004 0.02" joint="joint_z" kp="1" forcerange="-9 9"/>-->
+        <!--<velocity name="z_vel"   joint="joint_z" kv="1"/>-->
+
+
+
+    </actuator>
+</mujoco>
