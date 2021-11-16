@@ -17,7 +17,6 @@ This repository provides data collection for action primitives used in Lappland 
 4. **Step 4:** Install our own dependencies:
 
     ```
-
     $ cd dependencies
     $ pip install -e ./we_envs
     $ pip install -e ./we_mujoco
@@ -26,7 +25,6 @@ This repository provides data collection for action primitives used in Lappland 
     ```
 ## Running the code
 ```
-
 $ python collect_primitives/auto_collect_relocate_primitive.py --option collect
 
 $ python collect_primitives/auto_collect_relocate_primitive.py --option visualize --primitive_name Approach
