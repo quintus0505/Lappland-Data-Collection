@@ -18,4 +18,5 @@ setup(
     author='USTC fhln',
     install_requires=[
         'termcolor',
+    ],
 )
