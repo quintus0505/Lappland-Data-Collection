@@ -25,7 +25,7 @@ The tasks we used to present our method are derived from [dapg](https://github.c
     $ pip install -e ./mjrl
     $ pip install -e ./gym-0.17.2
     ```
-If you wish to see the environment in simulated in MuJoCo, you can find those ```.xml``` files in ```dependencies/we_envs/we_envs/we_robots/assets/mj_envs``` and you can drag them into Mujoco simulator for visualization.
+If you wish to see the environment and dexterous hand simulated in MuJoCo, you can find those ```.xml``` files in ```dependencies/we_envs/we_envs/we_robots/assets/mj_envs``` and you can drag them into Mujoco simulator for visualization.
 
 ## Collecting primitives
 
@@ -44,7 +44,7 @@ The collected primitives are saved as pickle files in ```collect_primitives/```.
 $ python collect_primitives/auto_collect_relocate_primitive.py --option visualize --primitive_name Approach
 ```
 
-The tasks we provide all have three primitives, you can find their names by running the following command for each python file:
+The tasks we provide all have three primitives, you can find their names by running the following command:
 
 ```
 $ python collect_primitives/auto_collect_relocate_primitive.py --help
