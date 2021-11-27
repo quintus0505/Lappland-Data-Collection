@@ -1,16 +1,14 @@
 # Data Collection for Lappland
 
-This repository provides data collection for action primitives used in Lappland project.
-
-The tasks we used to present our method are derived from [dapg](https://github.com/aravindr93/hand_dapg), including three dexterous hand manipulation tasks simulated in MuJoCo.
+This repository provides demonstration collection and simulated environments for Lappland (layered action primitive planning  from  demonstration) project.
 
 ## Getting started
 
-1. **Step 1:** Prepare your anaconda environment with ```python==3.6```
+1. **Step 1:** Prepare your  environment with ```ubuntu>=16.04``` , ```python==3.6```
 
-2. **Step 2:** Install [mujoco200](https://mujoco.org/), mujoco210 may cause some problems. (There is no need to install mujoco_py since we provide our own version in dependencies/we_mujoco_py)
+2. **Step 2:** Install [mujoco200](https://mujoco.org/) (mujoco210 may cause some problems). 
 
-3. **Step 3:** Install following dependencies:
+3. **Step 3:** Install following extra dependencies:
 
     ```
     $ cd dependencies
@@ -19,7 +17,9 @@ The tasks we used to present our method are derived from [dapg](https://github.c
     $ pip install -e ./mjrl
     $ pip install -e ./we_envs
     ```
-4. **Step 4:** Activate your anaconda environment and run 
+    Note  we_mujoco is forked from [mujoco_py](https://github.com/openai/mujoco-py), mjrl is forked from [mjrl](https://github.com/aravindr93/mjrl).
+    The original MJCF models and demonstrations are from [DAPG](https://github.com/aravindr93/hand_dapg) 
+4. **Step 4:** Install following  dependencies: 
 
     ```
     $ pip install -r requirements.txt
@@ -27,7 +27,7 @@ The tasks we used to present our method are derived from [dapg](https://github.c
 
 If you wish to see the environment and dexterous hand simulated in MuJoCo, you can find those ```.xml``` files in ```dependencies/we_envs/we_envs/we_robots/assets/mj_envs``` and you can drag them into Mujoco simulator for visualization.
 
-## Collecting primitives
+## Collecting primitive demonstrations
 
 For **Relocate** task, you can run the following command:
 
