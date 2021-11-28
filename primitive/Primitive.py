@@ -148,8 +148,6 @@ class Primitive():
         self.goal = None  # goal-conditioned policy
         self.objective = None  # the objective to optimize the policy
 
-        self.SVDD = None
-
         self.goal_dim = goal_dim
         self.observation_dim = observation_dim
         self.action_dim = action_dim
@@ -169,16 +167,6 @@ class Primitive():
     def __str__(self):
         return self.name
 
-    # def init_SVDD(self):
-    #     self.SVDD = DeepSVDD(primitive_name=self.name)
-    #     self.SVDD.set_net(obs_dim=self.observation_dim, goal_dim=self.goal_dim)
-    #
-    # def set_SVDD(self):
-    #     self.SVDD = DeepSVDD(primitive_name=self.name)
-    #     self.SVDD.load_data(self.name)
-    #     self.SVDD.set_net(obs_dim=self.observation_dim, goal_dim=self.goal_dim)
-    #     self.SVDD.train()
-    #     print("train Primitive {name} SVDD finish!".format(name=self.name))
 
     # judge whether begin-constarint satisfied, allow to enter the primitive
     def enter_condition(self, env, state=None, action=None):
@@ -264,7 +252,6 @@ class Primitive():
         assert steps >= 0, 'steps should not be negative !'
         return_info = dict()
         '''
-            2.7 added by quintus
             note that this input env should not necessarily be identical to self.env holden by current class
             but should be given after gym.make and env.reset()
 
@@ -412,36 +399,6 @@ class ApproachPrimitive(Primitive):
             current_attention = self.ac.id.attention.clone().detach()
             current_attention = torch.nn.functional.softmax(current_attention, dim=0)
 
-        # s_temp = self.one_shot_demo_states[0]
-        # gamma = 1.0 # discount factor
-        # for i in range(len(self.one_shot_demo_states)-1): #1-length demontration is not allowed
-        #     s_0 = np.concatenate((s_temp,opt_goal))
-        #     # s_1 = np.concatenate((self.one_shot_demo_states[i+1],opt_goal))
-        #     s_0 = torch.as_tensor(s_0, dtype=torch.float32).unsqueeze(dim=0)
-        #
-        #     s_1 = torch.as_tensor(self.one_shot_demo_states[i+1], dtype=torch.float32).unsqueeze(dim=0)
-        #
-        #     gamma *= 0.90
-        #     if current_attention is not None:
-        #         error_sum += gamma * ((primitive_pi(s_0)-s_1)**2*current_attention).sum().item()
-        #     else:
-        #         error_sum += gamma * (((primitive_pi(s_0)-s_1)**2).sum().item())
-        #     s_temp = primitive_pi(s_0)[0].detach().numpy()
-        # error_sum /= len(self.one_shot_demo_states)
-        #---------------------------------------------------------------------------------------
-        # for i in range(len(self.one_shot_demo_states)-1): #1-length demontration is not allowed
-        #     s_0 = np.concatenate((self.one_shot_demo_states[i],opt_goal))
-        #     # s_1 = np.concatenate((self.one_shot_demo_states[i+1],opt_goal))
-        #     s_0 = torch.as_tensor(s_0, dtype=torch.float32).unsqueeze(dim=0)
-        #     s_1 = torch.as_tensor(self.one_shot_demo_states[i+1], dtype=torch.float32).unsqueeze(dim=0)
-        #
-        #     if current_attention is not None:
-        #         error_sum += ((primitive_pi(s_0)-s_1)**2*current_attention).mean().item()
-        #     else:
-        #         error_sum += ((primitive_pi(s_0)-s_1)**2).mean().item()
-        # error_sum /= len(self.one_shot_demo_states)
-        #---------------------------------------------------------------------------------------
-
         state_len = len(self.one_shot_demo_states)
         state = torch.as_tensor(self.one_shot_demo_states[0:state_len-1], dtype=torch.float32)
         next_state = torch.as_tensor(self.one_shot_demo_states[1:state_len],dtype=torch.float32)
@@ -452,7 +409,7 @@ class ApproachPrimitive(Primitive):
         if current_attention is not None:
             error_sum = ((next_state - expected_next_state)**2*current_attention).mean().detach().item()
 
-        error_sum = -error_sum # beyesian optimization  maxminizes the target-function
+        error_sum = -error_sum #optimization  maxminizes the target-function
         return error_sum
 
     def extract_goal_from_obs_same_dim(self, obs): # extract goal from same-dim-obs
@@ -523,7 +480,7 @@ class GraspPrimitive(Primitive):
         if current_attention is not None:
             error_sum = ((next_state - expected_next_state)**2*current_attention).mean().detach().item()
 
-        error_sum = -error_sum # beyesian optimization  maxminizes the target-function
+        error_sum = -error_sum #optimization  maxminizes the target-function
         return error_sum
 
 class Move2targetPrimitive(Primitive):
@@ -591,7 +548,7 @@ class Move2targetPrimitive(Primitive):
         if current_attention is not None:
             error_sum = ((next_state - expected_next_state)**2*current_attention).mean().detach().item()
 
-        error_sum = -error_sum # beyesian optimization  maxminizes the target-function
+        error_sum = -error_sum #optimization  maxminizes the target-function
         return error_sum
 
 
@@ -640,7 +597,7 @@ class DoorApproachPrimitive(Primitive):
         if current_attention is not None:
             error_sum = ((next_state - expected_next_state)**2*current_attention).mean().detach().item()
 
-        error_sum = -error_sum # beyesian optimization  maxminizes the target-function
+        error_sum = -error_sum #optimization  maxminizes the target-function
         return error_sum
 
 
@@ -689,7 +646,7 @@ class DoorGraspLatchPrimitive(Primitive):
         if current_attention is not None:
             error_sum = ((next_state - expected_next_state)**2*current_attention).mean().detach().item()
 
-        error_sum = -error_sum # beyesian optimization  maxminizes the target-function
+        error_sum = -error_sum #optimization  maxminizes the target-function
         return error_sum
 
 
@@ -738,7 +695,7 @@ class DoorOpenPrimitive(Primitive):
         if current_attention is not None:
             error_sum = ((next_state - expected_next_state)**2*current_attention).mean().detach().item()
 
-        error_sum = -error_sum # beyesian optimization  maxminizes the target-function
+        error_sum = -error_sum #optimization  maxminizes the target-function
         return error_sum
 
 
@@ -787,7 +744,7 @@ class HammerApproachToolPrimitive(Primitive):
         if current_attention is not None:
             error_sum = ((next_state - expected_next_state)**2*current_attention).mean().detach().item()
 
-        error_sum = -error_sum # beyesian optimization  maxminizes the target-function
+        error_sum = -error_sum #optimization  maxminizes the target-function
         return error_sum
 
 
@@ -842,7 +799,7 @@ class HammerApproachNailPrimitive(Primitive): #TODO: the meaning is changed, not
         error_sum = ((next_state - expected_next_state)**2).mean().detach().item()
         if current_attention is not None:
             error_sum = ((next_state - expected_next_state)**2*current_attention).mean().detach().item()
-        error_sum = -error_sum # beyesian optimization  maxminizes the target-function
+        error_sum = -error_sum #optimization  maxminizes the target-function
         return error_sum
 
 
@@ -889,5 +846,5 @@ class HammerNailGoInsidePrimitive(Primitive):
         error_sum = ((next_state - expected_next_state)**2).mean().detach().item()
         if current_attention is not None:
             error_sum = ((next_state - expected_next_state)**2*current_attention).mean().detach().item()
-        error_sum = -error_sum # beyesian optimization  maxminizes the target-function
+        error_sum = -error_sum #optimization  maxminizes the target-function
         return error_sum

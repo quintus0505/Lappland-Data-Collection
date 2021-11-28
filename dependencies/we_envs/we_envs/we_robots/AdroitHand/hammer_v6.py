@@ -129,7 +129,7 @@ class HammerEnvV6(mujoco_env.MujocoEnv, utils.EzPickle):
         # take hammer head to nail
         reward -= 0.4*np.linalg.norm((tool_pos - target_pos))
         # make nail go inside
-        reward -= 5 * np.linalg.norm(target_pos - goal_pos) #TODO: factor 10 changes to 5
+        reward -= 5 * np.linalg.norm(target_pos - goal_pos)
         # velocity penalty
         reward -= 1e-2 * np.linalg.norm(self.data.qvel.ravel())
         # print([- 0.1 * np.linalg.norm(palm_pos - obj_pos), -np.linalg.norm((tool_pos - target_pos)),

@@ -14,7 +14,7 @@ setup(
     version='0.1.1',
     packages=find_packages(),
     description='environments simulated in MuJoCo',
-    url='git@git.lug.ustc.edu.cn:fhln/we_ur5epush-v2.git',
+    url='None',
     author='USTC fhln',
     install_requires=[
         'termcolor',

@@ -181,9 +181,9 @@ class DoorEnvV6(mujoco_env.MujocoEnv, utils.EzPickle):
         door_hinge_pos = self.data.qpos[self.door_hinge_did].ravel().copy()
 
         reward_total = reward = 0.0
-        # reward -= 0.1 #TODO: need every step cost?
+        # reward -= 0.1
         reward_tb = np.zeros(5, dtype=np.float)
-        assert not self.goal is None, "please set the goal-of-primitive for envirnment first"  # TODO: useless at present
+        assert not self.goal is None, "please set the goal-of-primitive for envirnment first"
         current_primitives_goal_achieved = False
 
         if self.primitive_name == 'DoorApproach':

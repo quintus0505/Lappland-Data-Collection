@@ -1,6 +1,6 @@
-# Data Collection for Lappland
+# Data Collection for LAPPLAND
 
-This repository provides demonstration collection and simulated environments for Lappland (layered action primitive planning  from  demonstration) project.
+This repository provides demonstration collection and simulated environments for LAPPLAND (layered action primitive planning  from  demonstration) project.
 
 ## Getting started
 
@@ -22,25 +22,54 @@ This repository provides demonstration collection and simulated environments for
     The original MJCF models and demonstrations are from [DAPG](https://github.com/aravindr93/hand_dapg).
     - MJCF models are available in ```dependencies/we_envs/we_envs/we_robots/assets/mj_envs```
 4. **step 4:** visualize the task environments:
-    The simulated environments are compatible with other [gym](https://github.com/openai/gym)'s environments. The following code demon
+    
+    The simulated environments are compatible with other [gym](https://github.com/openai/gym)'s environments. here's an example using the "Adroit-relocate-v6" environment:
     ```python
     import gym, we_envs
     env = gym.make('Adroit-relocate-v6')
+    env.state_same_dim = True # For all envs, state dimension==39
     obs = env.reset()
+    env.set_primitive_name('Approach') # set the proper action primitive
     while True:           
        action = env.action_space.sample()
        obs, reward, done, info = env.step(action)
        env.render()
     ```
-    The available task envrionments are **Adroit-relocate-v6**, **Adroit-door-v6**, **Adroit-hammer-v6**.
+    The available task envrionments for LAPPLAND are:
+   - **Adroit-relocate-v6**
+     
+     Move the  ball to the  target point. Include three primitives: 'Approach', 'Grasp', 'Move2Target'
+   - **Adroit-door-v6**
+   
+     Undo the latch and swing the door open. Include three primitives: 'DoorApproach', 'DoorGraspLatch', 'DoorOpen'
+   - **Adroit-hammer-v6**
+     
+     Pick up and hammer with significant force to drive the nail into the board. Include three primitives: 'HammerApproachTool', 'HammerApproachNail', 'HammerNailGoInside'
+   
+    The goal-conditioned primitives are: 
+    
+    |  Primitive Name   | Corresponding Task|  State Dim   | Action Dim  | Goal Meaning |
+    |  ----  | --- | ----  | ----  | ----  |
+    | Approach  | Adroit-relocate-v6 | 39 | 30 | ball position (x,y,z) |
+    | Grasp  | Adroit-relocate-v6 | 39 | 30 | ball position (x,y,z)|
+    | Move2Target  | Adroit-relocate-v6 | 39 | 30 | target position (x,y,z)|
+    | DoorApproach  | Adroit-door-v6 | 39 | 28 | handle position (x,y,z)|
+    | DoorGraspLatch  | Adroit-door-v6 | 39 | 28 | handle position (x,y,z)|
+    | DoorOpen  | Adroit-door-v6 | 39 | 28 | handle position (x,y,z)|
+    | HammerApproachTool  | Adroit-hammer-v6 | 39 | 26 | tool position (x,y,z)|
+    | HammerApproachNail  | Adroit-hammer-v6 | 39 | 26 | tool position (x,y,z)|
+    | HammerNailGoInside  | Adroit-hammer-v6 | 39 | 26 | nail position(x,y), nail impact |
+    
+    
 ## Collecting primitive demonstrations
 
 For **Relocate** task, you can run the following command:
 
 ```
-$ python collect_primitives/auto_collect_relocate_primitive.py --option collect
+$ mpirun -np n_cpu python collect_primitives/auto_collect_relocate_primitive.py --option collect --num_episodes n_ep
 ```
-We also provide other two tasks, the primitives of which can be collected by similar instruction.
+This will collect n_cpu*n_ep primitive demos in same directory. Demonstrations of other two tasks are also provided with similar instruction.
+- The primitive demos include  
 
 ## Visualizing primitives
 

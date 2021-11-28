@@ -93,6 +93,11 @@ class RelocateEnvV6(mujoco_env.MujocoEnv, utils.EzPickle):
             self.goal['Move2Target'] = primitive_goal
 
     def enter_condition(self, primitive_name):
+        """
+        hand-coded segementation for primitive enter condition
+        :param primitive_name: action primitive to be checked
+        :return:
+        """
         assert primitive_name in ['Approach', 'Grasp', 'Move2Target']
         full_state = self.get_env_state()
         hand_qpos, obj_pos, target_pos, palm_pos = full_state['hand_qpos'], full_state['obj_pos'], full_state[
@@ -116,6 +121,11 @@ class RelocateEnvV6(mujoco_env.MujocoEnv, utils.EzPickle):
                 return False
 
     def leave_condition(self, primitive_name):
+        """
+        hand-coded segementation for primitive leave condition
+        :param primitive_name: action primitive to be checked
+        :return:
+        """
         assert primitive_name in ['Approach', 'Grasp', 'Move2Target']
         full_state = self.get_env_state()
         hand_qpos, obj_pos, target_pos, palm_pos = full_state['hand_qpos'], full_state['obj_pos'], full_state[
@@ -133,7 +143,7 @@ class RelocateEnvV6(mujoco_env.MujocoEnv, utils.EzPickle):
             else:
                 return False
         elif primitive_name == 'Move2Target':
-            if np.linalg.norm(obj_pos - target_pos) <= 0.04: #TODO: 0.02 for demonstration collection, 0.04 for total-task
+            if np.linalg.norm(obj_pos - target_pos) <= 0.04:
                 return True
             else:
                 return False

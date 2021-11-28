@@ -42,7 +42,7 @@ class TaskDemoCollector():
     def __init__(self, primitives: List[Primitive], state_machine: StateMachine, env):
         self.primitives = primitives
         self.primitives_name = []
-        self.state_machine = state_machine  # TODO: state_machine describe the process, future change to graph-structure
+        self.state_machine = state_machine
         self.primitive_count = len(primitives)
         self.env_name = str(env.spec.id)
         self.env = env
@@ -63,7 +63,7 @@ class TaskDemoCollector():
         for primitive in self.primitives:
             if primitive.demo_collector.current_trajectory['begin_env_state'] is None:
                 valid = False
-            elif not primitive.evaluate_success(primitive.demo_collector.current_trajectory):  # TODO: why?
+            elif not primitive.evaluate_success(primitive.demo_collector.current_trajectory):
                 valid = False
             if len(primitive.demo_collector.current_trajectory['state']) < 5:
                 valid = False
@@ -127,7 +127,6 @@ class TaskDemoCollector():
                 self.primitives[self.state_machine.state].demo_collector.record_state_action_pair(state=s, action=a)
                 self.primitives[self.state_machine.state].demo_collector.record_fullstate(
                     fullstate=self.env.get_env_state())
-                # TODO: exist bugs when the environment don't have get_obs_same_dim()
                 self.primitives[self.state_machine.state].demo_collector.record_state_same_dim(
                     state_same_dim=self.env.get_obs_same_dim())
                 if with_image:
