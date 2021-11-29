@@ -88,7 +88,7 @@ This will collect n_cpu*n_ep primitive demos in same directory. Demonstrations o
         ``` 
 ## Visualizing primitives
 
-For visualization, please run the following code:
+For visualization, run the code like followings :
 
 ```
 $ python collect_primitives/auto_collect_relocate_primitive.py --option visualize --primitive_name Approach
