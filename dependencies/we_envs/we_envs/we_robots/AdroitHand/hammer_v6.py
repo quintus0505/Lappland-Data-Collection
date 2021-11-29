@@ -90,7 +90,7 @@ class HammerEnvV6(mujoco_env.MujocoEnv, utils.EzPickle):
     def enter_condition(self, primitive_name):
         assert primitive_name in ['HammerApproachTool', 'HammerApproachNail', 'HammerNailGoInside']
         full_state = self.get_env_state()
-        return True  # TODO: not used at present
+        return True
 
     def leave_condition(self, primitive_name):
         assert primitive_name in ['HammerApproachTool', 'HammerApproachNail', 'HammerNailGoInside']
@@ -323,9 +323,6 @@ class HammerEnvV6(mujoco_env.MujocoEnv, utils.EzPickle):
         self.data.site_xpos[self.tool_sid] = begin_state['tool_pos']
         self.data.site_xpos[self.goal_sid] = begin_state['goal_pos']
 
-        # TODO: be carefull!!!! just for test, delete after test!!!!
-        # target_bid = self.model.body_name2id('nail_board')
-        # self.model.body_pos[target_bid, 1] = self.np_random.uniform(low=-0.11, high=0.11)
 
 
         for _ in range(500):

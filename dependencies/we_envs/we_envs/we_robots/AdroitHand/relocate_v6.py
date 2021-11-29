@@ -256,9 +256,6 @@ class RelocateEnvV6(mujoco_env.MujocoEnv, utils.EzPickle):
             if palm_pos[2] > 0.25:
                 reward_total -= palm_pos[2]
 
-
-            # current_primitives_goal_achieved = True if (np.linalg.norm(palm_pos - obj_pos) < 0.08 and np.linalg.norm( #TODO: throld
-            #     obj_pos - self.init_state['init_obj_pos']) < 0.05) else False
             current_primitives_goal_achieved = self.leave_condition(primitive_name='Approach')
             self.primitives_goal_achieved[0] = current_primitives_goal_achieved
 

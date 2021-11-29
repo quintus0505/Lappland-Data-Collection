@@ -208,17 +208,6 @@ class Primitive():
     def set_current_primitive_horizon(self, horizon):
         self.horizon = horizon
 
-    def one_shot_finetune(self, one_shot_demo, env, pi_lr=1e-4, id_lr=1e-4, vf_lr=1e-4):
-        # from spinup.algos.pytorch.Lappland.Isolated_primitive_trainer.RevampedWithAttentionDAPGForPrimitive import primitive_retrain
-        goal =one_shot_demo['extracted_goal'][0]
-        state_seq = one_shot_demo['state_same_dim']
-        action_seq = one_shot_demo['action']
-
-        one_shot_demo_processed = {'state':state_seq, 'action':action_seq, 'goal':goal}
-        # primitive_retrain(primitive_policy=self.ac, one_shot_demo=one_shot_demo_processed, env=env,
-        #                   pi_lr=pi_lr, id_lr=id_lr, vf_lr=vf_lr)
-        print("this function is abandoned!")
-
 
 
 
@@ -383,10 +372,10 @@ class ApproachPrimitive(Primitive):
     def init_goal_optimization(self, one_shot_demonstration_states, inital_demo_goal):
         super(ApproachPrimitive, self).init_goal_optimization(one_shot_demonstration_states, inital_demo_goal)
         self.goal_pbounds = {'obj_x':(-0.04, 0.04), 'obj_y':(-0.04, 0.04),
-                             'obj_z':(-0.04, 0.04)} # TODO: the value should be adjusted with detecting accuracy
+                             'obj_z':(-0.04, 0.04)}
         self.inital_demo_goal = inital_demo_goal
 
-    def goal_opt_function(self, obj_x, obj_y, obj_z):
+    def goal_opt_function(self, obj_x, obj_y, obj_z): #TODO: refactor
         # Note the obj_xxx is the incresament value
         assert not self.one_shot_demo_states==[], 'please input the subtraj demo first'
         primitive_pi = self.ac.pi
@@ -458,7 +447,7 @@ class GraspPrimitive(Primitive):
     def init_goal_optimization(self, one_shot_demonstration_states, inital_demo_goal):
         super(GraspPrimitive, self).init_goal_optimization(one_shot_demonstration_states, inital_demo_goal)
         self.goal_pbounds = {'obj_x':(-0.04, 0.04), 'obj_y':(-0.04, 0.04),
-                             'obj_z':(-0.04, 0.04)} # TODO: the value should be adjusted with detecting accuracy
+                             'obj_z':(-0.04, 0.04)}
         self.inital_demo_goal = inital_demo_goal
 
     def goal_opt_function(self, obj_x, obj_y, obj_z):
@@ -526,7 +515,7 @@ class Move2targetPrimitive(Primitive):
     def init_goal_optimization(self, one_shot_demonstration_states, inital_demo_goal):
         super(Move2targetPrimitive, self).init_goal_optimization(one_shot_demonstration_states, inital_demo_goal)
         self.goal_pbounds = {'target_x':(-0.04, 0.04), 'target_y':(-0.04, 0.04),
-                             'target_z':(-0.04, 0.04)} # TODO: the value should be adjusted with detecting accuracy
+                             'target_z':(-0.04, 0.04)}
         self.inital_demo_goal = inital_demo_goal
 
     def goal_opt_function(self, target_x, target_y, target_z):
@@ -575,7 +564,7 @@ class DoorApproachPrimitive(Primitive):
     def init_goal_optimization(self, one_shot_demonstration_states, inital_demo_goal):
         super(DoorApproachPrimitive, self).init_goal_optimization(one_shot_demonstration_states, inital_demo_goal)
         self.goal_pbounds = {'handle_x':(-0.04, 0.04), 'handle_y':(-0.04, 0.04),
-                             'handle_z':(-0.04, 0.04)} # TODO: the value should be adjusted with detecting accuracy
+                             'handle_z':(-0.04, 0.04)}
         self.inital_demo_goal = inital_demo_goal
 
     def goal_opt_function(self, handle_x, handle_y, handle_z):
@@ -624,7 +613,7 @@ class DoorGraspLatchPrimitive(Primitive):
     def init_goal_optimization(self, one_shot_demonstration_states, inital_demo_goal):
         super(DoorGraspLatchPrimitive, self).init_goal_optimization(one_shot_demonstration_states, inital_demo_goal)
         self.goal_pbounds = {'handle_x':(-0.04, 0.04), 'handle_y':(-0.04, 0.04),
-                             'handle_z':(-0.04, 0.04)} # TODO: the value should be adjusted with detecting accuracy
+                             'handle_z':(-0.04, 0.04)}
         self.inital_demo_goal = inital_demo_goal
 
     def goal_opt_function(self, handle_x, handle_y, handle_z):
@@ -673,7 +662,7 @@ class DoorOpenPrimitive(Primitive):
     def init_goal_optimization(self, one_shot_demonstration_states, inital_demo_goal):
         super(DoorOpenPrimitive, self).init_goal_optimization(one_shot_demonstration_states, inital_demo_goal)
         self.goal_pbounds = {'handle_x':(-0.04, 0.04), 'handle_y':(-0.04, 0.04),
-                             'handle_z':(-0.04, 0.04)} # TODO: the value should be adjusted with detecting accuracy
+                             'handle_z':(-0.04, 0.04)}
         self.inital_demo_goal = inital_demo_goal
 
     def goal_opt_function(self, handle_x, handle_y, handle_z):
@@ -722,7 +711,7 @@ class HammerApproachToolPrimitive(Primitive):
     def init_goal_optimization(self, one_shot_demonstration_states, inital_demo_goal):
         super(HammerApproachToolPrimitive, self).init_goal_optimization(one_shot_demonstration_states, inital_demo_goal)
         self.goal_pbounds = {'obj_x':(-0.04, 0.04), 'obj_y':(-0.04, 0.04),
-                             'obj_z':(-0.04, 0.04)} # TODO: the value should be adjusted with detecting accuracy
+                             'obj_z':(-0.04, 0.04)}
         self.inital_demo_goal = inital_demo_goal
 
     def goal_opt_function(self, obj_x, ojb_y, obj_z):
@@ -749,7 +738,7 @@ class HammerApproachToolPrimitive(Primitive):
 
 
 
-class HammerApproachNailPrimitive(Primitive): #TODO: the meaning is changed, not approach nail but grasp the tool
+class HammerApproachNailPrimitive(Primitive):
     def __init__(self, env, ):
         super(HammerApproachNailPrimitive, self).__init__(env=env, name='HammerApproachNail')
         self.primitive_id = 1
@@ -779,7 +768,7 @@ class HammerApproachNailPrimitive(Primitive): #TODO: the meaning is changed, not
     def init_goal_optimization(self, one_shot_demonstration_states, inital_demo_goal):
         super(HammerApproachNailPrimitive, self).init_goal_optimization(one_shot_demonstration_states, inital_demo_goal)
         self.goal_pbounds = {'obj_x':(-0.04, 0.04), 'obj_y':(-0.04, 0.04),
-                             'obj_z':(-0.04, 0.04)} # TODO: the value should be adjusted with detecting accuracy
+                             'obj_z':(-0.04, 0.04)}
         self.inital_demo_goal = inital_demo_goal
 
     def goal_opt_function(self, obj_x, ojb_y, obj_z):
@@ -826,7 +815,7 @@ class HammerNailGoInsidePrimitive(Primitive):
     def init_goal_optimization(self, one_shot_demonstration_states, inital_demo_goal):
         super(HammerNailGoInsidePrimitive, self).init_goal_optimization(one_shot_demonstration_states, inital_demo_goal)
         self.goal_pbounds = {'target_pos_x':(-0.04, 0.04), 'target_pos_y':(-0.04, 0.04),
-                             'nail_impact':(-0.5, 0.5)} # TODO: the value should be adjusted with detecting accuracy
+                             'nail_impact':(-0.5, 0.5)}
         self.inital_demo_goal = inital_demo_goal
 
     def goal_opt_function(self, target_pos_x, target_pos_y, nail_impact):

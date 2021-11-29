@@ -13,20 +13,9 @@ from we_envs.we_robots.AdroitHand.door_v0 import DoorEnvV0
 from we_envs.we_robots.AdroitHand.hammer_v0 import HammerEnvV0
 from we_envs.we_robots.AdroitHand.pen_v0 import PenEnvV0
 from we_envs.we_robots.AdroitHand.relocate_v0 import RelocateEnvV0
-from we_envs.we_robots.AdroitHand.relocate_v1 import RelocateEnvV1
-from we_envs.we_robots.AdroitHand.relocate_v2 import RelocateEnvV2
-from we_envs.we_robots.AdroitHand.relocate_v3 import RelocateEnvV3
-from we_envs.we_robots.AdroitHand.relocate_v4 import RelocateEnvV4
-from we_envs.we_robots.AdroitHand.relocate_v5 import RelocateEnvV5
-from we_envs.we_robots.AdroitHand.relocate_v6 import RelocateEnvV6
 
-from we_envs.we_robots.AdroitHand.door_v1 import DoorEnvV1
-from we_envs.we_robots.AdroitHand.door_v2 import DoorEnvV2
-from we_envs.we_robots.AdroitHand.door_v3 import DoorEnvV3
+from we_envs.we_robots.AdroitHand.relocate_v6 import RelocateEnvV6
 from we_envs.we_robots.AdroitHand.door_v6 import DoorEnvV6
-from we_envs.we_robots.AdroitHand.hammer_v1 import HammerEnvV1
-from we_envs.we_robots.AdroitHand.hammer_v2 import HammerEnvV2
-from we_envs.we_robots.AdroitHand.hammer_v3 import HammerEnvV3
 from we_envs.we_robots.AdroitHand.hammer_v6 import HammerEnvV6
 
 from we_envs.we_robots.AdroitHand.readworlddoor_v0 import DoorEnvRealworldV0
@@ -106,58 +95,11 @@ register(
 )
 
 register(
-    id='Adroit-relocate-v1',
-    entry_point='we_envs.we_robots:RelocateEnvV1',
-    max_episode_steps=200,
-)
-
-register(
-    id='Adroit-relocate-v2',
-    entry_point='we_envs.we_robots:RelocateEnvV2',
-    max_episode_steps=200,
-)
-
-register(
-    id='Adroit-relocate-v3',
-    entry_point='we_envs.we_robots:RelocateEnvV3',
-    max_episode_steps=200,
-)
-
-register(
-    id='Adroit-relocate-v4',
-    entry_point='we_envs.we_robots:RelocateEnvV4',
-    max_episode_steps=200,
-)
-
-register(
-    id='Adroit-relocate-v5',
-    entry_point='we_envs.we_robots:RelocateEnvV5',
-    max_episode_steps=300,
-)
-
-register(
     id='Adroit-relocate-v6',
     entry_point='we_envs.we_robots:RelocateEnvV6',
     max_episode_steps=240,
 )
 
-register(
-    id='Adroit-door-v1',
-    entry_point='we_envs.we_robots:DoorEnvV1',
-    max_episode_steps=200,
-)
-
-register(
-    id='Adroit-door-v2',
-    entry_point='we_envs.we_robots:DoorEnvV2',
-    max_episode_steps=200,
-)
-
-register(
-    id='Adroit-door-v3',
-    entry_point='we_envs.we_robots:DoorEnvV3',
-    max_episode_steps=200,
-)
 
 register(
     id='Adroit-door-v6',
@@ -165,23 +107,6 @@ register(
     max_episode_steps=240,
 )
 
-register(
-    id='Adroit-hammer-v1',
-    entry_point='we_envs.we_robots:HammerEnvV1',
-    max_episode_steps=200,
-)
-
-register(
-    id='Adroit-hammer-v2',
-    entry_point='we_envs.we_robots:HammerEnvV2',
-    max_episode_steps=200,
-)
-
-register(
-    id='Adroit-hammer-v3',
-    entry_point='we_envs.we_robots:HammerEnvV3',
-    max_episode_steps=200,
-)
 
 register(
     id='Adroit-hammer-v6',

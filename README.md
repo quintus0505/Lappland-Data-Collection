@@ -69,19 +69,45 @@ For **Relocate** task, you can run the following command:
 $ mpirun -np n_cpu python collect_primitives/auto_collect_relocate_primitive.py --option collect --num_episodes n_ep
 ```
 This will collect n_cpu*n_ep primitive demos in same directory. Demonstrations of other two tasks are also provided with similar instruction.
-- The primitive demos include  
-
+- The primitive demos include all environmental information of expert trajectories, displayed as follows:
+    
+    | Keys  | Information  |   Dimension   | 
+    |  ----  | --- | ----  |
+    | 'begin_env_state'  | begin state of primitive trajectory | dict | 
+    | 'end_env_state'  | end state  | dict | 
+    | 'goal'  | goal state | seq_len*goal_dim | 
+    | 'label'  | which primitive current demo belongs to | seq_len | 
+    | 'action'  | action sequence  | seq_len*act_dim | 
+    | 'full_state'  | full environmental information | dict | 
+    | 'state_same_dim'  | state sequence | seq_len*state_dim | 
+    | 'images'  | video of primitive trajectory  | seq_len*image_dim | 
+      
+    for example, the state sequence of i-th primitive demonstrations can be extracted as :
+        ```
+        demonstrations[i]['state_same_dim']
+        ``` 
 ## Visualizing primitives
 
-The collected primitives are saved as pickle files in ```collect_primitives/```. For visualization, please run the following code:
+For visualization, please run the following code:
 
 ```
 $ python collect_primitives/auto_collect_relocate_primitive.py --option visualize --primitive_name Approach
 ```
 
-The tasks we provide all have three primitives, you can find their names by running the following command:
+More information can be obtained by running the following command:
 
 ```
 $ python collect_primitives/auto_collect_relocate_primitive.py --help
 ```
 
+## Util functions
+| Function  | Parameter  | Usage  |
+|  ----  | --- | ---- |
+| env.set_primitive_name | (primitive_name) | set the primitive_name for simulated env |
+| env.extract_goal_from_obs_same_dim | (primitive_name, obs) | extract goal from current observation obs|
+| env.reset_primtive_env | (begin_state) | reset primitive env to begin_state|
+| env.set_env_state | (state_dict) | set current (task) environment state|
+| env.render | (extra_info) | render simulated env, with extra_info (e.g., goal)|
+
+
+    

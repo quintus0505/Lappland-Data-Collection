@@ -31,11 +31,10 @@ env_name = 'hammer-v6'
 @click.option('--policy', type=str, default=POLICIES_PATH)
 @click.option('--num_episodes', type=int, default=50)
 @click.option('--with_image', type=bool, default=False)
-@click.option('--with_traingle_images', type=bool, default=False) # whether use camera_middle
 @click.option('--option', type=click.Choice(['collect', 'visualize']), default="collect")
 @click.option('--primitive_name', type=click.Choice(['HammerApproachTool', 'HammerApproachNail', 'HammerNailGoInside']), default="HammerApproachTool")
 
-def main(policy, num_episodes, with_image, with_traingle_images, option, primitive_name):
+def main(policy, num_episodes, with_image, option, primitive_name):
     if option == "collect":
         global env_name
         policy = policy + env_name + '.pickle'
@@ -49,7 +48,7 @@ def main(policy, num_episodes, with_image, with_traingle_images, option, primiti
 
         demo_collector = HammerDemoCollector(env_name=env_name)
         demo_collector.set_policy(pi)
-        demo_collector.auto_collect_traj(num_episodes=num_episodes, with_image=with_image, with_traingle_images=with_traingle_images)
+        demo_collector.auto_collect_traj(num_episodes=num_episodes, with_image=with_image)
         demo_collector.save_demonstrations(mpi_rank=mpi_rank, mpi_dir='multiple_traj/')
         mpi_comm.Barrier()
         if mpi_rank == 0:
