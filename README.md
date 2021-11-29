@@ -108,6 +108,6 @@ $ python collect_primitives/auto_collect_relocate_primitive.py --help
 | env.reset_primtive_env | (begin_state) | reset primitive env to begin_state|
 | env.set_env_state | (state_dict) | set current (task) environment state|
 | env.render | (extra_info) | render simulated env, with extra_info (e.g., goal)|
-
+| env.reset_model_initial_state_randomness | (state_randomness) | reset task env with certain initial state randomness|
 
     

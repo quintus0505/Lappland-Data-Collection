@@ -397,68 +397,28 @@ class HammerEnvV6(mujoco_env.MujocoEnv, utils.EzPickle):
         return self._reset()
 
 
-    def reset_for_DAPG_policy_train(self, random_noise_level, scale_range=[1,1]):
+    def reset_model_initial_state_randomness(self, state_randomness):
         """
-        different noise area learning and curriculum learning
-        :param random_noise_level: noise level area
-        :param scale_range:  for curriculum learning, value <= 1
-        [1,1] means normal noise level range ,[0.1, 0.1] is narrowest range
-        :return:
+        reset env with different noise area for training
+        :param state_randomness: noise level area, 1~2.5
+        :return: observation of reset env
         """
-
-        qp = self.init_qpos.copy()
-        qv = self.init_qvel.copy()
-        self.set_state(qp, qv)
-
-        self.reset_model()
-
-        board_z_noise_level = int(random_noise_level[0])
-        board_y_noise_level = int(random_noise_level[1])
-
-        board_z_noise=[[0.06, 0.08],[0.08, 0.10],[0.10, 0.12],[0.12, 0.14],[0.14, 0.16],[0.16, 0.18],[0.18, 0.20],[0.20, 0.22],[0.22, 0.24],
-                       [0.24, 0.26],
-                       [0.26, 0.28],[0.28, 0.30],[0.30, 0.32],[0.32, 0.34],[0.34, 0.36],[0.36, 0.38],[0.38, 0.40],[0.40, 0.42],[0.42, 0.44]]
-
-        y = copy.deepcopy(self.inital_board_y)
-        board_y_noise=[[y-0.011, y-0.009],[y-0.010, y-0.008],[y-0.009, y-0.007],[y-0.008, y-0.006],[y-0.007, y-0.005],
-                       [y-0.006, y-0.004],[y-0.005, y-0.003],[y-0.004, y-0.002],[y-0.003, y-0.001],
-                      [y-0.001, y+0.001],
-                       [y+0.001, y+0.003],[y+0.002, y+0.004],[y+0.003, y+0.005],[y+0.004, y+0.006],[y+0.005, y+0.007],[y+0.006, y+0.008],[y+0.007, y+0.009],
-                       [y+0.008, y+0.010],[y+0.009, y+0.011]]
-
-
-        assert board_z_noise_level <len(board_z_noise) and  board_z_noise_level >=0 and board_y_noise_level>=0 and board_y_noise_level<len(board_y_noise)
-        if scale_range == []:
-            scale_range = [1,1]
-        # print(board_z_noise[board_z_noise_level])
-        # print(board_y_noise[board_y_noise_level])
-        # print('---------------------------')
-        def set_scale_bound(original_low, original_high, scale):
-            assert scale>0, "noise scale is not correct!"
-            if scale<0.1:
-                scale = 0.1
-                print('At present noise scale should not below 0.1, maybe set noise range too small?')
-            scaled_range = (original_high- original_low)*(scale-1)/2
-            new_low = original_low-scaled_range
-            new_high = original_high+scaled_range
-            return [new_low, new_high]
-
-        z_low , z_high = board_z_noise[board_z_noise_level][0], board_z_noise[board_z_noise_level][1]
-        y_low,  y_high = board_y_noise[board_y_noise_level][0], board_y_noise[board_y_noise_level][1]
-
-
+        assert state_randomness >= 1, "initial state randomness must >=1"
+        self.sim.reset()
         target_bid = self.model.body_name2id('nail_board')
-        # self.model.body_pos[target_bid, 2] = self.np_random.uniform(low=max(0.1, 0.175-0.075 * self.scale), high=0.175+0.075 * self.scale)
+        y = copy.deepcopy(self.inital_board_y)
 
-        self.model.body_pos[target_bid, 2] = self.np_random.uniform(low=set_scale_bound(z_low, z_high, scale_range[0])[0],
-                                                                       high=set_scale_bound(z_low, z_high, scale_range[0])[1])
-        self.model.body_pos[target_bid, 1] = self.np_random.uniform(low=set_scale_bound(y_low, y_high, scale_range[1])[0],
-                                                                       high=set_scale_bound(y_low, y_high, scale_range[1])[1])
 
-        for _ in range(50):
-            self.sim.forward()
+        self.model.body_pos[target_bid, 2] = self.np_random.uniform(low=max(0.07, 0.175 - 0.1 * (state_randomness-1)),
+                                                                    high=0.175 + 0.1 * (state_randomness-1))
+        self.model.body_pos[target_bid, 1] = y + self.np_random.uniform(low= 0.005 *(state_randomness-1),
+                                                                    high=0.005 * (state_randomness-1))
+
+        self.sim.forward()
         self.init_state = self.get_env_state()
         self.primitives_goal_achieved = [0, 0, 0]
-        self.primitive_name=''
+        self.primitive_name = ''
         return self.get_obs()
+
+
 

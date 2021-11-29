@@ -477,40 +477,17 @@ class DoorEnvV6(mujoco_env.MujocoEnv, utils.EzPickle):
     def reset(self):
         return self._reset()
 
-
-    def reset_for_DAPG_policy_train(self, random_noise_level, scale_range=[1,1]):
+    def reset_model_initial_state_randomness(self, state_randomness):
         """
-        different noise area learning and curriculum learning
-        :param random_noise_level: noise level area
-        :param scale_range:  for curriculum learning, value <= 1
-        [1,1] means normal noise level range ,[0.1, 0.1] is narrowest range
-        :return:
+        reset env with different noise area for training
+        :param state_randomness: noise level area, 1~2.5
+        :return: observation of reset env
         """
-
+        assert state_randomness >= 1, "initial state randomness must >=1"
         qp = self.init_qpos.copy()
         qv = self.init_qvel.copy()
         self.set_state(qp, qv)
 
-        self.reset_model()
-
-        door_x_noise_level = int(random_noise_level[0])
-        door_y_noise_level = int(random_noise_level[1])
-
-        door_x_noise=[[-0.345, -0.335],[-0.335, -0.325],[-0.325, -0.315],[-0.315, -0.305],[-0.305, -0.295], [-0.295, -0.285],[-0.285, -0.275], [-0.275, -0.265], [-0.265, -0.255],
-                     [-0.255,-0.245],
-                     [-0.245,-0.235], [-0.235,-0.225],[-0.225,-0.215],[-0.215,-0.205],[-0.205,-0.195],[-0.195,-0.185],[-0.185,-0.175],[-0.175,-0.165],[-0.165,-0.155]]
-
-        door_y_noise=[[0.205, 0.215],[0.215, 0.225],[0.225, 0.235],[0.235, 0.245],[0.245, 0.255],[0.255, 0.265],[0.265, 0.275],[0.275, 0.285],[0.285, 0.295],
-                     [0.295, 0.305],
-                     [0.305, 0.315],[0.315, 0.325],[0.325, 0.335],[0.335, 0.345],[0.345, 0.355],[0.355, 0.365],[0.365, 0.375],[0.375, 0.385],[0.385, 0.395]]
-
-
-        assert door_x_noise_level <len(door_x_noise) and door_y_noise_level <len(door_y_noise) and door_x_noise_level >=0 and door_y_noise_level >=0
-        if scale_range == []:
-            scale_range = [1,1]
-        # print(obj_x_noise[obj_x_noise_level])
-        # print(obj_y_noise[obj_y_noise_level])
-        # print('---------------------------')
         def set_scale_bound(original_low, original_high, scale):
             assert scale>0, "noise scale is not correct!"
             if scale<0.1:
@@ -521,18 +498,11 @@ class DoorEnvV6(mujoco_env.MujocoEnv, utils.EzPickle):
             new_high = original_high+scaled_range
             return [new_low, new_high]
 
-        x_low , x_high = door_x_noise[door_x_noise_level][0], door_x_noise[door_x_noise_level][1]
-        y_low,  y_high = door_y_noise[door_y_noise_level][0], door_y_noise[door_y_noise_level][1]
+        self.model.body_pos[self.door_bid,0] = self.np_random.uniform(low=set_scale_bound(-0.25-0.03*state_randomness, -0.25+0.03*state_randomness, self.scale)[0],
+                                                                      high=set_scale_bound(-0.25-0.03*state_randomness,-0.25+0.03*state_randomness, self.scale)[1])
+        self.model.body_pos[self.door_bid,1] = self.np_random.uniform(low=set_scale_bound(0.3-0.035*state_randomness, 0.3+0.035*state_randomness, self.scale)[0],
+                                                                      high=set_scale_bound(0.3-0.035*state_randomness, 0.3+0.035*state_randomness, self.scale)[1])
 
-        # self.model.body_pos[self.door_bid,0] = self.np_random.uniform(low=set_scale_bound(-0.3, -0.2, self.scale)[0],
-        #                                                               high=set_scale_bound(-0.3, -0.2, self.scale)[1])
-        # self.model.body_pos[self.door_bid,1] = self.np_random.uniform(low=set_scale_bound(0.25, 0.35, self.scale)[0],
-        #                                                             high=set_scale_bound(0.25, 0.35, self.scale)[1])
-
-        self.model.body_pos[self.door_bid, 0] = self.np_random.uniform(low=set_scale_bound(x_low, x_high, scale_range[0])[0],
-                                                                      high=set_scale_bound(x_low, x_high, scale_range[0])[1])
-        self.model.body_pos[self.door_bid, 1] = self.np_random.uniform(low=set_scale_bound(y_low, y_high, scale_range[1])[0],
-                                                                      high=set_scale_bound(y_low, y_high, scale_range[1])[1])
         z_scale_bound = set_scale_bound(0.253, 0.35, self.scale)
         if z_scale_bound[0]<0.253:
             z_scale_bound[0]=0.253
@@ -540,11 +510,8 @@ class DoorEnvV6(mujoco_env.MujocoEnv, utils.EzPickle):
             z_scale_bound[1]=z_scale_bound[0]+0.05
         self.model.body_pos[self.door_bid,2] = self.np_random.uniform(low=z_scale_bound[0],
                                                                       high=z_scale_bound[1])
-        for _ in range(50):
-            self.sim.forward()
+        self.sim.forward()
         self.init_state = self.get_env_state()
-
         self.primitives_goal_achieved = [0, 0, 0]
         self.primitive_name=''
         return self.get_obs()
-

@@ -492,71 +492,6 @@ class RelocateEnvV6(mujoco_env.MujocoEnv, utils.EzPickle):
 
         return self.get_obs()
 
-    def reset_for_DAPG_policy_train(self, random_noise_level, scale_range=[1,1]):
-        """
-        different noise area learning and curriculum learning
-        :param random_noise_level: noise level area
-        :param scale_range:  for curriculum learning, value <= 1
-        [1,1] means normal noise level range ,[0.1, 0.1] is narrowest range
-        :return:
-        """
-        self.sim.reset()
-        self.sim.forward()
-
-        qp = self.init_qpos.copy()
-        qv = self.init_qvel.copy()
-
-        self.reset_model()
-        obj_x_noise_level = int(random_noise_level[0])
-        obj_y_noise_level = int(random_noise_level[1])
-        # obj_x_noise=[[-0.75, -0.6], [-0.6, -0.45], [-0.45, -0.3], [-0.3, -0.15], [-0.15,0],
-        #              [0,0.15], [0.15,0.3],[0.3,0.45],[0.45,0.6],[0.6,0.75]]
-        # obj_y_noise=[[-0.75, -0.6], [-0.6, -0.45], [-0.45, -0.3], [-0.3, -0.15], [-0.15,0],
-        #              [0,0.15], [0.15,0.3],[0.3,0.45],[0.45,0.6],[0.6,0.75]]
-
-        obj_x_noise=[[-0.475, -0.425],[-0.425, -0.375],[-0.375, -0.325],[-0.325, -0.275],[-0.275, -0.225], [-0.225, -0.175],[-0.175, -0.125], [-0.125, -0.075], [-0.075, -0.025],
-                     [-0.025,0.025],
-                     [0.025,0.075], [0.075,0.125],[0.125,0.175],[0.175,0.225],[0.225,0.275],[0.275,0.325],[0.325,0.375],[0.375,0.425],[0.425,0.475]]
-
-        obj_y_noise=[[-0.4, -0.35],[-0.35, -0.3],[-0.3, -0.25],[-0.25, -0.2],[-0.2, -0.15],[-0.15, -0.1],[-0.1, -0.05],[-0.05, 0],[0, 0.05],
-                     [0.05, 0.1],
-                     [0.1, 0.15],[0.15, 0.2],[0.2, 0.25],[0.25, 0.3],[0.3, 0.35],[0.35, 0.4],[0.4, 0.45],[0.45, 0.5],[0.5, 0.55]]
-
-
-        assert obj_x_noise_level <len(obj_x_noise) and obj_y_noise_level <len(obj_y_noise) and obj_x_noise_level >=0 and obj_y_noise_level >=0
-        if scale_range == []:
-            scale_range = [1,1]
-        # print(obj_x_noise[obj_x_noise_level])
-        # print(obj_y_noise[obj_y_noise_level])
-        # print('---------------------------')
-        def set_scale_bound(original_low, original_high, scale):
-            assert scale>0, "noise scale is not correct!"
-            if scale<0.1:
-                scale = 0.1
-                print('At present noise scale should not below 0.1, maybe set noise range too small?')
-            scaled_range = (original_high- original_low)*(scale-1)/2
-            new_low = original_low-scaled_range
-            new_high = original_high+scaled_range
-            return [new_low, new_high]
-
-        x_low , x_high = obj_x_noise[obj_x_noise_level][0], obj_x_noise[obj_x_noise_level][1]
-        y_low,  y_high = obj_y_noise[obj_y_noise_level][0], obj_y_noise[obj_y_noise_level][1]
-        self.model.body_pos[self.obj_bid, 0] = self.np_random.uniform(low=set_scale_bound(x_low, x_high, scale_range[0])[0],
-                                                                      high=set_scale_bound(x_low, x_high, scale_range[0])[1])
-
-        self.model.body_pos[self.obj_bid, 1] = self.np_random.uniform(low=set_scale_bound(y_low, y_high, scale_range[1])[0],
-                                                                      high=set_scale_bound(y_low, y_high, scale_range[1])[1])
-
-        for _ in range(500):
-            self.sim.forward()
-        self.init_state['init_obj_pos'] = self.model.body_pos[self.obj_bid, 0:3]
-        self.init_state['init_target_obj_pos'] = self.model.site_pos[self.target_obj_sid, 0:3]
-        self.init_state['init_qpos'] = qp
-        self.init_state['init_qvel'] = qv
-
-        self.primitives_goal_achieved = [0, 0, 0]
-        self.primitive_name=''
-        return self.get_obs()
 
     def get_env_state(self):
         """
@@ -613,3 +548,53 @@ class RelocateEnvV6(mujoco_env.MujocoEnv, utils.EzPickle):
 
     def reset(self):
         return self._reset()
+
+    def reset_model_initial_state_randomness(self, state_randomness):
+        """
+        reset env with different noise area for training
+        :param state_randomness: noise level area, 1~2.5
+        :return: observation of reset env
+        """
+        assert state_randomness >= 1, "initial state randomness must >=1"
+        def set_scale_bound(original_low, original_high, scale):
+            assert scale>0, "noise scale is not correct!"
+            if scale<0.1:
+                scale = 0.1
+                print('At present noise scale should not below 0.1, maybe set noise range too small?')
+            scaled_range = (original_high- original_low)*(scale-1)/2
+            new_low = original_low-scaled_range
+            new_high = original_high+scaled_range
+            return [new_low, new_high]
+
+        qp = self.init_qpos.copy()
+        qv = self.init_qvel.copy()
+        self.set_state(qp, qv)
+
+        self.model.body_pos[self.obj_bid, 0] = self.np_random.uniform(low=set_scale_bound(-0.12*state_randomness, 0.12*state_randomness, self.scale)[0],
+                                                                      high=set_scale_bound(-0.12*state_randomness, 0.12*state_randomness, self.scale)[1])
+
+        self.model.body_pos[self.obj_bid, 1] = self.np_random.uniform(low=set_scale_bound(0.075-0.15*state_randomness, 0.075+0.15*state_randomness, self.scale)[0],
+                                                                      high=set_scale_bound(0.075-0.15*state_randomness, 0.075+0.15*state_randomness, self.scale)[1])
+
+        self.model.site_pos[self.target_obj_sid, 0] = self.np_random.uniform(low=set_scale_bound(-0.2, 0.2, self.scale)[0],
+                                                                             high=set_scale_bound(-0.2, 0.2, self.scale)[1])
+
+        self.model.site_pos[self.target_obj_sid, 1] = self.np_random.uniform(low=set_scale_bound(-0.2, 0.2, self.scale)[0],
+                                                                             high=set_scale_bound(-0.2, 0.2, self.scale)[1])
+
+        self.model.site_pos[self.target_obj_sid, 2] = self.np_random.uniform(low=set_scale_bound(0.15, 0.35, self.scale)[0],
+                                                                             high=set_scale_bound(0.15, 0.35, self.scale)[1])
+
+
+        for _ in range(500):
+            self.sim.forward()
+        self.init_state['init_obj_pos'] = self.model.body_pos[self.obj_bid, 0:3]
+        self.init_state['init_target_obj_pos'] = self.model.site_pos[self.target_obj_sid, 0:3]
+        self.init_state['init_qpos'] = qp
+        self.init_state['init_qvel'] = qv
+
+        self.primitives_goal_achieved = [0, 0, 0]
+        self.primitive_name=''
+
+        return self.get_obs()
+
