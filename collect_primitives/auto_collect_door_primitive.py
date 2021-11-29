@@ -25,10 +25,10 @@ env_name = 'door-v6'
 
 # MAIN =========================================================
 @click.command(help=DESC)
-@click.option('--policy', type=str, default=POLICIES_PATH)
-@click.option('--num_episodes', type=int, default=50)
-@click.option('--with_image', type=bool, default=False)
-@click.option('--option', type=click.Choice(['collect', 'visualize']), default="collect")
+@click.option('--policy', type=str, default=POLICIES_PATH, help="original expert policy")
+@click.option('--num_episodes', type=int, default=2, help="trajectory count to be collected")
+@click.option('--with_image', type=bool, default=False, help="whether collect image data")
+@click.option('--option', type=click.Choice(['collect', 'visualize']), default="collect", help="collect/visualize primitive demos")
 @click.option('--primitive_name', type=click.Choice(['DoorApproach', 'DoorGraspLatch', 'DoorOpen']), default="DoorApproach")
 
 def main(policy, num_episodes, with_image, option, primitive_name):

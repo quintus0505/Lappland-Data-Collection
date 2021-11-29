@@ -89,7 +89,7 @@ class DoorEnvV6(mujoco_env.MujocoEnv, utils.EzPickle):
     def enter_condition(self, primitive_name):
         assert primitive_name in ['DoorApproach', 'DoorGraspLatch', 'DoorOpen']
         full_state = self.get_env_state()
-        return True  # TODO: not used at present
+        return True
 
     def leave_condition(self, primitive_name):
         assert primitive_name in ['DoorApproach', 'DoorGraspLatch', 'DoorOpen']
