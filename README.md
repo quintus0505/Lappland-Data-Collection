@@ -1,6 +1,6 @@
 # Data Collection for LAPPLAND
 
-This repository provides demonstration collection and simulated environments for LAPPLAND (layered action primitive planning  from  demonstration) project.
+This repository provides demonstration collection and simulated environments for LAPPLAND (layered action primitive planning from demonstration) project.
 
 ## Getting started
 
@@ -8,7 +8,7 @@ This repository provides demonstration collection and simulated environments for
 
 2. **Step 2:** Install [mujoco200](https://mujoco.org/) (mujoco210 may cause some problems). 
 
-3. **Step 3:** Install following extra dependencies:
+3. **Step 3:** Install the following extra dependencies:
 
     ```
     $ cd dependencies
@@ -35,7 +35,7 @@ This repository provides demonstration collection and simulated environments for
        obs, reward, done, info = env.step(action)
        env.render()
     ```
-    The available task envrionments for LAPPLAND are:
+    The available task environments for LAPPLAND are:
    - **Adroit-relocate-v6**
      
      Move the  ball to the  target point. Include three primitives: 'Approach', 'Grasp', 'Move2Target'
@@ -68,7 +68,7 @@ For **Relocate** task, you can run the following command:
 ```
 $ mpirun -np n_cpu python collect_primitives/auto_collect_relocate_primitive.py --option collect --num_episodes n_ep
 ```
-This will collect n_cpu*n_ep primitive demos in same directory. Demonstrations of other two tasks are also provided with similar instruction.
+This will collect n_cpu*n_ep primitive demos in the same directory. Demonstrations of other two tasks are also provided with similar instruction.
 - The primitive demos include all environmental information of expert trajectories, displayed as follows:
     
     | Keys  | Information  |   Dimension   | 
@@ -88,7 +88,7 @@ This will collect n_cpu*n_ep primitive demos in same directory. Demonstrations o
         ``` 
 ## Visualizing primitives
 
-For visualization, run the code like followings :
+For visualization, run the code like follows :
 
 ```
 $ python collect_primitives/auto_collect_relocate_primitive.py --option visualize --primitive_name Approach
