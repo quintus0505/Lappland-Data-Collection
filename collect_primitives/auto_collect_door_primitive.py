@@ -1,6 +1,7 @@
 import click
 import os
 import sys
+import shutil
 sys.path.append(os.path.join(os.path.dirname(os.path.dirname(__file__))))
 import pickle
 from tasks.Task_door import DoorDemoCollector
@@ -47,7 +48,11 @@ def main(policy, num_episodes, with_image, with_traingle_images, option, primiti
         demo_collector.set_policy(pi)
         demo_collector.auto_collect_traj(num_episodes=num_episodes, with_image=with_image, with_traingle_images=with_traingle_images)
         demo_collector.save_demonstrations(mpi_rank=mpi_rank, mpi_dir='multiple_traj/')
-        door_combine_mpi_trajectories()
+        mpi_comm.Barrier()
+        if mpi_rank == 0:
+            door_combine_mpi_trajectories()
+            if os.path.exists(PRIMITIVE_DEMONSTRATIONS_PATH + 'multiple_traj'):
+                shutil.rmtree(PRIMITIVE_DEMONSTRATIONS_PATH + 'multiple_traj')
     else:
         door_visualize_primitive_demo(primitive_name=primitive_name)
 
