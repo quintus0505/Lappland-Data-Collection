@@ -13,12 +13,12 @@ This repository provides demonstration collection and simulated environments for
     ```
     $ cd dependencies
     $ pip install -e ./gym-0.17.2
-    $ pip install -e ./we_mujoco
+    $ pip install -e ./we_mujoco_py
     $ pip install -e ./mjrl
     $ pip install -e ./we_envs
     $ pip install -r requirements.txt
     ```
-    - Note  we_mujoco is forked from [mujoco_py](https://github.com/openai/mujoco-py), mjrl is forked from [mjrl](https://github.com/aravindr93/mjrl).
+    - Note  we_mujoco_py is forked from [mujoco_py](https://github.com/openai/mujoco-py), mjrl is forked from [mjrl](https://github.com/aravindr93/mjrl).
     The original MJCF models and demonstrations are from [DAPG](https://github.com/aravindr93/hand_dapg).
     - MJCF models are available in ```dependencies/we_envs/we_envs/we_robots/assets/mj_envs```
 4. **step 4:** visualize the task environments:
