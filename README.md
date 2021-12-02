@@ -48,17 +48,17 @@ This repository provides demonstration collection and simulated environments for
    
     The goal-conditioned primitives are: 
     
-    |  Primitive Name   | Corresponding Task|  State Dim   | Action Dim  | Goal Meaning |
-    |  ----  | --- | ----  | ----  | ----  |
-    | Approach  | Adroit-relocate-v6 | 39 | 30 | ball position (x,y,z) |
-    | Grasp  | Adroit-relocate-v6 | 39 | 30 | ball position (x,y,z)|
-    | Move2Target  | Adroit-relocate-v6 | 39 | 30 | target position (x,y,z)|
-    | DoorApproach  | Adroit-door-v6 | 39 | 28 | handle position (x,y,z)|
-    | DoorGraspLatch  | Adroit-door-v6 | 39 | 28 | handle position (x,y,z)|
-    | DoorOpen  | Adroit-door-v6 | 39 | 28 | handle position (x,y,z)|
-    | HammerApproachTool  | Adroit-hammer-v6 | 39 | 26 | tool position (x,y,z)|
-    | HammerApproachNail  | Adroit-hammer-v6 | 39 | 26 | tool position (x,y,z)|
-    | HammerNailGoInside  | Adroit-hammer-v6 | 39 | 26 | nail position(x,y), nail impact |
+    |  Primitive Name   | Corresponding Task|  State Dim   | Action Dim  | Goal Meaning | Label |
+    |  ----  | --- | ----  | ----  | ----  | ---- |
+    | Approach  | Adroit-relocate-v6 | 39 | 30 | ball position (x,y,z) |1|
+    | Grasp  | Adroit-relocate-v6 | 39 | 30 | ball position (x,y,z)|2|
+    | Move2Target  | Adroit-relocate-v6 | 39 | 30 | target position (x,y,z)|3|
+    | DoorApproach  | Adroit-door-v6 | 39 | 28 | handle position (x,y,z)|11|
+    | DoorGraspLatch  | Adroit-door-v6 | 39 | 28 | handle position (x,y,z)|12|
+    | DoorOpen  | Adroit-door-v6 | 39 | 28 | handle position (x,y,z)|13|
+    | HammerApproachTool  | Adroit-hammer-v6 | 39 | 26 | tool position (x,y,z)|21|
+    | HammerApproachNail  | Adroit-hammer-v6 | 39 | 26 | tool position (x,y,z)|22|
+    | HammerNailGoInside  | Adroit-hammer-v6 | 39 | 26 | nail position(x,y), nail impact |23|
     
     
 ## Collecting primitive demonstrations
