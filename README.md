@@ -37,13 +37,19 @@ This repository provides demonstration collection and simulated environments for
     ```
     The available task environments for LAPPLAND are:
    - **Adroit-relocate-v6**
-     ![](gif/Relocation_task.gif)
+
+     <br/>![](gif/Relocation_task.gif)</br>
+
      Move the  ball to the  target point. Include three primitives: 'Approach', 'Grasp', 'Move2Target'
    - **Adroit-door-v6**
-     ![](gif/Relocation_task.gif)
+
+     <br/>![](gif/DoorOpening_task.gif)</br>
+
      Undo the latch and swing the door open. Include three primitives: 'DoorApproach', 'DoorGraspLatch', 'DoorOpen'
    - **Adroit-hammer-v6**
-     
+
+     <br/>![](gif/HammerUse_task.gif)</br>
+
      Pick up and hammer with significant force to drive the nail into the board. Include three primitives: 'HammerApproachTool', 'HammerApproachNail', 'HammerNailGoInside'
    
     The goal-conditioned primitives are: 
