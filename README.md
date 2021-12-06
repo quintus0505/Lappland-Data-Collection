@@ -64,7 +64,7 @@ This repository provides demonstration collection and simulated environments for
     | DoorOpen  | Adroit-door-v6 | 39 | 28 | handle position (x,y,z)|13|
     | HammerApproachTool  | Adroit-hammer-v6 | 39 | 26 | tool position (x,y,z)|21|
     | HammerApproachNail  | Adroit-hammer-v6 | 39 | 26 | tool position (x,y,z)|22|
-    | HammerNailGoInside  | Adroit-hammer-v6 | 39 | 26 | nail position(x,y,z), nail impact |23|
+    | HammerNailGoInside  | Adroit-hammer-v6 | 39 | 26 | nail position(x,y,z)|23|
     
     
 ## Collecting primitive demonstrations
