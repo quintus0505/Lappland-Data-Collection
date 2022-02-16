@@ -1,6 +1,6 @@
 # Data Collection for LAPPLAND
 
-This repository provides demonstration collection and simulated environments for LAPPLAND (layered action primitive planning from demonstration) project.
+This repository provides demonstration collection and simulated environments for LAPPLAND (layered action primitive planning from demonstration) project. Our papar can be seen at [Manipulation Planning From Demonstration Via Goal-Conditioned Prior Action Primitive Decomposition and Alignment](https://ieeexplore.ieee.org/document/9669009?source=authoralert)
 
 ## Getting started
 
